@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les relations avec JPA &mdash; Documentation Java ORM 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="JDBC dans une application Web" href="jdbc_webapp.html" />
+    <link rel="prev" title="L’héritage avec JPA" href="jpa_inheritance.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Les relations avec JPA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_inheritance.html" class="btn btn-neutral" title="L’héritage avec JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-relations-avec-jpa">
+<h1>Les relations avec JPA<a class="headerlink" href="#les-relations-avec-jpa" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Une des fonctionnalités majeures des ORM est de gérer les relations
+entre objets comme des relations entre tables dans un modèle de base de
+données relationnelle. JPA définit des modèles de relation qui peuvent
+être déclarés par annotation.</p>
+<p>Les relations sont spécifiées par les annotations&nbsp;: <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>,
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
+<p>Pour une présentation approfondie des relations dans JPA, reportez-vous
+au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Relationships">Wikibook</a>.</p>
+<div class="section" id="la-relation-1-1-one-to-one">
+<h2>La relation 1:1 (one to one)<a class="headerlink" href="#la-relation-1-1-one-to-one" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> définit une relation 1:1 entre deux entités.
+Si cette relation n’est pas
+forcément très courante dans un modèle relationnel de base de données,
+elle se rencontre très souvent dans une modèle objet.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToOne</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.OneToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@OneToOne</span>
+  <span class="kd">private</span> <span class="n">Abonnement</span> <span class="n">abonnement</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToOne</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Abonnement</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+une colonne qui est une clé étrangère contenant la clé d’un abonnement.
+Par défaut, JPA s’attend à ce que cette colonne se nomme ABONNEMENT_ID,
+mais il est possible de changer ce nom grâce à l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>&nbsp;:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la clé étrangère</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.OneToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@OneToOne</span>
+  <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;abonnement_fk&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Abonnement</span> <span class="n">abonnement</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-relation-n-1-many-to-one">
+<h3>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> définit une relation n:1 entre deux entités.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="kd">private</span> <span class="n">Societe</span> <span class="n">societe</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation ManyToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Societe</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+une colonne qui est une clé étrangère contenant la clé d’une société.
+Par défaut, JPA s’attend à ce que cette colonne se nomme SOCIETE_ID,
+mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
+Plutôt que par une colonne, il est également possible d’indiquer à JPA
+qu’il doit passer par une table d’association pour établir la relation
+entre les deux entités avec l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>&nbsp;:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’une table d’association</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinTable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="c1">// déclaration d&#39;une table d&#39;association</span>
+  <span class="nd">@JoinTable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;societe_individu&quot;</span><span class="o">,</span>
+             <span class="n">joinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="o">),</span>
+             <span class="n">inverseJoinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;societe_id&quot;</span><span class="o">))</span>
+  <span class="kd">private</span> <span class="n">Societe</span> <span class="n">societe</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="la-relation-1-n-one-to-many">
+<h2>La relation 1:n (one to many)<a class="headerlink" href="#la-relation-1-n-one-to-many" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> définit une relation 1:n entre deux entités.
+Cette annotation ne peut être utilisée qu’avec une collection d’éléments
+puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToMany</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.OneToMany</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Societe</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@OneToMany</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">employes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToMany</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+une colonne qui est une clé étrangère contenant la clé d’une société.
+Par défaut, JPA s’attend à ce que cette colonne se nomme SOCIETE_ID,
+mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
+Il est également possible d’indiquer à JPA qu’il doit passer par une
+table d’association pour établir la relation entre les deux entités avec
+l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>.
+Ainsi, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> fonctionne exactement comme <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> sauf
+que cette annotation porte sur l’autre côté de la relation.</p>
+</div>
+<div class="section" id="la-relation-n-n-many-to-many">
+<h2>La relation n:n (many to many)<a class="headerlink" href="#la-relation-n-n-many-to-many" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>
+définit une relation n:n entre deux entités. Cette annotation ne peut
+être utilisée qu’avec une collection d’éléments puisqu’elle implique
+qu’il peut y avoir plusieurs entités associées.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToMany</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToMany</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToMany</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> implique qu’il existe une table
+d’association <code class="docutils literal notranslate"><span class="pre">Individu_Individu</span></code> qui contient les clés étrangères
+<code class="docutils literal notranslate"><span class="pre">INDIVIDU_ID</span></code> et <code class="docutils literal notranslate"><span class="pre">ENFANTS_ID</span></code> permettant de modéliser la relation.
+Il est possible de décrire explicitement la relation grâce à l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>&nbsp;:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la table d’association</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinTable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToMany</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToMany</span>
+  <span class="nd">@JoinTable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ParentEnfant&quot;</span><span class="o">,</span>
+             <span class="n">joinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;parent_id&quot;</span><span class="o">),</span>
+             <span class="n">inverseJoinColumns</span> <span class="o">=</span> <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;enfant_id&quot;</span><span class="o">))</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-relations-bi-directionnelles">
+<h2>Les relations bi-directionnelles<a class="headerlink" href="#les-relations-bi-directionnelles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois, il est nécessaire de construire un lien entre deux objets qui
+soit navigables dans les deux sens. D’un point de vue objet, cela
+signifie que chaque objet dispose d’un attribut pointant sur l’autre
+instance. Mais d’un point de vue du schéma de base de données
+relationnelle, il s’agit du même lien. Avec JPA, il est possible de
+qualifier une relation entre deux objets comme étant une relation
+inverse grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation indiquant le
+type de relation.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une relation bi-directionnelle avec <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code></span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToMany</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToMany</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="nd">@ManyToMany</span><span class="o">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">&quot;enfants&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">parents</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple précédent, la liste des <code class="docutils literal notranslate"><span class="pre">enfants</span></code> représente bien une
+relation entre plusieurs instances de la classe Individu et la liste
+<code class="docutils literal notranslate"><span class="pre">parents</span></code> représente la relation inverse. Pour le spécifier à JPA, on
+utilise l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> pour
+indiquer sur l’attribut représentant la relation inverse, le nom de
+l’attribut modélisant la relation principale.</p>
+</div>
+<div class="section" id="la-propagation-en-cascade">
+<h2>La propagation en cascade<a class="headerlink" href="#la-propagation-en-cascade" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avec JPA, il est possible de propager des modifications à tout ou partie
+des entités liées. Les annotations permettant de spécifier une relation
+possèdent un attribut <code class="docutils literal notranslate"><span class="pre">cascade</span></code> permettant de spécifier les opérations
+concernées&nbsp;: <code class="docutils literal notranslate"><span class="pre">ALL</span></code>, <code class="docutils literal notranslate"><span class="pre">DETACH</span></code>, <code class="docutils literal notranslate"><span class="pre">MERGE</span></code>, <code class="docutils literal notranslate"><span class="pre">PERSIST</span></code>, <code class="docutils literal notranslate"><span class="pre">REFRESH</span></code> ou
+<code class="docutils literal notranslate"><span class="pre">REMOVE</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exemple d’opérations en cascade</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.CascadeType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="o">{</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">PERSIST</span><span class="o">,</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">MERGE</span> <span class="o">})</span>
+  <span class="kd">private</span> <span class="n">Societe</span> <span class="n">societe</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple précédent, on précise que l’instance de société doit être
+enregistrée en base si nécessaire au moment où l’instance d’Individu
+sera elle-même enregistrée. De plus, lors d’un appel à merge pour une
+instance d’Individu, un merge sera automatiquement realisé sur
+l’instance de l’attribut société.</p>
+</div>
+<div class="section" id="requetes-jpql-et-jointure">
+<h2>Requêtes JPQL et jointure<a class="headerlink" href="#requetes-jpql-et-jointure" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dès que l’on introduit des relations entre entités, on complexifie également
+le langage de requêtage. Comment par exemple demander la liste des individus
+travaillant pour une société dont on passe le nom en paramètre ? On peut
+utiliser une jointure avec une condition :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select i from Individu i join i.societe s where s.nom = :nom
+</pre></div>
+</div>
+<p>Il est également possible d’utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">on</span></code> pour filtrer les entités
+à sélectionner dans la jointure :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select i from Individu i join i.societe s on s.nom = :nom
+</pre></div>
+</div>
+<p>Comme en SQL, JPQL fait la différence entre une jointure et une jointure
+externe (<em>left outer join</em>). Avec une jointure simple, on élimine toutes les
+entités pour lesquelles la jointure n’existe pas. Alors qu’avec une jointure
+externe, nous préservons les entités pour lesquelles il n’existe pas de jointure.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select i from Individu i left join i.societe s on s.nom = :nom
+</pre></div>
+</div>
+<p>Attention avec l’exemple de requête ci-dessus : elle retourne l’union des individus qui
+n’ont aucune relation avec l’entité société et ceux qui ont une relation avec
+une société dont le nom est donné par le paramètre <code class="docutils literal notranslate"><span class="pre">:nom</span></code>.</p>
+</div>
+<div class="section" id="fetch-lazy-ou-fetch-eager">
+<h2>Fetch lazy ou fetch eager<a class="headerlink" href="#fetch-lazy-ou-fetch-eager" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque JPA doit charger une entité depuis la base de données (qu’il
+s’agisse d’une appel à <code class="docutils literal notranslate"><span class="pre">EntityManager.find(...)</span></code> ou d’une requête), la
+question est de savoir quelles informations doivent être chargées.
+Doit-il charger tous les attributs d’une entité&nbsp;? Parmi ces attributs,
+doit-il charger les entités qui sont en relation avec l’entité chargée ?
+Ces questions sont importantes, car la façon d’y répondre peut avoir un
+impact sur les performances de l’application.</p>
+<p>Dans JPA, l’opération de chargement d’une entité depuis la base de
+données est appelée <strong>fetch</strong>. Un fetch peut avoir deux stratégies&nbsp;:
+<strong>eager</strong> ou <strong>lazy</strong> (que l’on peut traduire respectivement et
+approximativement par <em>chargement immédiat</em> et <em>chargement différé</em>). On
+peut décider de la stratégie pour chaque membre de la classe grâce à
+l’attribut <code class="docutils literal notranslate"><span class="pre">fetch</span></code> présent sur les annotations <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a>,
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
+<ul class="simple">
+<li><strong>eager</strong> signifie que l’information doit être chargée
+systématiquement lorsque l’entité est chargée. Cette stratégie est
+appliquée par défaut pour <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>.</li>
+<li><strong>lazy</strong> signifie que l’information ne sera chargée qu’à la demande
+(par exemple lorsque la méthode <code class="docutils literal notranslate"><span class="pre">get</span></code> de l’attribut sera appelée).
+Cette stratégie est appliquée par défaut pour <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> et
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de fetch lazy</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Basic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.FetchType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Lob</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Societe</span> <span class="n">societe</span><span class="o">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * Stocke la photo d&#39;identité sous une forme binaire. Comme l&#39;information peut être</span>
+<span class="cm">   * volumineuse, on déclare un fetch lazy pour ne déclencher le chargement qu&#39;à l&#39;appel</span>
+<span class="cm">   * de getPhoto(), c&#39;est-à-dire quand l&#39;application en a vraiment besoin.</span>
+<span class="cm">   */</span>
+  <span class="nd">@Lob</span>
+  <span class="nd">@Basic</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">photo</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Exécute une requête de la forme : SELECT i.id FROM Individu i WHERE i.id = ?</span>
+<span class="c1">// Un appel à la méthode find ne charge pas les attributs marqués avec un fetch lazy.</span>
+<span class="n">Individu</span> <span class="n">persistedIndividu</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">individuId</span><span class="o">);</span>
+
+<span class="c1">// Exécute une requête de la forme : SELECT i.photo FROM Individu i WHERE i.id = ?</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">photo</span> <span class="o">=</span> <span class="n">persistedIndividu</span><span class="o">.</span><span class="na">getPhoto</span><span class="o">();</span>
+
+<span class="c1">// Exécute une requête de la forme :  SELECT * FROM Societe WHERE id = ?</span>
+<span class="n">Societe</span> <span class="n">societe</span> <span class="o">=</span> <span class="n">persistedIndividu</span><span class="o">.</span><span class="na">getSociete</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Il est possible d’utiliser une requête JPQL pour forcer la récupération d’informations
+en mode <em>lazy</em> si on sait qu’elle seront nécessaires plus tard dans le programme.
+Cela limite le nombre de requêtes à exécuter et peut se révéler nécessaire si
+la consultation des attributs <em>lazy</em> doit se faire à un moment où un <em>entity manager</em>
+n’est plus disponible. On utilise dans la requête l’option
+<a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN_FETCH">JOIN FETCH</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Exécute une requête de type JOIN FETCH</span>
+<span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="s">&quot;select i from Individu i left join fetch i.societe where i.id = :id&quot;</span><span class="o">;</span>
+<span class="n">Individu</span> <span class="n">persistedIndividu</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                                          <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="n">individuId</span><span class="o">)</span>
+                                          <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+
+<span class="c1">// N&#39;exécute aucune requête car la société a déjà été récupérée par le left join fetch</span>
+<span class="n">Societe</span> <span class="n">societe</span> <span class="o">=</span> <span class="n">persistedIndividu</span><span class="o">.</span><span class="na">getSociete</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>La définition des stratégies de fetch est une partie importante du
+tuning dans le développement d’une application utilisant JPA.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_inheritance.html" class="btn btn-neutral" title="L’héritage avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

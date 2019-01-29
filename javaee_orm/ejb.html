@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les EJB &mdash; Documentation Java ORM 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="JPA dans une application Web" href="jpa_webapp.html" />
+    <link rel="prev" title="JDBC dans une application Web" href="jdbc_webapp.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les EJB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-types-d-ejb">Les types d’EJB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-ejb-session">Les EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejb-session-stateful">EJB session stateful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejb-session-stateless">EJB session stateless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejb-session-singleton">EJB session singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acces-a-un-ejb-session">Accès à un EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejb-et-interface-metier">EJB et interface métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-gestion-des-transactions">La gestion des transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Les EJB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jpa_webapp.html" class="btn btn-neutral float-right" title="JPA dans une application Web" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jdbc_webapp.html" class="btn btn-neutral" title="JDBC dans une application Web" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-ejb">
+<h1>Les EJB<a class="headerlink" href="#les-ejb" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les Enterprise Java Beans (EJB) sont des composants Java EE fournis par
+les développeurs d’application. Ils sont définis par la <a class="reference external" href="https://www.jcp.org/en/jsr/detail?id=318">JSR
+318</a>. Ils encapsulent la
+logique de traitement de l’application (également appelée logique
+métier).</p>
+<p>À travers les EJB, le développeur dispose de services fournis par le
+conteneur EJB tels que&nbsp;:</p>
+<ul class="simple">
+<li>modèle d’exécution thread-safe</li>
+<li>gestion du cycle de vie des instances pour une meilleure scalabilité</li>
+<li>accés aux services Java EE par injection</li>
+<li>gestion des transactions</li>
+<li>contrôle des droits d’accès pour l’invocation des méthodes</li>
+<li>gestion des traitements asynchrones</li>
+<li>accès distant pour un client à travers une interface remote</li>
+</ul>
+<p>Avec les EJB, nous abordons les composants qui ne sont plus liés à la
+présentation Web. Les EJB ont une longue histoire depuis J2EE jusqu’à
+leur version 3 actuelle dans Java EE. Ils peuvent être utilisés dans de
+nombreux contextes applicatifs. Ils ont aussi été ignorés par une grande
+partie des développeurs Java. Dans le cadre de cours, nous nous
+bornerons à aborder le modèle de threading et le support de la
+transaction supportés par les EJB.</p>
+<div class="section" id="le-conteneur-d-ejb">
+<h2>Le conteneur d’EJB<a class="headerlink" href="#le-conteneur-d-ejb" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu que le cycle de vie des Servlets et les JSP est pris en
+charge par un conteneur de Servlet. De même, le serveur d’application
+fournit un conteneur d’EJB qui a la responsabilité de gérer le cycle de
+vie des composants EJB fournis par les développeurs d’application.</p>
+<div class="section" id="les-types-d-ejb">
+<h3>Les types d’EJB<a class="headerlink" href="#les-types-d-ejb" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On distingue plusieurs types d’EJB :</p>
+<dl class="docutils">
+<dt>Les EJB de session</dt>
+<dd><em>Stateful</em> EJB, <em>Stateless</em> EJB et <em>Singleton</em> EJB qui sont adaptés pour
+le traitement synchrone. Il s’agit des EJB les plus courants dans
+une application Web.</dd>
+<dt>Les EJB orientés message</dt>
+<dd><em>Message Driven Bean</em> qui est adapté pour le traitement asynchrone. On
+utilise généralement cet EJB dans des applications de type bus
+d’entreprise ou MOM (Middleware Orienté Messages).</dd>
+<dt>Les Entity Beans</dt>
+<dd>Les EJB pour gérer la persistance. Il s’agit des composants Java EE qui représentent
+les données d’un modèle relationnel de base de données. Depuis EJB 3, l’API JPA définit
+les entity beans.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ce cours ne couvre pas les Message Driven Beans.</p>
+</div>
+</div>
+</div>
+<div class="section" id="les-ejb-session">
+<h2>Les EJB session<a class="headerlink" href="#les-ejb-session" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un EJB session correspond à une classe Java classique (POJO). Il existe
+cependant trois types d’EJB session qui correspondent à des modèles
+d’exécution concurrente (<strong>threading model</strong>)&nbsp;:</p>
+<ul class="simple">
+<li>les EJB avec état conversationnel (<em>stateful</em>)</li>
+<li>les EJB sans état conversationnel (<em>stateless</em>)</li>
+<li>les EJB singleton (<em>singleton</em>)</li>
+</ul>
+<p>En effet, dans un serveur Java EE, une application est exécutée dans un
+environnement concurrent. Nous avons vu déjà les problèmes que cela pose
+pour le développement des Servlets ou pour le choix de la portée
+(request, session, application) pour un back bean JSF. La distinction
+entre les EJB session porte sur la façon dont chacun se comporte dans un
+environnement concurrent.</p>
+</div>
+<div class="section" id="ejb-session-stateful">
+<h2>EJB session stateful<a class="headerlink" href="#ejb-session-stateful" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’EJB session <em>stateful</em> (avec état conversationnel) est créé pour
+représenter une interaction entre le client et le serveur. Cela signifie
+qu’il existe une instance par interaction. Il s’agit du cas le plus
+simple pour le développeur puisqu’il n’y a pas de problème de
+concurrence entre les clients (chacun disposant de sa propre instance).
+Il s’agit cependant du cas le plus complexe à gérer pour le conteneur
+d’application Java EE. Un cas d’utilisation consiste à utiliser un EJB
+session comme backing bean JPA.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">EJB stateful : le panier de l’utilisateur</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateful</span><span class="o">;</span>
+
+<span class="nd">@Stateful</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserBasket</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addItem</span><span class="o">(</span><span class="n">Item</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">items</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’exemple traditionnel du panier sur un site marchand correspond à une
+utilisation classique de l’EJB session. Chaque utilisateur dispose de
+son instance de panier. Cette instance est conservée tant que la session
+de l’utilisateur existe. De plus, on peut conserver des informations
+propres à l’utilisateur comme membres de l’EJB (dans cet exemple la
+liste des items)&nbsp;: d’où le nom de <em>stateful</em>.</p>
+<p>Il est possible de fournir une méthode qui supprime l’EJB du conteneur. Une
+telle méthode doit être annotée avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Remove.html">&#64;Remove</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">EJB stateful : ajout d’une méthode de suppression</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateful</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.ejb.Remove</span><span class="o">;</span>
+
+<span class="nd">@Stateful</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserBasket</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addItem</span><span class="o">(</span><span class="n">Item</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">items</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Remove</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">supprimer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">items</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejb-session-stateless">
+<h2>EJB session stateless<a class="headerlink" href="#ejb-session-stateless" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’EJB session <em>stateless</em> (sans état conversationnel) représente des
+traitements de l’application indépendants de l’état entre le client et
+le serveur. N’importe quel utilisateur peut avoir recours à un EJB
+<em>stateless</em> et donc, il <strong>ne faut pas</strong> stocker dans un EJB <em>stateless</em>
+d’information liée à la requête où à la session d’un utilisateur. On
+retrouve ainsi les mêmes restrictions que pour le développement de
+Servlet. Néanmoins, les EJB <em>stateless</em> fournissent un modèle d’exécution
+concurrent (threading model) sûr. En effet, le conteneur d’EJB crée un
+pool d’instances pour chaque classe d’EJB <em>stateless</em>. Ainsi à un instant
+T, toutes les requêtes qui s’exécutent en parallèle sur un serveur
+utilisent une instance particulière d’un EJB <em>stateless</em>. Lorsque la
+requête est achevée, le conteneur d’EJB récupère l’instance de l’EJB
+<em>stateless</em> dans le pool afin de la réutiliser pour le traitement d’une
+requête à venir. Lorsqu’on développe un EJB <em>stateless</em>, il n’est donc pas
+nécessaire de protéger le code contre les accès concurrents.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">EJB stateless : l’implémentation d’un repository</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateless</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejb-session-singleton">
+<h2>EJB session singleton<a class="headerlink" href="#ejb-session-singleton" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’EJB singleton permet d’implémenter une ressource réellement partagée
+dans une application. Le conteneur EJB garantit qu’il ne créera
+qu”<strong>UNE</strong> instance d’un EJB singleton pour une application.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">EJB singleton : la gestion d’une ressource unique</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.*</span><span class="o">;</span>
+
+<span class="nd">@Singleton</span>
+<span class="nd">@Lock</span><span class="o">(</span><span class="n">LockType</span><span class="o">.</span><span class="na">WRITE</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SharedResource</span> <span class="o">{</span>
+
+  <span class="nd">@Lock</span><span class="o">(</span><span class="n">LockType</span><span class="o">.</span><span class="na">READ</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Lock.html">&#64;Lock</a>
+permet de contrôler si l’instance ou une méthode autorise des accès
+concurrents (lock de type READ) ou des accès avec acquisition d’un
+verrou (lock de type WRITE).</p>
+<p>L’utilisation d’un verrou (lock de type WRITE) est équivalent au mot-clé
+<code class="docutils literal notranslate"><span class="pre">synchronized</span></code> en Java. C’est-à-dire qu’à un instant T, un seul thread
+peut exécuter le code d’une méthode.</p>
+<p>Par défaut, un EJB singleton dispose d’un verrou en écriture pour toutes
+ses méthodes (lock de type write).</p>
+<p><strong>Attention</strong>, l’utilisation d’un EJB singleton est souvent dictée par
+un soucis de performance. Mais si cet EJB utilise systématiquement un
+verrou en écriture, l’application peut subir des dégradations de
+performance puisqu’un seul thread à la fois (et donc une seule requête
+Web par exemple) peut appeler une méthode de cet EJB.</p>
+</div>
+<div class="section" id="methodes-de-cycle-de-vie">
+<h2>Méthodes de cycle de vie<a class="headerlink" href="#methodes-de-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un EJB peut être tenu informé de l’évolution de son cycle de vie par le
+conteneur. Pour cela, il peut déclarer des méthodes publiques qui ne prennent
+aucun paramètre avec une des annotations suivantes :</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a></dt>
+<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a> sont invoquées par le conteneur
+sur toutes les nouvelles instances de <em>beans</em>. L’appel est réalisé juste après
+que l’injection des dépendances soit réalisée.</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a></dt>
+<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a> sont invoquées par le conteneur après
+les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Remove.html">&#64;Remove</a> et avant que le conteneur supprime l’instance
+du <em>bean</em></dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a></dt>
+<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a> sont invoquées par le conteneur après
+après que le <em>bean</em> soit chargé depuis la zone de stockage.</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a></dt>
+<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a> sont invoquées par le conteneur
+avant que le <em>bean</em> soit placé depuis la zone de stockage.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La passivation et l’activation sont des opérations liées au cycle de vie particulier
+des EJB session avec état conversationnel (<em>stateful EJB</em>). Un conteneur
+peut décider de <em>passiver</em>, c’est-à-dire de stocker sur disque un <em>stateful EJB</em>.
+L’opération inverse s’appelle l’activation. Cela permet à une instance d’un EJB
+de sauvegarder son état lors d’un redémarrage du serveur ou lorsque le conteneur
+décide de libérer une partie de la mémoire.</p>
+</div>
+</div>
+<div class="section" id="acces-a-un-ejb-session">
+<h2>Accès à un EJB session<a class="headerlink" href="#acces-a-un-ejb-session" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour avoir accès à une instance d’un EJB session, une application <strong>ne
+la crée pas</strong>, elle demande au conteneur EJB de la lui fournir par
+injection.</p>
+<p>La méthode la plus simple, consiste à utiliser l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/EJB.html">&#64;EJB</a> sur un
+attribut d’un autre composant Java EE (Servlet, bean CDI ou même EJB).</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Injection d’une instance d’EJB session</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.EJB</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.annotation.WebServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+
+<span class="nd">@WebServlet</span><span class="o">(</span><span class="s">&quot;/MyServlet&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+
+  <span class="nd">@EJB</span>
+  <span class="kd">private</span> <span class="n">IndividuRepository</span> <span class="n">individuRepository</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Pour utiliser un EJB comme backing bean JSF, il doit également disposer
+de l’annotation <code class="docutils literal notranslate"><span class="pre">&#64;Named</span></code> exploitée par le service CDI. Et de
+l’annotation précisant la portée du bean (requête, session ou
+application)</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Un EJB utiliser comme backing bean JSF</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateful</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.enterprise.context.SessionScoped</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.inject.Named</span><span class="o">;</span>
+
+<span class="nd">@Stateful</span>
+<span class="nd">@SessionScoped</span>
+<span class="nd">@Named</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserBasket</span> <span class="o">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejb-et-interface-metier">
+<h2>EJB et interface métier<a class="headerlink" href="#ejb-et-interface-metier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Plutôt que de référencer la classe de l’EJB, il est possible de passer
+par une interface que l’on appelle l’interface métier de l’EJB. On distingue
+les interfaces locales (<em>local interfaces</em>) et les interfaces distantes
+(<em>remote interfaces</em>). En effet, un EJB peut être injecté dans un autre composant
+dans un autre composant Java EE de l’application mais il peut également être
+accessible à distance (à travers le protocole de communication RMI par exemple).
+La déclaration d’une interface locale et d’une interface distante est très similaire.
+Si vous n’avez pas besoin de donner accès à un EJB à une application distante, alors
+l’utilisation d’une interface locale suffit et elle évite au conteneur d’avoir
+à gérer le service d’accès à distance.</p>
+<p>Pour déclarer une interface locale, il suffit de faire implémenter une interface
+Java à la classe de l’EJB et d’ajouter l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Local.html">&#64;Local</a> sur l’interface
+et sur l’EJB lui-même pour préciser le type de l’interface.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">L’interface locale</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Local</span><span class="o">;</span>
+
+<span class="nd">@Local</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">L’implémentation de l’EJB</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Local</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateless</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="nd">@Local</span><span class="o">(</span><span class="n">IndividuRepository</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepositoryBean</span> <span class="kd">implements</span> <span class="n">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Plutôt que de référencer l’EJB, il est possible de demander l’injection
+en déclarant un attribut annoté <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/EJB.html">&#64;EJB</a> du type de l’interface <code class="docutils literal notranslate"><span class="pre">IndividuRepository</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@EJB</span>
+<span class="kd">private</span> <span class="n">IndividuRepository</span> <span class="n">individuRepository</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Pour une interface distante, le mécanisme est identique mais on utilise l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Remote.html">&#64;Remote</a> à la place de <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Local.html">&#64;Local</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">L’interface distante</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Remote</span><span class="o">;</span>
+
+<span class="nd">@Remote</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">L’implémentation de l’EJB</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.Remote</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateless</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="nd">@Remote</span><span class="o">(</span><span class="n">IndividuRepository</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepositoryBean</span> <span class="kd">implements</span> <span class="n">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-gestion-des-transactions">
+<h2>La gestion des transactions<a class="headerlink" href="#la-gestion-des-transactions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un service intéressant dans l’utilisation des EJB est la prise en charge
+du support transactionnel sur chacune de leur méthode. Il est ainsi
+possible de gérer automatiquement les transactions JTA (Java Transaction
+API).</p>
+<div class="section" id="jta-java-transaction-api">
+<span id="jta-ref"></span><h3>JTA (Java Transaction API)<a class="headerlink" href="#jta-java-transaction-api" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le recours aux transactions ne se limite pas aux systèmes de base de données.
+N’importe quel service logiciel peut fournir un support à la transaction. Quand
+plusieurs systèmes transactionnels sont inclus au sein d’une même transaction,
+il peut être nécessaire d’avoir recours à une transaction distribuée pour les
+synchroniser.</p>
+<p>Pour ces raisons, Java EE fournit une API dédiée uniquement à la gestion des
+transactions : <strong>JTA</strong>. Cette API est indépendante de JDBC et elle est aussi plus
+complète (et donc plus compliquée). TomEE nous laisse le choix de gérer les
+transactions avec <strong>JTA</strong> ou avec JDBC pour les <em>DataSources</em>. Le paramètre
+<em>JtaManaged</em> disponible dans la balise <em>Resource</em> permet d’indiquer si l’on
+souhaite ou non qu’une <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> soit gérable avec <strong>JTA</strong>.
+Nous reviendrons sur <strong>JTA</strong> lorsque nous parlerons de JPA et des EJB.</p>
+</div>
+<div class="section" id="la-demarcation-transactionnelle">
+<span id="demarcation-transactionnelle"></span><h3>La démarcation transactionnelle<a class="headerlink" href="#la-demarcation-transactionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le conteneur EJB prend en charge les transactions JTA en utilisant
+un appel de méthode comme démarcation transactionnelle&nbsp;:
+lors de l’appel d’une méthode d’un EJB, le conteneur
+commence une transaction JTA et, au retour de la méthode, le conteneur
+effectue un commit ou un rollback.</p>
+<p>Deux annotations permettent de déclarer le support transactionnel pour
+les EJB :</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionManagement.html">&#64;TransactionManagement</a></dt>
+<dd>Définit si la transaction est gérée par le conteneur (valeur
+CONTAINER par défaut) ou si la transaction est gérée par le bean
+lui-même (valeur BEAN). Une transaction gérée par le bean signifie
+que le développeur souhaite gérer la transaction par programmation.</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionAttribute.html">&#64;TransactionAttribute</a></dt>
+<dd>Permet de déclarer sous quelle condition une transaction gérée par
+le conteneur peut être démarrée lors de l’appel à une méthode de
+l’EJB. Pour plus d’information, on se reportera à la documentation
+de l’énumération
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionAttributeType.html">TransactionAttributeType</a>
+qui est spécifiée dans cette annotation. Si l’annotation est omise,
+cela signifie que la transaction est de type <code class="docutils literal notranslate"><span class="pre">REQUIRED</span></code>.
+<code class="docutils literal notranslate"><span class="pre">REQUIRED</span></code> signifie que si une transaction existe au moment de
+l’appel à la méthode, elle est utilisée ou sinon une nouvelle
+transaction est démarrée.</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Transaction gérée par le conteneur</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.*</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="c1">// Il s&#39;agit de la valeur par défaut</span>
+<span class="nd">@TransactionManagement</span><span class="o">(</span><span class="n">TransactionManagementType</span><span class="o">.</span><span class="na">CONTAINER</span><span class="o">)</span>
+<span class="c1">// Il s&#39;agit de la valeur par défaut</span>
+<span class="nd">@TransactionAttribute</span><span class="o">(</span><span class="n">TransactionAttributeType</span><span class="o">.</span><span class="na">REQUIRED</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Même si vous ne positionnez pas d’annotation pour la gestion de
+transaction sur un EJB session, ce service est tout de même activé.</p>
+<p>Le développeur d’EJB peut décider de gérer la transaction par
+programmation grâce à l’objet
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a>
+injecté par le conteneur grâce à l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a>.
+Dans ce cas, l’utilisation de l’annotation <code class="docutils literal notranslate"><span class="pre">&#64;TransactionManagement</span></code>
+est obligatoire pour indiquer au conteneur que l’EJB gère lui-même les
+transactions.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Transaction gérée par le bean</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.transaction.UserTransaction</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="c1">// signale que la transaction est gérée dans le code de l&#39;EJB</span>
+<span class="nd">@TransactionManagement</span><span class="o">(</span><span class="n">TransactionManagementType</span><span class="o">.</span><span class="na">BEAN</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+  <span class="nd">@Resource</span>
+  <span class="kd">private</span> <span class="n">UserTransaction</span> <span class="n">tx</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Individu</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// démarrer la transaction</span>
+    <span class="n">tx</span><span class="o">.</span><span class="na">begin</span><span class="o">();</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// commiter la transaction</span>
+    <span class="n">tx</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans le cas d’une gestion des transactions par le conteneur, une
+transaction <strong>sera rollbackée</strong> si :</p>
+<ul class="simple">
+<li>la méthode de l’EJB se termine par une exception runtime</li>
+<li>la méthode de l’EJB se termine par une exception portant l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/ApplicationException.html">&#64;ApplicationException</a>
+avec l’attribut <strong>rollback</strong> avec la valeur true</li>
+</ul>
+<p>Dans tous les autres cas, la transaction est <strong>commitée</strong>.</p>
+<p>L’exception ci-dessous provoque un rollback de la transaction gérée par
+le conteneur lorsqu’elle est jetée lors de l’exécution d’une méthode
+d’EJB.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Une exception applicative provoquant un rollback</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.ejb.ApplicationException</span><span class="o">;</span>
+
+<span class="nd">@ApplicationException</span><span class="o">(</span><span class="n">rollback</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArticleNotAvailableException</span> <span class="kd">extends</span> <span class="n">Exception</span> <span class="o">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jpa_webapp.html" class="btn btn-neutral float-right" title="JPA dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jdbc_webapp.html" class="btn btn-neutral" title="JDBC dans une application Web" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

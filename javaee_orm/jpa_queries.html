@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les requêtes JPA &mdash; Documentation Java ORM 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="L’héritage avec JPA" href="jpa_inheritance.html" />
+    <link rel="prev" title="Les entités JPA" href="jpa_entites.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Les requêtes JPA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_entites.html" class="btn btn-neutral" title="Les entités JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-requetes-jpa">
+<h1>Les requêtes JPA<a class="headerlink" href="#les-requetes-jpa" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les méthodes <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">persist</span></code>, <code class="docutils literal notranslate"><span class="pre">merge</span></code>, <code class="docutils literal notranslate"><span class="pre">detach</span></code>, <code class="docutils literal notranslate"><span class="pre">refresh</span></code>
+et <code class="docutils literal notranslate"><span class="pre">remove</span></code> disponibles avec une instance d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>
+permettent de gérer simplement une entité mais ne permettent pas de
+réaliser des requêtes très élaborées.</p>
+<p>Heureusement, un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a> fournit également différentes API
+pour exécuter des requêtes. Le principe est toujours le même&nbsp;:</p>
+<ol class="arabic simple">
+<li>On crée un objet de type <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Query.html">Query</a> ou <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/TypedQuery.html">TypedQuery</a> grâce à l’API</li>
+<li>Pour les requêtes paramétrées, on positionne la valeur des paramètres
+grâce aux méthodes <code class="docutils literal notranslate"><span class="pre">setParameter(String</span> <span class="pre">name,</span> <span class="pre">XXX</span> <span class="pre">xxx)</span></code> ou
+<code class="docutils literal notranslate"><span class="pre">setParameter(int</span> <span class="pre">position,</span> <span class="pre">XXX</span> <span class="pre">xxx)</span></code></li>
+<li>On peut optionnellement positionner plusieurs autres informations
+pour la requête (par exemple, le nombre maximum de résultats pour une
+consultation grâce à la méthode <code class="docutils literal notranslate"><span class="pre">setMaxResults(int)</span></code>)</li>
+<li>On exécute la requête grâce aux méthodes <code class="docutils literal notranslate"><span class="pre">executeUpdate()</span></code> (pour un
+update ou un delete), <code class="docutils literal notranslate"><span class="pre">getSingleResult()</span></code> (pour une requête SELECT
+ne retournant qu’un seul résultat) ou <code class="docutils literal notranslate"><span class="pre">getResultList()</span></code> (pour une
+requête SELECT retournant une liste de résultats).</li>
+</ol>
+<p>Pour les différents exemples de requêtes qui suivent, nous nous baserons
+sur l’entité JPA suivante&nbsp;:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Basic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+  <span class="nd">@Id</span>
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individuId&quot;</span><span class="o">)</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@Basic</span>
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">30</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="o">;</span>
+
+  <span class="nd">@Basic</span>
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">30</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">prenom</span><span class="o">;</span>
+
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+
+  <span class="c1">// les getters et setters sont omis ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Cette entité JPA correspond à la table MySQL&nbsp;:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">individu</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">individuId</span><span class="o">`</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">nom</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">prenom</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">age</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">individu_id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="les-requetes-natives">
+<h2>Les requêtes Natives<a class="headerlink" href="#les-requetes-natives" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les requêtes natives en JPA désignent les requêtes SQL. On crée une
+requête native à partir des méthodes
+<code class="docutils literal notranslate"><span class="pre">EntityManager.createNativeQuery(...)</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">&quot;select * from individu&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                         <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus âgés au plus de ageMax</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ageMax</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span>
+              <span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">&quot;select * from individu where age &lt;= ?&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+              <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">ageMax</span><span class="o">)</span>
+              <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: connaître le nombre d’individus enregistrés</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">Long</span><span class="o">)</span> <span class="n">entityManager</span>
+                   <span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">&quot;select count(1) from individu&quot;</span><span class="o">)</span>
+                   <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: Suppression d’un individu dont l’id est individuId</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">individuId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="c1">// Cette requête nécessite une transaction active</span>
+<span class="n">entityManager</span><span class="o">.</span><span class="na">createNativeQuery</span><span class="o">(</span><span class="s">&quot;delete from individu where individuId = ?&quot;</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">individuId</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-requetes-jpql">
+<h2>Les requêtes JPQL<a class="headerlink" href="#les-requetes-jpql" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avec JPA, il est possible d’utiliser une autre langage pour l’écriture
+des requêtes, il s’agit du <strong>JPA Query Language</strong> (JPQL). Ce langage est
+un langage de requête objet. L’objectif n’est plus d’écrire des requêtes
+basées sur le modèle relationnel des tables mais sur le modèle objet des
+classes Java.</p>
+<p>Pour une <strong>introduction à la syntaxe du JPQL</strong>, reportez-vous au
+<a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/JPQL">Wikibook</a>.</p>
+<p>On crée une requête JPQL à partir des méthodes <code class="docutils literal notranslate"><span class="pre">EntityManager.createQuery(...)</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select i from Individu i&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                         <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus âgés au plus de ageMax</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ageMax</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span>
+                <span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select i from Individu i where i.age &lt;= :ageMax&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;ageMax&quot;</span><span class="o">,</span> <span class="n">ageMax</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: connaître le nombre d’individus enregistrés</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">Long</span><span class="o">)</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select count(i) from Individu i&quot;</span><span class="o">)</span>
+                           <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: Suppression d’un individu dont l’id est individuId</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">individuId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="c1">// Cette requête nécessite une transaction active</span>
+<span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;delete from Individu i where i.id = :id&quot;</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="n">individuId</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<p>Sur des exemples aussi simples que les exemples précédents, le JPQL
+semble très proche du SQL. Cependant, avec le JPQL, on ne fait référence
+qu’aux objets et à leurs attributs, <strong>jamais</strong> au nom des tables et des
+colonnes.</p>
+<p>Ainsi, dans la requête JPQL suivante&nbsp;:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">individu</span> <span class="n">from</span> <span class="n">Individu</span> <span class="n">individu</span>
+</pre></div>
+</div>
+<p><strong>individu</strong> désigne la variable contenant l’instance courante de la
+classe Individu. Il ne s’agit absolument pas d’un alias de table comme
+en SQL. La déclaration d’une variable en JPQL est obligatoire&nbsp;! Alors
+qu’un alias de table SQL est optionnel.</p>
+<p>Enfin, le JPQL introduit une nouvelle façon de déclarer un paramètre
+dans une requête sous la forme <code class="docutils literal notranslate"><span class="pre">:nom</span></code>. Les paramètres disposent
+ainsi d’un nom explicite, rendant ainsi le code plus facile à lire et à
+maintenir.</p>
+<div class="section" id="les-requetes-par-programmation">
+<h3>Les requêtes par programmation<a class="headerlink" href="#les-requetes-par-programmation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsque l’on souhaite construire une requête JPQL dynamiquement, il
+n’est pas toujours très facile de construire la requête par simple
+concaténation de chaînes de caractères. Pour cela, JPA fournit une API
+permettant de définir entièrement une requête JPQL par programmation. On
+crée cette requête à travers un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a> que l’on peut récupérer grâce
+à la méthode <code class="docutils literal notranslate"><span class="pre">EntityManager.getCriteriaBuilder()</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CriteriaBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getCriteriaBuilder</span><span class="o">();</span>
+
+<span class="n">CriteriaQuery</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">Root</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">query</span><span class="o">).</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: récupérer tous les individus âgés au plus de ageMax</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">ageMax</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
+
+<span class="n">CriteriaBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getCriteriaBuilder</span><span class="o">();</span>
+
+<span class="n">CriteriaQuery</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">Root</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="n">query</span><span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">builder</span><span class="o">.</span><span class="na">lessThanOrEqualTo</span><span class="o">(</span><span class="n">i</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">).</span><span class="na">as</span><span class="o">(</span><span class="kt">int</span><span class="o">.</span><span class="na">class</span><span class="o">),</span> <span class="n">ageMax</span><span class="o">));</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">individus</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">query</span><span class="o">).</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exemple&nbsp;: connaître le nombre d’individus enregistrés</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CriteriaBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getCriteriaBuilder</span><span class="o">();</span>
+
+<span class="n">CriteriaQuery</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">Long</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">Root</span><span class="o">&lt;</span><span class="n">Individu</span><span class="o">&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">builder</span><span class="o">.</span><span class="na">count</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+
+<span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">query</span><span class="o">).</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<p>Pour des exemples supplémentaires d’utilisation du <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a>,
+reportez-vous au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Criteria">Wikibook</a>.</p>
+</div>
+</div>
+<div class="section" id="utilisation-de-requetes-nommees">
+<span id="jpa-requetes-nommees"></span><h2>Utilisation de requêtes nommées<a class="headerlink" href="#utilisation-de-requetes-nommees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’utilisation de requêtes peut rendre l’application difficile à comprendre et à faire
+évoluer. En effet, les requêtes sont mêlées au code source Java sous la forme de chaîne
+de caractères. Si vous préférez regrouper toutes vos requêtes dans des parties
+clairement identifiées du code, alors vous pouvez utiliser les requêtes nommées
+(<em>named queries</em>).</p>
+<p>Une requête nommée permet d’associer un identifiant de requête à une requête JPQL. On utilise
+pour cela l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedQuery.html">&#64;NamedQuery</a> que l’on peut placer sur la classe de l’entité
+pour centraliser toutes les requêtes relatives à cette entité.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’une requête nommée</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.NamedQuery</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@NamedQuery</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;findIndividuByNom&quot;</span><span class="o">,</span> <span class="n">query</span><span class="o">=</span><span class="s">&quot;select i from Individu i where i.nom = :nom&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, on déclare une requête que l’on nomme «&nbsp;findIndividuByNom&nbsp;».</p>
+<p>Si vous voulez nommer plusieurs requêtes, vous devez utiliser l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedQueries.html">&#64;NamedQueries</a> pour les regrouper toutes sous la forme d’un tableau.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Déclaration de plusieurs requêtes nommées</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.NamedQueries</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.NamedQuery</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@NamedQueries</span><span class="o">({</span>
+  <span class="nd">@NamedQuery</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;findIndividuByNom&quot;</span><span class="o">,</span> <span class="n">query</span><span class="o">=</span><span class="s">&quot;select i from Individu i where i.nom = :nom&quot;</span><span class="o">),</span>
+  <span class="nd">@NamedQuery</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;deleteIndividuByNom&quot;</span><span class="o">,</span> <span class="n">query</span><span class="o">=</span><span class="s">&quot;delete from Individu i where i.nom = :nom&quot;</span><span class="o">),</span>
+  <span class="nd">@NamedQuery</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;deleteAllIndividus&quot;</span><span class="o">,</span> <span class="n">query</span><span class="o">=</span><span class="s">&quot;delete from Individu i&quot;</span><span class="o">)</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="o">;</span>
+
+  <span class="c1">// getters et setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>On peut ensuite créer et exécuter des requêtes nommées à partir d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Individu</span> <span class="n">individu</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createNamedQuery</span><span class="o">(</span><span class="s">&quot;findIndividuByNom&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                                 <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;nom&quot;</span><span class="o">,</span> <span class="s">&quot;David Gayerie&quot;</span><span class="o">)</span>
+                                 <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">begin</span><span class="o">();</span>
+<span class="n">entityManager</span><span class="o">.</span><span class="na">createNamedQuery</span><span class="o">(</span><span class="s">&quot;deleteIndividuByNom&quot;</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;nom&quot;</span><span class="o">,</span> <span class="s">&quot;David Gayerie&quot;</span><span class="o">)</span>
+             <span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+<span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">commit</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est également possible de créer des requêtes nommées en SQL en utilisant
+les annotations <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedNativeQuery.html">&#64;NamedNativeQuery</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedNativeQueries.html">&#64;NamedNativeQueries</a> sur le même
+principe qu’avec des requêtes nommées en JPQL.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Même si une requête nommée est déclarée dans une classe, son nom est globale
+à l’ensemble de l’unité de persistance. Il faut donc absolument éviter
+tout doublon dans le nom des requêtes.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_entites.html" class="btn btn-neutral" title="Les entités JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

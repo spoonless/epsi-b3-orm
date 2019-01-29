@@ -1,0 +1,75 @@
+p {
+  margin-bottom: 12px;
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+div.math {
+  text-align: left;
+  margin-left: 24px;
+}
+
+.math img {
+  vertical-align: baseline;
+}
+
+table.karnaugh thead th {
+  text-align: center;
+  background-color: transparent;
+}
+
+table.karnaugh tr td {
+  background-color: transparent !important;
+}
+
+table.karnaugh tr:first-child td:nth-of-type(2) {
+  font-weight: bold;
+}
+
+table.karnaugh tr td:first-child {
+  font-weight: bold;
+}
+
+table.karnaugh tr td {
+  border-left-width: 1px !important;
+}
+
+.rst-content .exercice {
+  background-color: #F0EBF5;
+}
+
+.rst-content .exercice > .admonition-title {
+  background-color: #AF81E3;
+}
+
+/* override table width restrictions */
+@media screen and (min-width: 600px) {
+
+   .wy-table-responsive table td {
+      /* !important prevents the common CSS stylesheets from overriding
+         this as on RTD they are loaded after this stylesheet */
+      white-space: normal !important;
+   }
+
+   .wy-table-responsive {
+      overflow: visible !important;
+   }
+
+   .wy-table-responsive table {
+      margin: auto;
+   }
+}

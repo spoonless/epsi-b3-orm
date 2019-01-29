@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JPA dans une application Web &mdash; Documentation Java ORM 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Les EJB" href="ejb.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JPA dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jpa-et-jta">JPA et JTA</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>JPA dans une application Web</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="ejb.html" class="btn btn-neutral" title="Les EJB" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jpa-dans-une-application-web">
+<h1>JPA dans une application Web<a class="headerlink" href="#jpa-dans-une-application-web" title="Lien permanent vers ce titre">¶</a></h1>
+<p>JPA permet de réaliser l’accès à la couche de données. Si on considère Java EE
+comme modèle prescriptif pour la conception d’architecture logicielle, alors
+l’ensemble des composants forme une application multi-couches (N-tiers) :</p>
+<dl class="docutils">
+<dt>Couche client (Client tier)</dt>
+<dd>Pour une application Web, il s’agit des pages Web et du code Javascript
+téléchargés par le navigateur client. Cette couche est responsable de
+l’affichage et de l’interaction avec l’utilisateur.</dd>
+<dt>Couche Web (Web tier)</dt>
+<dd>Il s’agit du point d’échange entre le client et le serveur. Les composants
+principaux sont les Servlets/JSP et les Facelets JSF. La logique de ces
+composants se limite à valider les données en entrée et à produire une
+représentation des données en sortie.</dd>
+<dt>Couche métier (Business tier)</dt>
+<dd>Il s’agit de l’ensemble des traitements propres à l’application. Les composants sont les EJB.</dd>
+<dt>Couche du système d’information (Enterprise Information System tier)</dt>
+<dd>Il s’agit principalement des serveurs de bases de données. L’application
+interagit avec ces serveurs grâce au service JDBC ou aux Entity Beans (JPA).</dd>
+</dl>
+<p>Si nous suivons cette logique, alors un <em>entity manager</em> doit être manipulé par
+un EJB.</p>
+<div class="section" id="obtenir-un-entitymanager-dans-un-serveur-java-ee">
+<h2>Obtenir un EntityManager dans un serveur Java EE<a class="headerlink" href="#obtenir-un-entitymanager-dans-un-serveur-java-ee" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour une application déployée dans un serveur d’application Java EE,
+l’initialisation de JPA est un peu différente car le serveur utilise la notion
+de <a class="reference internal" href="jdbc_webapp.html#datasource-ref"><span class="std std-ref">DataSource JDBC</span></a> et gère les
+<a class="reference internal" href="ejb.html#jta-ref"><span class="std std-ref">transactions avec JTA (Java Transaction API)</span></a>.
+De plus, le fichier <code class="file docutils literal notranslate"><span class="pre">persistence.xml</span></code> ne contient pas de déclaration à
+une URL JDBC mais une DataSource.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple de persistence.xml utilisant une DataSource</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;persistence</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://java.sun.com/xml/ns/persistence&quot;</span>
+  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://java.sun.com/xml/ns/persistence</span>
+<span class="s">                      http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">&quot;individuPersistenceUnit&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;jta-data-source&gt;</span>individuDataSource<span class="nt">&lt;/jta-data-source&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.show_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.format_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+  <span class="nt">&lt;/persistence-unit&gt;</span>
+<span class="nt">&lt;/persistence&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>L’unité de persistance est déclarée en utilisant la balise
+<code class="docutils literal notranslate"><span class="pre">&lt;jta-data-source&gt;</span></code> qui précise le nom de la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> déclarée dans le serveur.
+Pour un déploiement dans Wildfly, il faudra, par exemple, ajouter la déclaration
+de cette DataSource dans le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> ainsi que dans le serveur
+comme nous l’avons vu dans le <a class="reference internal" href="jdbc_webapp.html#configuration-datasource"><span class="std std-ref">chapitre consacré à JDBC</span></a>.</p>
+<p>Il est possible d’obtenir une instance d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> par injection dans
+n’importe quel composant Java EE (servlet, managed bean CDI, EJB)
+grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/PersistenceUnit.html">&#64;PersistenceUnit</a>. Cette annotation supporte l’attribut
+<code class="docutils literal notranslate"><span class="pre">unitName</span></code> afin de préciser le nom de l’unité de persistance :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Injection d’une EntityManagerFactory dans un composant Java EE</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.EntityManagerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceUnit</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.annotation.WebServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+
+<span class="nd">@WebServlet</span><span class="o">(</span><span class="s">&quot;/MyServlet&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+
+  <span class="nd">@PersistenceUnit</span><span class="o">(</span><span class="n">unitName</span><span class="o">=</span><span class="s">&quot;individuPersistenceUnit&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">EntityManagerFactory</span> <span class="n">entityManagerFactory</span><span class="o">;</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est très rare d’injecter un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> dans une Servlet. En
+effet, le modèle en couche Java EE préconise de séparer la couche Web de
+la couche d’accès aux données (couche du système d’information) par une
+couche métier dans laquelle on trouve les EJB de l’application. Donc, une
+Servlet recevra plutôt par injection un EJB.</p>
+</div>
+<p>Il est également possible d’obtenir un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a> grâce à l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/PersistenceContext.html">&#64;PersistenceContext</a>. Cette annotation accepte l’attribut <code class="docutils literal notranslate"><span class="pre">unitName</span></code>
+permettant de préciser l’unité de persistance pour laquelle on désire obtenir
+un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>. Attention, un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a> n’est pas thread-safe.
+Il ne doit pas être injecté dans un composant Java EE qui est utilisé dans des
+accès concurrents. Les beans CDI de portée requête (<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/RequestScoped.html">&#64;RequestScoped</a>) et la plupart
+des EJB sont des composants Java EE dans lesquels on peut injecter en toute
+sécurité un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Injection d’un EntityManager dans un EJB</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateless</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="nd">@PersistenceContext</span><span class="o">(</span><span class="n">unitName</span><span class="o">=</span><span class="s">&quot;individuPersistenceUnit&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans un environnement Java EE, il est de la responsabilité du serveur d’application
+d’initialiser et de fermer les différentes instances de type <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a>
+et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>. Autrement dit, le développeur de composant n’a pas à se préoccuper
+d’appeler les méthodes <code class="docutils literal notranslate"><span class="pre">close()</span></code> sur ces instances.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Utilisation d’un EntityManager dans un EJB</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.ejb.Stateless</span><span class="o">;</span>
+
+<span class="nd">@Stateless</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuRepository</span> <span class="o">{</span>
+
+  <span class="nd">@PersistenceContext</span><span class="o">(</span><span class="n">unitName</span><span class="o">=</span><span class="s">&quot;individuPersistenceUnit&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">Individu</span> <span class="nf">find</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="jpa-et-jta">
+<h2>JPA et JTA<a class="headerlink" href="#jpa-et-jta" title="Lien permanent vers ce titre">¶</a></h2>
+<p>JTA (Java Transaction API) est une API dédiée à la gestion de la transaction.
+Cette API ne se limite pas aux transactions avec des SGBDR mais a pour but d’offrir
+une interface unique pour tous les systèmes transactionnels.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">L’inconvénient de l’utilisation de JTA est qu’il rend obsolète la méthode
+<code class="docutils literal notranslate"><span class="pre">EntityManager.getTransaction()</span></code>. Ainsi, du code JPA écrit pour une interaction
+avec une base de données sans JTA utilisera la classe <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityTransaction.html">EntityTransaction</a> fournie par JPA.
+Cependant ce code ne fonctionnera plus si on utilise une <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> compatible JTA.</p>
+</div>
+<p>Pour signaler la démarcation transactionnelle avec JTA, il existe deux solutions :</p>
+<ul class="simple">
+<li>Soit on utilise une forme déclarative avec les EJB
+(Cf. <a class="reference internal" href="ejb.html#demarcation-transactionnelle"><span class="std std-ref">la gestion des transactions dans les EJB</span></a>)</li>
+<li>Soit on utilise un forme programmatique grâce à l’objet <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a></li>
+</ul>
+<p>Pour la méthode programmatique, une instance de l’objet <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a> peut être
+récupérée par injection grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> dans un composant Java EE.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Utilisation de l’API JTA dans un composant Java EE</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.annotation.WebServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.transaction.UserTransaction</span><span class="o">;</span>
+
+<span class="nd">@WebServlet</span><span class="o">(</span><span class="s">&quot;/myServlet&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+
+  <span class="nd">@Resource</span>
+  <span class="kd">private</span> <span class="n">UserTransaction</span> <span class="n">userTransaction</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+                                  <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+    <span class="kt">boolean</span> <span class="n">transactionOk</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">userTransaction</span><span class="o">.</span><span class="na">begin</span><span class="o">();</span>
+
+      <span class="c1">// ...</span>
+
+      <span class="n">transactionOk</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// ...</span>
+    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">transactionOk</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">userTransaction</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+          <span class="n">userTransaction</span><span class="o">.</span><span class="na">rollback</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’utilisation de l’API JTA est très verbeuse. De plus, chaque méthode peut jeter
+plusieurs exceptions et il n’est pas toujours facile de savoir comment les traiter.
+En général, il est plus simple d’opter pour une approche déclarative
+(basée par exemple sur <a class="reference internal" href="ejb.html#demarcation-transactionnelle"><span class="std std-ref">les méthodes des EJB</span></a>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ejb.html" class="btn btn-neutral" title="Les EJB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>L’héritage avec JPA &mdash; Documentation Java ORM 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les relations avec JPA" href="jpa_relations.html" />
+    <link rel="prev" title="Les requêtes JPA" href="jpa_queries.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>L’héritage avec JPA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l-heritage-avec-jpa">
+<h1>L’héritage avec JPA<a class="headerlink" href="#l-heritage-avec-jpa" title="Lien permanent vers ce titre">¶</a></h1>
+<p>JPA offre plusieurs stratégies pour associer une relation d’héritage dans le
+modèle objet avec une représentation dans le modèle relationnel de données.</p>
+<p>Pour décrire la relation d’héritage avec JPA, on utilise l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Inheritance.html">&#64;Inheritance</a>
+ou <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html">&#64;MappedSuperclass</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour une présentation complète de l’héritage dans JPA, reportez-vous
+au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Inheritance">Wikibook</a>.</p>
+</div>
+<div class="section" id="l-annotation-inheritance">
+<h2>L’annotation &#64;Inheritance<a class="headerlink" href="#l-annotation-inheritance" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Inheritance.html">&#64;Inheritance</a> permet d’indiquer qu’il existe une relation d’héritage
+dans le modèle objet et dans le modèle relationnel. Comme il existe plusieurs
+façon de représenter un héritage de données dans le modèle relationnel,
+l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Inheritance.html">&#64;Inheritance</a> dispose de l’attribut <code class="docutils literal notranslate"><span class="pre">strategy</span></code> pour préciser
+la stratégie utilisée dans le modèle de données. Cette stratégie est une énumération
+du type <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/InheritanceType.html">InheritanceType</a> et accepte les valeurs :</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code></dt>
+<dd>l’héritage est représenté par une seule table en base de données</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">JOINED</span></code></dt>
+<dd>l’héritage est représenté par une jointure entre la table de l’entité parente et la table de l’entité enfant</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code></dt>
+<dd>l’héritage est représenté par une table par entité</dd>
+</dl>
+<div class="section" id="heritage-avec-une-seule-table">
+<h3>Héritage avec une seule table<a class="headerlink" href="#heritage-avec-une-seule-table" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La stratégie <code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code> permet de représenter en base de données un héritage
+avec une seule table. Une colonne contiendra un identifiant pour déterminer le
+type réel de la classe : on parle de la colonne <em>discriminante</em>. La table doit
+contenir toutes les colonnes nécessaires pour stocker les informations de la
+super classe et de l’ensemble des classes filles.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">L’inconvénient de la stratégie <code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code> est qu’il n’est pas possible
+d’ajouter des contraintes de type <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> sur les colonnes représentant
+les propriétés des classes filles.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Super classe</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorColumn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Inheritance</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.InheritanceType</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Inheritance</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">InheritanceType</span><span class="o">.</span><span class="na">SINGLE_TABLE</span><span class="o">)</span>
+<span class="nd">@DiscriminatorColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;vehicule_type&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">marque</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple précédent, la colonne discriminante est donnée par l’annotation
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/DiscriminatorColumn.html">&#64;DiscriminatorColumn</a>. Cette colonne n’est donc pas représentée par un attribut
+dans la classe.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Classe enfant</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">&quot;V&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nbPlaces</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Une autre classe enfant</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">cylindree</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/DiscriminatorValue.html">&#64;DiscriminatorValue</a> permet de préciser la valeur dans la colonne
+discriminante qui permet d’identifier un objet du type de cette classe. Cette
+valeur doit être unique pour l’ensemble des classes de l’héritage. Dans l’exemple
+ci-dessus, lors de la persistance d’un objet de la classe <code class="docutils literal notranslate"><span class="pre">Voiture</span></code>, JPA positionnera
+automatiquement la valeur <code class="docutils literal notranslate"><span class="pre">&quot;V&quot;</span></code> dans la colonne <code class="docutils literal notranslate"><span class="pre">vehicule_type</span></code>.</p>
+<p>Pour l’exemple précédent, le schéma de base de données contiendra la table <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code>
+qui peut être créée comme suit :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Vehicule</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">vehicule_type</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">cylindree</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">nbPlaces</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="heritage-avec-jointure-de-tables">
+<h2>Héritage avec jointure de tables<a class="headerlink" href="#heritage-avec-jointure-de-tables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La stratégie <code class="docutils literal notranslate"><span class="pre">JOINED</span></code> permet de représenter en base de données un héritage
+avec une table par entité. Pour les classes filles, JPA réalisera une jointure
+entre la table représentant l’entité et la table représentant l’entité de la
+super classe. L’implémentation est très proche de celle d’un héritage avec
+une seule table (seule la stratégie change) mais le schéma de la base de données
+est très différent.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Super classe</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorColumn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Inheritance</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.InheritanceType</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Inheritance</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">InheritanceType</span><span class="o">.</span><span class="na">JOINED</span><span class="o">)</span>
+<span class="nd">@DiscriminatorColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;vehicule_type&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">marque</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Classe enfant</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">&quot;V&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nbPlaces</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Une autre classe enfant</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.DiscriminatorValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@DiscriminatorValue</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">cylindree</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans cette configuration, JPA attend 3 tables dans le schéma de base de données
+qui peuvent être créées par les instructions suivantes :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Vehicule</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">vehicule_type</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">Voiture</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">nbPlaces</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">references</span> <span class="n">Vehicule</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">Moto</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">cylindree</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">references</span> <span class="n">Vehicule</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="heritage-avec-une-table-par-classe">
+<h2>Héritage avec une table par classe<a class="headerlink" href="#heritage-avec-une-table-par-classe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code> permet de représenter en base de données un héritage
+avec une table par entité. Les attributs hérités sont répétés dans chaque table.
+Ainsi, la notion d’héritage n’est pas exprimée dans le modèle relationnel de données.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Super classe</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Inheritance</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.InheritanceType</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Inheritance</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">InheritanceType</span><span class="o">.</span><span class="na">TABLE_PER_CLASS</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">marque</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Classe enfant</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Voiture&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nbPlaces</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Une autre classe enfant</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Moto&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">cylindree</span><span class="o">;</span>
+
+    <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans cette configuration, JPA attend 2 tables dans le schéma de base de données
+qui peuvent être créées par les instructions suivantes :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Voiture</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">nbPlaces</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">Moto</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">cylindree</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La table <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> n’est pas nécessaire car la classe <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> est
+abstraite. Il n’est donc pas possible de créer des entités de type <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>La stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code> est plus complexe à mettre en place pour
+la gestion des clés primaires. En effet, du point de vue de JPA, les objets
+de type <code class="docutils literal notranslate"><span class="pre">Voiture</span></code> et <code class="docutils literal notranslate"><span class="pre">Moto</span></code> sont également des objets de type <code class="docutils literal notranslate"><span class="pre">Voiture</span></code>.
+À ce titre, il ne peut pas exister deux objets avec la même clé primaire. Mais,
+comme ces objets sont représentés en base de données par deux tables différentes,
+une colonne de type <code class="docutils literal notranslate"><span class="pre">AUTO_INCREMENT</span></code> en MySQL ne suffit pas à garantir qu’il
+n’existe pas une voiture ayant la même clé qu’une moto.</p>
+<p class="last">Avec, la stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code>, il n’est pas possible d’utiliser
+l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/GeneratedValue.html">&#64;GeneratedValue</a> avec la valeur <code class="docutils literal notranslate"><span class="pre">IDENTITY</span></code>. On peut,
+par exemple, utiliser une table servant à générer une séquence de clés.</p>
+</div>
+</div>
+<div class="section" id="l-heritage-et-les-requetes-jpql-polymorphiques">
+<h2>L’héritage et les requêtes JPQL polymorphiques<a class="headerlink" href="#l-heritage-et-les-requetes-jpql-polymorphiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsqu’il existe une relation d’héritage entre les entités, il est possible
+de créer des requêtes polymorphiques. Si on exécute la requête JPQL suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select v from Vehicule v
+</pre></div>
+</div>
+<p>Alors quelle que soit la stratégie d’héritage utilisée, la requête JPQL doit
+remonter l’ensemble des objets qui héritent de la classe <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code>. Pour notre
+exemple, cette requête retourne la liste de tous les objets <code class="docutils literal notranslate"><span class="pre">Voiture</span></code> et <code class="docutils literal notranslate"><span class="pre">Moto</span></code>.</p>
+<p>Néanmoins il est possible d’avoir un type plus précis si nécessaire. Pour retourner
+uniquement la liste des objets <code class="docutils literal notranslate"><span class="pre">Voiture</span></code> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select v from Voiture v
+</pre></div>
+</div>
+</div>
+<div class="section" id="un-cas-a-part-fusion-de-la-super-classe">
+<h2>Un cas à part : fusion de la super classe<a class="headerlink" href="#un-cas-a-part-fusion-de-la-super-classe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il arrive parfois que la relation d’héritage n’ait pas de sens dans le modèle
+relationnel. Dans ce cas, la classe parente n’est pas vraiment une entité au
+sens JPA, on parle de <em>mapped superclass</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Super classe</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.MappedSuperclass</span><span class="o">;</span>
+
+<span class="nd">@MappedSuperclass</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">marque</span><span class="o">;</span>
+
+  <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> n’est plus déclarée avec l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Entity.html">&#64;Entity</a> mais
+avec l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html">&#64;MappedSuperclass</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Classe enfant</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Voiture&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">nbPlaces</span><span class="o">;</span>
+
+  <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Une autre classe enfant</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.vehicule</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Moto&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">cylindree</span><span class="o">;</span>
+
+  <span class="c1">// getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans cette configuration, JPA attend 2 tables dans le schéma de base de données
+qui peuvent être créées par les instructions suivantes :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Voiture</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">nbPlaces</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">Moto</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">marque</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">cylindree</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>L’utilisation de <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html">&#64;MappedSuperclass</a> implique qu’il
+n’existe pas de relation entre les classes filles pour JPA. Comme la super classe
+n’est pas un entité, il n’est pas possible d’effectuer des requêtes sur la super classe
+ni d’utiliser des requêtes polymorphiques.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
