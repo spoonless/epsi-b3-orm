@@ -607,7 +607,7 @@ Cette méthode retourne la liste de tous les utilisateurs stockés dans la table
 <span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Utilisateur</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="n">login</span><span class="o">;</span>
   <span class="kd">private</span> <span class="n">Date</span> <span class="n">inscription</span><span class="o">;</span>
   <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">actif</span><span class="o">;</span>
@@ -932,6 +932,16 @@ Pour cela, on utilise la démarcation transactionnelle.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+<div class="exercice admonition">
+<p class="first admonition-title">Exercice - Gestion des droits (suite)</p>
+<p>Ajoutez la méthode <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addUtilisateur(Utilisateur</span> <span class="pre">u,</span> <span class="pre">String...</span> <span class="pre">droit)</span></code>
+qui permet d’insérer en bas de données un nouvel utilisateur en lui associant
+les droits demandés. Si un des droits demandés n’existe pas, la méthode doit
+échouer avec une exception <code class="docutils literal notranslate"><span class="pre">DroitInconnuException</span></code> que vous devez créer.</p>
+<p class="last">Vous <strong>devez</strong> utiliser des <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> et une transaction afin de
+garantir que si l’association d’un droit échoue, l’utilisateur n’est pas créé
+en base de données.</p>
+</div>
 </div>
 </div>
 
