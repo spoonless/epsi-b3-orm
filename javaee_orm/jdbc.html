@@ -938,9 +938,39 @@ Pour cela, on utilise la démarcation transactionnelle.</p>
 qui permet d’insérer en bas de données un nouvel utilisateur en lui associant
 les droits demandés. Si un des droits demandés n’existe pas, la méthode doit
 échouer avec une exception <code class="docutils literal notranslate"><span class="pre">DroitInconnuException</span></code> que vous devez créer.</p>
-<p class="last">Vous <strong>devez</strong> utiliser des <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> et une transaction afin de
+<p>Vous <strong>devez</strong> utiliser des <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> et une transaction afin de
 garantir que si l’association d’un droit échoue, l’utilisateur n’est pas créé
 en base de données.</p>
+<div class="last admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p>Pour insérer les droits de l’utilisateur en base de données, vous aurez
+besoin de son id. Dans le schéma de base de données, cet id est géré
+par MySQL en <em>auto increment</em>. Vous pouvez néanmoins récupérer la valeur
+de la clé générée après l’appel à <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a> grâce à la méthode
+<a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#getGeneratedKeys()">getGeneratedKeys</a> qui retourne un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a> permettant de consulter toutes
+les clés générées lors d’une insertion. Attention cependant, vous devez
+créer un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> en précisant qu’il supporte le retour des clés
+générées :</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;insert into films (titre, date_sortie, duree) values (?, ?, ?)&quot;</span><span class="o">;</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">Statement</span><span class="o">.</span><span class="na">RETURN_GENERATED_KEYS</span><span class="o">))</span> <span class="o">{</span>
+
+  <span class="n">pstmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&quot;live JDBC&quot;</span><span class="o">);</span>
+  <span class="n">pstmt</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">Date</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()));</span>
+  <span class="n">pstmt</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">120</span><span class="o">);</span>
+
+  <span class="n">pstmt</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+
+  <span class="k">try</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">ResultSet</span> <span class="n">resultSet</span> <span class="o">=</span> <span class="n">pstmt</span><span class="o">.</span><span class="na">getGeneratedKeys</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">resultSet</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">resultSet</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
