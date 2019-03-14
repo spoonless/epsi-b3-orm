@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="JDBC dans une application Web" href="jdbc_webapp.html" />
-    <link rel="prev" title="L’héritage avec JPA" href="jpa_inheritance.html" /> 
+    <link rel="next" title="L’héritage avec JPA" href="jpa_inheritance.html" />
+    <link rel="prev" title="Les requêtes JPA" href="jpa_queries.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -123,10 +123,34 @@
 <li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#exercice">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
@@ -138,19 +162,6 @@
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
@@ -248,10 +259,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_inheritance.html" class="btn btn-neutral" title="L’héritage avec JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -276,8 +287,8 @@ au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persis
 Si cette relation n’est pas
 forcément très courante dans un modèle relationnel de base de données,
 elle se rencontre très souvent dans une modèle objet.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToOne</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToOne</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -299,8 +310,8 @@ elle se rencontre très souvent dans une modèle objet.</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToOne</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -323,8 +334,8 @@ une colonne qui est une clé étrangère contenant la clé d’un abonnement.
 Par défaut, JPA s’attend à ce que cette colonne se nomme ABONNEMENT_ID,
 mais il est possible de changer ce nom grâce à l’annotation
 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>&nbsp;:</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Déclaration de la clé étrangère</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la clé étrangère</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -348,11 +359,34 @@ mais il est possible de changer ce nom grâce à l’annotation
 </pre></div>
 </div>
 </div>
+<div class="section" id="exercice">
+<h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="first admonition-title">Droit d’accès et badge</p>
+<p>Un utilisateur peut disposer d’un badge. Un badge est défini par son numéro
+et sa date de mise en service.</p>
+<p>Vous devez :</p>
+<ul class="simple">
+<li>Créer la table <code class="docutils literal notranslate"><span class="pre">Badge</span></code> en base de données</li>
+<li>Ajouter des données en base de données afin que les utilisateurs disposent
+chacun d’un badge</li>
+<li>Créer l’entité <code class="docutils literal notranslate"><span class="pre">Badge</span></code> en Java. Faites apparaître la relation 1:1
+en ajoutant un attribut <code class="docutils literal notranslate"><span class="pre">badge</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code></li>
+</ul>
+<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez la méthode suivante :</p>
+<dl class="last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">getByBadge(String</span> <span class="pre">numeroBadge)</span></code></dt>
+<dd>Cette méthode retourne l’utilisateur dont le numéro de badge correspond
+à celui passé en paramètre.</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="section" id="la-relation-n-1-many-to-one">
-<h3>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h3>
+<h2>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> définit une relation n:1 entre deux entités.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -374,8 +408,8 @@ mais il est possible de changer ce nom grâce à l’annotation
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation ManyToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation ManyToOne</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -400,8 +434,8 @@ mais il est possible de changer ce nom grâce à l’annotation <a class="refere
 Plutôt que par une colonne, il est également possible d’indiquer à JPA
 qu’il doit passer par une table d’association pour établir la relation
 entre les deux entités avec l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>&nbsp;:</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Déclaration d’une table d’association</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’une table d’association</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -430,14 +464,13 @@ entre les deux entités avec l’annotation <a class="reference external" href="
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="la-relation-1-n-one-to-many">
 <h2>La relation 1:n (one to many)<a class="headerlink" href="#la-relation-1-n-one-to-many" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> définit une relation 1:n entre deux entités.
 Cette annotation ne peut être utilisée qu’avec une collection d’éléments
 puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToMany</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToMany</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -462,8 +495,8 @@ puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToMany</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToMany</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -497,8 +530,8 @@ que cette annotation porte sur l’autre côté de la relation.</p>
 définit une relation n:n entre deux entités. Cette annotation ne peut
 être utilisée qu’avec une collection d’éléments puisqu’elle implique
 qu’il peut y avoir plusieurs entités associées.</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToMany</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToMany</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -525,8 +558,8 @@ d’association <code class="docutils literal notranslate"><span class="pre">Ind
 <code class="docutils literal notranslate"><span class="pre">INDIVIDU_ID</span></code> et <code class="docutils literal notranslate"><span class="pre">ENFANTS_ID</span></code> permettant de modéliser la relation.
 Il est possible de décrire explicitement la relation grâce à l’annotation
 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>&nbsp;:</p>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Déclaration de la table d’association</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la table d’association</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -556,6 +589,23 @@ Il est possible de décrire explicitement la relation grâce à l’annotation
 </pre></div>
 </div>
 </div>
+<div class="section" id="id1">
+<h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="first admonition-title">Droit d’accès</p>
+<p>Créez l’entité <code class="docutils literal notranslate"><span class="pre">Droit</span></code> et faites apparaître la liste des droits dans
+l’entité <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> sous la forme d’une relation N:N</p>
+<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez les méthodes suivantes :</p>
+<dl class="last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">getByDroit(String</span> <span class="pre">droit)</span></code></dt>
+<dd>Cette méthode retourne la liste de tous les utilisateurs disposant d’un droit
+donné.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">isAutorise(String</span> <span class="pre">numeroBadge,</span> <span class="pre">String</span> <span class="pre">droit)</span></code></dt>
+<dd>Cette méthode retourne <code class="docutils literal notranslate"><span class="pre">true</span></code> si l’utilisateur dont le numéro de badge est
+passé en paramètre dispose du droit passé comme second paramètre.</dd>
+</dl>
+</div>
+</div>
 </div>
 <div class="section" id="les-relations-bi-directionnelles">
 <h2>Les relations bi-directionnelles<a class="headerlink" href="#les-relations-bi-directionnelles" title="Lien permanent vers ce titre">¶</a></h2>
@@ -567,8 +617,8 @@ relationnelle, il s’agit du même lien. Avec JPA, il est possible de
 qualifier une relation entre deux objets comme étant une relation
 inverse grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation indiquant le
 type de relation.</p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Exemple d’une relation bi-directionnelle avec <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code></span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une relation bi-directionnelle avec <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code></span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -602,6 +652,14 @@ relation entre plusieurs instances de la classe Individu et la liste
 utilise l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> pour
 indiquer sur l’attribut représentant la relation inverse, le nom de
 l’attribut modélisant la relation principale.</p>
+<div class="section" id="id2">
+<h3>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="first admonition-title">Droit d’accès</p>
+<p class="last">Faites apparaître la relation bidirectionnelle entre <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> et <code class="docutils literal notranslate"><span class="pre">Badge</span></code>
+et entre <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> et <code class="docutils literal notranslate"><span class="pre">Droit</span></code>.</p>
+</div>
+</div>
 </div>
 <div class="section" id="la-propagation-en-cascade">
 <h2>La propagation en cascade<a class="headerlink" href="#la-propagation-en-cascade" title="Lien permanent vers ce titre">¶</a></h2>
@@ -610,8 +668,8 @@ des entités liées. Les annotations permettant de spécifier une relation
 possèdent un attribut <code class="docutils literal notranslate"><span class="pre">cascade</span></code> permettant de spécifier les opérations
 concernées&nbsp;: <code class="docutils literal notranslate"><span class="pre">ALL</span></code>, <code class="docutils literal notranslate"><span class="pre">DETACH</span></code>, <code class="docutils literal notranslate"><span class="pre">MERGE</span></code>, <code class="docutils literal notranslate"><span class="pre">PERSIST</span></code>, <code class="docutils literal notranslate"><span class="pre">REFRESH</span></code> ou
 <code class="docutils literal notranslate"><span class="pre">REMOVE</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Exemple d’opérations en cascade</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Exemple d’opérations en cascade</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.CascadeType</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
@@ -639,6 +697,21 @@ enregistrée en base si nécessaire au moment où l’instance d’Individu
 sera elle-même enregistrée. De plus, lors d’un appel à merge pour une
 instance d’Individu, un merge sera automatiquement realisé sur
 l’instance de l’attribut société.</p>
+<div class="section" id="id3">
+<h3>Exercice<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="first admonition-title">Droit d’accès</p>
+<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez les méthodes suivantes :</p>
+<dl class="last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">create(Utilisateur</span> <span class="pre">u)</span></code></dt>
+<dd>Cette méthode crée l’utilisateur passé en paramètre ainsi que son badge.
+Utilisez la propagation en cascade pour réaliser l’insertion du badge.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">supprimer(int</span> <span class="pre">id)</span></code></dt>
+<dd>Cette méthode supprime un utilisateur, son badge et son association avec
+les droits. Utilisez la propagation en cascade pour réaliser ces suppressions.</dd>
+</dl>
+</div>
+</div>
 </div>
 <div class="section" id="requetes-jpql-et-jointure">
 <h2>Requêtes JPQL et jointure<a class="headerlink" href="#requetes-jpql-et-jointure" title="Lien permanent vers ce titre">¶</a></h2>
@@ -690,8 +763,8 @@ appliquée par défaut pour <a class="reference external" href="https://docs.ora
 Cette stratégie est appliquée par défaut pour <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> et
 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de fetch lazy</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de fetch lazy</span><a class="headerlink" href="#id16" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Basic</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.FetchType</span><span class="o">;</span>
@@ -765,10 +838,10 @@ tuning dans le développement d’une application utilisant JPA.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_inheritance.html" class="btn btn-neutral" title="L’héritage avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

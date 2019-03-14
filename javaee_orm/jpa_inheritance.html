@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les relations avec JPA" href="jpa_relations.html" />
-    <link rel="prev" title="Les requêtes JPA" href="jpa_queries.html" /> 
+    <link rel="next" title="JDBC dans une application Web" href="jdbc_webapp.html" />
+    <link rel="prev" title="Les relations avec JPA" href="jpa_relations.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -123,10 +123,34 @@
 <li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#exercice">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id3">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">L’héritage avec JPA</a><ul>
@@ -138,19 +162,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
@@ -248,10 +259,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_relations.html" class="btn btn-neutral" title="Les relations avec JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -712,10 +723,10 @@ ni d’utiliser des requêtes polymorphiques.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_queries.html" class="btn btn-neutral" title="Les requêtes JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_relations.html" class="btn btn-neutral" title="Les relations avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

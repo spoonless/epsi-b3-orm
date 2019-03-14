@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="L’héritage avec JPA" href="jpa_inheritance.html" />
+    <link rel="next" title="Les relations avec JPA" href="jpa_relations.html" />
     <link rel="prev" title="Les entités JPA" href="jpa_entites.html" /> 
 
   
@@ -123,10 +123,34 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les requêtes JPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#les-requetes-natives">Les requêtes Natives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercice">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#les-requetes-par-programmation">Les requêtes par programmation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id3">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
@@ -138,19 +162,6 @@
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
@@ -248,7 +259,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="jpa_entites.html" class="btn btn-neutral" title="Les entités JPA" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -429,6 +440,25 @@ qu’un alias de table SQL est optionnel.</p>
 dans une requête sous la forme <code class="docutils literal notranslate"><span class="pre">:nom</span></code>. Les paramètres disposent
 ainsi d’un nom explicite, rendant ainsi le code plus facile à lire et à
 maintenir.</p>
+<div class="section" id="exercice">
+<h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="first admonition-title">Créer la classe UtilisateurDao</p>
+<p>Créez une classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code> avec les méthodes suivantes :</p>
+<dl class="last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">get(int</span> <span class="pre">id)</span></code></dt>
+<dd>retourne un utilisateur à partir de son identifiant. Vous n’avez pas besoin
+de requête JPQL pour cette méthode.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">get()</span></code></dt>
+<dd>retourne la liste de tous les utilisateurs. Utilisez une requête JPQL.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">getActifs()</span></code></dt>
+<dd>retourne la liste de tous les utilisateurs actifs. Utilisez une requête JPQL.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">desactiverInscritsAvant(Date</span> <span class="pre">date)</span></code></dt>
+<dd>désactive les utilisateurs dont la date d’inscription est inférieure à la
+date passée en paramètre. Utilisez une requête JPQL.</dd>
+</dl>
+</div>
+</div>
 <div class="section" id="les-requetes-par-programmation">
 <h3>Les requêtes par programmation<a class="headerlink" href="#les-requetes-par-programmation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsque l’on souhaite construire une requête JPQL dynamiquement, il
@@ -586,7 +616,7 @@ tout doublon dans le nom des requêtes.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jpa_inheritance.html" class="btn btn-neutral float-right" title="L’héritage avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jpa_relations.html" class="btn btn-neutral float-right" title="Les relations avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="jpa_entites.html" class="btn btn-neutral" title="Les entités JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
