@@ -359,6 +359,22 @@ mais il est possible de changer ce nom grâce à l’annotation
 </pre></div>
 </div>
 </div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> est navigable directement.
+Si on désire exprimer un requête de la forme</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Sélectionner l’individu avec l’abonnement dont l’id est 1.</div>
+</div>
+</div></blockquote>
+<p>alors il suffit d’écrire en JPQL :</p>
+<blockquote class="last">
+<div><div class="line-block">
+<div class="line"><strong>select i from Individu i where i.abonnement.id = 1</strong></div>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="exercice">
 <h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="exercice admonition">
@@ -463,6 +479,22 @@ entre les deux entités avec l’annotation <a class="reference external" href="
 </pre></div>
 </div>
 </div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> est navigable directement.
+Si on désire exprimer un requête de la forme</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Sélectionner les individus appartenant à la société avec l’id 1.</div>
+</div>
+</div></blockquote>
+<p>alors il suffit d’écrire en JPQL :</p>
+<blockquote class="last">
+<div><div class="line-block">
+<div class="line"><strong>select i from Individu i where i.societe.id = 1</strong></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="la-relation-1-n-one-to-many">
 <h2>La relation 1:n (one to many)<a class="headerlink" href="#la-relation-1-n-one-to-many" title="Lien permanent vers ce titre">¶</a></h2>
@@ -523,6 +555,23 @@ table d’association pour établir la relation entre les deux entités avec
 l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>.
 Ainsi, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> fonctionne exactement comme <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> sauf
 que cette annotation porte sur l’autre côté de la relation.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> <strong>n’est pas navigable
+directement</strong>. Si on désire exprimer un requête de la forme</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Sélectionner la société dont un des employés a l’id 1.</div>
+</div>
+</div></blockquote>
+<p>alors il faut utiliser en JPQL la <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN">syntaxe du fetch</a> pour faire apparaître
+une variable intermédiaire dans la requête :</p>
+<blockquote class="last">
+<div><div class="line-block">
+<div class="line"><strong>select s from Societe s join s.employes e where e.id = 1</strong></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="la-relation-n-n-many-to-many">
 <h2>La relation n:n (many to many)<a class="headerlink" href="#la-relation-n-n-many-to-many" title="Lien permanent vers ce titre">¶</a></h2>
@@ -588,6 +637,23 @@ Il est possible de décrire explicitement la relation grâce à l’annotation
 <span class="o">}</span>
 </pre></div>
 </div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> <strong>n’est pas navigable
+directement</strong>. Si on désire exprimer un requête de la forme</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Sélectionner les individus dont un des enfants à l’id 1.</div>
+</div>
+</div></blockquote>
+<p>alors il faut utiliser en JPQL la <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/JPQL#JOIN">syntaxe du fetch</a> pour faire apparaître
+une variable intermédiaire dans la requête :</p>
+<blockquote class="last">
+<div><div class="line-block">
+<div class="line"><strong>select i from Individu i join i.enfants e where e.id = 1</strong></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="id1">
 <h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
@@ -706,9 +772,11 @@ l’instance de l’attribut société.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">create(Utilisateur</span> <span class="pre">u)</span></code></dt>
 <dd>Cette méthode crée l’utilisateur passé en paramètre ainsi que son badge.
 Utilisez la propagation en cascade pour réaliser l’insertion du badge.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">supprimer(int</span> <span class="pre">id)</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">supprimer(Utilisateur</span> <span class="pre">u)</span></code></dt>
 <dd>Cette méthode supprime un utilisateur, son badge et son association avec
-les droits. Utilisez la propagation en cascade pour réaliser ces suppressions.</dd>
+les droits. Utilisez la méthode
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#remove-java.lang.Object-">EntityManager.remove(o)</a>
+et la propagation en cascade pour réaliser la suppression.</dd>
 </dl>
 </div>
 </div>
