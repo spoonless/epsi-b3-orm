@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JDBC dans une application Web &mdash; Documentation Java ORM 1.0</title>
+  <title>JDBC dans une application Web &mdash; Documentation Java ORM </title>
   
 
   
@@ -17,13 +17,21 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
@@ -31,21 +39,16 @@
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Les EJB" href="ejb.html" />
     <link rel="prev" title="L’héritage avec JPA" href="jpa_inheritance.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -166,7 +169,6 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">JDBC dans une application Web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
@@ -326,7 +328,7 @@ n’importe quel composant Java EE grâce à l’annotation <a class="reference 
 <p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">Resource</a> permet de spécifier le nom de la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> grâce à
 l’attribut <em>name</em>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">Resource</a> se base sur <strong>JNDI</strong> (Java Naming and Directory
 Interface) pour rechercher la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> demandée. JNDI est une API standard
 de Java permettant de se connecter à des annuaires (notamment les annuaires
@@ -348,32 +350,10 @@ de fichiers). Une ressource est stockée dans l’arborescence <strong>java:/com
 </pre></div>
 </div>
 </div>
-<p class="last">Le contexte JNDI <strong>java:/comp/env</strong> est un contexte particulier. Il désigne
+<p>Le contexte JNDI <strong>java:/comp/env</strong> est un contexte particulier. Il désigne
 l’ensemble des composants Java EE disponibles dans l’environnement (env) du
 composant Java EE (comp) courant.</p>
 </div>
-</div>
-<div class="section" id="declaration-de-la-datasource-dans-le-fichier-web-xml">
-<span id="configuration-datasource"></span><h2>Déclaration de la DataSource dans le fichier web.xml<a class="headerlink" href="#declaration-de-la-datasource-dans-le-fichier-web-xml" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le fichier de déploiement <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> doit déclarer la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> comme
-une ressource de l’application. Cela va permettre au serveur d’application
-de permettre à l’application de se connecter à la base de données associée.
-Pour cela, on utilise l’élément <code class="docutils literal notranslate"><span class="pre">&lt;resource-ref&gt;</span></code> dans le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> :</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Déclaration de la DataSource dans le fichier web.xml</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;resource-ref&gt;</span>
-<span class="nt">&lt;res-ref-name&gt;</span>nomDeLaDataSource<span class="nt">&lt;/res-ref-name&gt;</span>
-  <span class="nt">&lt;res-type&gt;</span>javax.sql.DataSource<span class="nt">&lt;/res-type&gt;</span>
-  <span class="nt">&lt;mapped-name&gt;</span>java:/nomDeLaDataSource<span class="nt">&lt;/mapped-name&gt;</span>
-<span class="nt">&lt;/resource-ref&gt;</span>
-</pre></div>
-</div>
-</div>
-<p>Mais comment le serveur d’application fait-il pour lier
-une <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> avec une connexion vers une base de données ? Malheureusement,
-il n’existe pas de standard et chaque serveur d’application dispose de sa
-procédure. Nous allons voir dans la section suivante comment créer une <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a>
-spécifiquement pour Wildfly.</p>
 </div>
 <div class="section" id="declaration-d-une-datasource-dans-wildfly">
 <h2>Déclaration d’une DataSource dans Wildfly<a class="headerlink" href="#declaration-d-une-datasource-dans-wildfly" title="Lien permanent vers ce titre">¶</a></h2>
@@ -392,9 +372,9 @@ les tests permettant de vérifier que les connexions sont correctement
 établies, la supervision des connexions…</p>
 <p>Pour ajouter ce pilote dans Wildfly, nous pouvons :</p>
 <ul class="simple">
-<li>soit laisser le serveur le faire grâce à une procédure de déploiement
-automatisé.</li>
-<li>soit ajouter un nouveau module dans le serveur</li>
+<li><p>soit laisser le serveur le faire grâce à une procédure de déploiement
+automatisé.</p></li>
+<li><p>soit ajouter un nouveau module dans le serveur</p></li>
 </ul>
 <p>Les sections suivantes décrivent respectivement ces méthodes. La première méthode
 est assez simple à réaliser et elle est donc recommandée pour commencer.
@@ -402,8 +382,8 @@ La seconde, plus complexe, donne plus d’options de configuration à l’admini
 <div class="section" id="deploiement-automatique-du-driver-mysql-methode-1">
 <h3>Déploiement automatique du driver MySQL (méthode 1)<a class="headerlink" href="#deploiement-automatique-du-driver-mysql-methode-1" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Vous pouvez télécharger le driver MySQL pour JDBC
+<p class="admonition-title">Note</p>
+<p>Vous pouvez télécharger le driver MySQL pour JDBC
 <a class="reference external" href="https://mvnrepository.com/artifact/mysql/mysql-connector-java">ici selon la version</a>.</p>
 </div>
 <p>Pour déployer automatiquement le pilote MySQL dans Wildfly, il suffit de placer
@@ -412,16 +392,16 @@ depuis le répertoire d’installation du serveur.</p>
 <p>Démarrez ensuite votre serveur et scrutez dans les logs de démarrage du serveur
 la trace qui indique le déploiement par le serveur. Pour MySQL, vous devriez avoir
 une ligne de log telle que :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>09:51:40,222 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-5.1.46.jar_com.mysql.jdbc.Driver_5_1
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>09:51:40,222 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-5.1.47.jar_com.mysql.jdbc.Driver_5_1
 </pre></div>
 </div>
 <p>Cette ligne (un peu longue) indique tout au bout le nom attribué automatiquement
 au driver par le serveur au démarrage. Pour l’exemple ci-dessus, le nom est
-<strong>mysql-connector-java-5.1.46.jar_com.mysql.jdbc.Driver_5_1</strong>. Mais attention
+<strong>mysql-connector-java-5.1.47.jar_com.mysql.jdbc.Driver_5_1</strong>. Mais attention
 ce nom peut être différent pour votre configuration.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Remarquez que le répertoire <code class="file docutils literal notranslate"><span class="pre">standalone/deployments/</span></code> dans lequel vous
+<p class="admonition-title">Note</p>
+<p>Remarquez que le répertoire <code class="file docutils literal notranslate"><span class="pre">standalone/deployments/</span></code> dans lequel vous
 avez placé le driver de base de données contient également les fichiers <em>war</em>
 des applications que vous avez déjà déployées. Ce répertoire est scruté en
 permanence par le serveur et il déploie les modules qui sont copiés dedans.</p>
@@ -468,7 +448,7 @@ des pilotes de base de données et des sources de données :</p>
           <span class="nt">&lt;/datasource&gt;</span>
 <span class="hll">          <span class="nt">&lt;datasource</span> <span class="na">jta=</span><span class="s">&quot;true&quot;</span> <span class="na">jndi-name=</span><span class="s">&quot;java:/nomDeLaDataSource&quot;</span> <span class="na">pool-name=</span><span class="s">&quot;nomDeLaDataSource&quot;</span> <span class="na">enabled=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
 </span><span class="hll">              <span class="nt">&lt;connection-url&gt;</span>jdbc:mysql://[HOST]:[PORT]/[NOM SCHEMA]<span class="nt">&lt;/connection-url&gt;</span>
-</span><span class="hll">              <span class="nt">&lt;driver&gt;</span>mysql-connector-java-5.1.46.jar_com.mysql.jdbc.Driver_5_1<span class="nt">&lt;/driver&gt;</span>
+</span><span class="hll">              <span class="nt">&lt;driver&gt;</span>mysql-connector-java-5.1.47.jar_com.mysql.jdbc.Driver_5_1<span class="nt">&lt;/driver&gt;</span>
 </span><span class="hll">              <span class="nt">&lt;security&gt;</span>
 </span><span class="hll">                  <span class="nt">&lt;user-name&gt;</span>[LOGIN]<span class="nt">&lt;/user-name&gt;</span>
 </span><span class="hll">                  <span class="nt">&lt;password&gt;</span>[PASSWORD]<span class="nt">&lt;/password&gt;</span>
@@ -490,8 +470,8 @@ le nom du driver déployé automatiquement par le serveur.</p>
 <div class="section" id="ajout-du-driver-mysql-comme-nouveau-module-methode-2">
 <h3>Ajout du driver MySQL comme nouveau module (méthode 2)<a class="headerlink" href="#ajout-du-driver-mysql-comme-nouveau-module-methode-2" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Vous pouvez télécharger le driver MySQL pour JDBC
+<p class="admonition-title">Note</p>
+<p>Vous pouvez télécharger le driver MySQL pour JDBC
 <a class="reference external" href="https://mvnrepository.com/artifact/mysql/mysql-connector-java">ici selon la version</a>.</p>
 </div>
 <p>Pour ajouter le pilote MySQL dans Wildfly, nous pouvons créer un nouveau module dans le serveur.
@@ -598,7 +578,7 @@ des pilotes de base de données et des sources de données :</p>
         <a href="ejb.html" class="btn btn-neutral float-right" title="Les EJB" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_inheritance.html" class="btn btn-neutral" title="L’héritage avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_inheritance.html" class="btn btn-neutral float-left" title="L’héritage avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
@@ -625,27 +605,16 @@ des pilotes de base de données et des sources de données :</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

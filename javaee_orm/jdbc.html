@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Accès aux bases de données : JDBC &mdash; Documentation Java ORM 1.0</title>
+  <title>Accès aux bases de données : JDBC &mdash; Documentation Java ORM </title>
   
 
   
@@ -17,13 +17,21 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
@@ -31,21 +39,16 @@
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Les entités JPA" href="jpa_entites.html" />
     <link rel="prev" title="Sommaire" href="../index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -166,7 +169,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
@@ -340,10 +342,10 @@ dans le fichier pom.xml dans la section dependencies :</p>
 </div>
 <p>On peut rechercher le pilote souhaité sur le site du <a class="reference external" href="https://mvnrepository.com/">Maven Repository</a>.</p>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
+<p class="admonition-title">Prudence</p>
 <p>pour des raisons de licence, certains pilotes JDBC ne sont pas disponibles
 dans les référentiels Maven. C’est le cas notamment du pilote JDBC pour Oracle.</p>
-<p class="last">Vous devez télécharger le pilote vous-même sur le <a class="reference external" href="https://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">site d’Oracle</a>.
+<p>Vous devez télécharger le pilote vous-même sur le <a class="reference external" href="https://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">site d’Oracle</a>.
 Si vous souhaitez ajouter le pilote Oracle dans votre référentiel Maven en
 local, consultez <a class="reference external" href="http://www.mkyong.com/maven/how-to-add-oracle-jdbc-driver-in-your-maven-local-repository/">cet article</a>.</p>
 </div>
@@ -386,70 +388,70 @@ avons besoin de connaître la classe du pilote et l’URL de connexion à la bas
 données. Il n’existe pas vraiment de règle en la matière puisque chaque
 fournisseur de pilote décide du nom de la classe et du format de l’URL. Le
 tableau suivant donne les informations nécessaires suivant le SGBDR :</p>
-<table border="1" class="colwidths-given docutils">
+<table class="colwidths-given docutils align-center">
 <colgroup>
-<col width="14%" />
-<col width="29%" />
-<col width="57%" />
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 57%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">SGBDR</th>
-<th class="head">Nom de la classe du pilote</th>
-<th class="head">Format de l’URL de connexion</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>SGBDR</p></th>
+<th class="head"><p>Nom de la classe du pilote</p></th>
+<th class="head"><p>Format de l’URL de connexion</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Oracle DB</td>
-<td>oracle.jdbc.OracleDriver</td>
-<td><div class="first last line-block">
+<tbody>
+<tr class="row-even"><td><p>Oracle DB</p></td>
+<td><p>oracle.jdbc.OracleDriver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:oracle:thin:&#64;[host]:[port]:[schema">jdbc:oracle:thin:&#64;[host]:[port]:[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:oracle:thin:&#64;localhost:1521:maBase">jdbc:oracle:thin:&#64;localhost:1521:maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>MySQL &lt;= 5.1</td>
-<td>com.mysql.jdbc.Driver</td>
-<td><div class="first last line-block">
+<tr class="row-odd"><td><p>MySQL &lt;= 5.1</p></td>
+<td><p>com.mysql.jdbc.Driver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:mysql://[host]:[port]/[schema">jdbc:mysql://[host]:[port]/[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:mysql://localhost:3306/maBase">jdbc:mysql://localhost:3306/maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>MySQL &gt;= 8</td>
-<td>com.mysql.cj.jdbc.Driver</td>
-<td><div class="first last line-block">
+<tr class="row-even"><td><p>MySQL &gt;= 8</p></td>
+<td><p>com.mysql.cj.jdbc.Driver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:mysql://[host]:[port]/[schema">jdbc:mysql://[host]:[port]/[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:mysql://localhost:3306/maBase">jdbc:mysql://localhost:3306/maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>MariaDB</td>
-<td>org.mariadb.jdbc.Driver</td>
-<td><div class="first last line-block">
+<tr class="row-odd"><td><p>MariaDB</p></td>
+<td><p>org.mariadb.jdbc.Driver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:mariadb://[host]:[port]/[schema">jdbc:mariadb://[host]:[port]/[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:mariadb://localhost:3306/maBase">jdbc:mariadb://localhost:3306/maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>PosgreSQL</td>
-<td>org.postgresql.Driver</td>
-<td><div class="first last line-block">
+<tr class="row-even"><td><p>PosgreSQL</p></td>
+<td><p>org.postgresql.Driver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:postgresql://[host]:[port]/[schema">jdbc:postgresql://[host]:[port]/[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:postgresql://localhost:5432/maBase">jdbc:postgresql://localhost:5432/maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>HSQLDB (mode fichier)</td>
-<td>org.hsqldb.jdbcDriver</td>
-<td><div class="first last line-block">
+<tr class="row-odd"><td><p>HSQLDB (mode fichier)</p></td>
+<td><p>org.hsqldb.jdbcDriver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:hsqldb:file:[chemin">jdbc:hsqldb:file:[chemin</a> du fichier]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:hsqldb:file:maBase">jdbc:hsqldb:file:maBase</a></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>HSQLDB (mode mémoire)</td>
-<td>org.hsqldb.jdbcDriver</td>
-<td><div class="first last line-block">
+<tr class="row-even"><td><p>HSQLDB (mode mémoire)</p></td>
+<td><p>org.hsqldb.jdbcDriver</p></td>
+<td><div class="line-block">
 <div class="line"><a class="reference external" href="jdbc:hsqldb:mem:[schema">jdbc:hsqldb:mem:[schema</a>]</div>
 <div class="line">Ex : <a class="reference external" href="jdbc:hsqldb:mem:maBase">jdbc:hsqldb:mem:maBase</a></div>
 </div>
@@ -458,11 +460,11 @@ tableau suivant donne les informations nécessaires suivant le SGBDR :</p>
 </tbody>
 </table>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>Pour MySQL &gt;= 8, il est parfois nécessaire de préciser le fuseau horaire
 à utiliser par le serveur en passant le paramètre <code class="docutils literal notranslate"><span class="pre">serverTimezone</span></code> dans
 l’URI de connexion :</p>
-<div class="last highlight-text notranslate"><div class="highlight"><pre><span></span>jdbc:mysql://localhost:3306/maBase?serverTimezone=GMT
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>jdbc:mysql://localhost:3306/maBase?serverTimezone=GMT
 </pre></div>
 </div>
 </div>
@@ -474,17 +476,17 @@ l’URI de connexion :</p>
 On distingue 3 types de Statement :</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> : Permet d’exécuter une requête SQL et d’en connaître le résultat.</li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> : Comme le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a>, le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> permet
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> : Permet d’exécuter une requête SQL et d’en connaître le résultat.</p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> : Comme le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a>, le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> permet
 d’exécuter une requête SQL et d’en connaître le résultat. Le
 <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> est une requête paramétrable. Pour des raisons de
 performance, on peut préparer une requête et ensuite l’exécuter autant de
 fois que nécessaire en passant des paramètres différents. Le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a>
 est également pratique pour se prémunir efficacement des failles de sécurité
-par injection SQL.</li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> : permet d’exécuter des procédures stockées sur le SGBDR.
+par injection SQL.</p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> : permet d’exécuter des procédures stockées sur le SGBDR.
 On peut ainsi passer des paramètres en entrée du <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> et
-récupérer les paramètres de sortie après exécution.</li>
+récupérer les paramètres de sortie après exécution.</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -510,12 +512,12 @@ des requêtes SQL :</p>
 </pre></div>
 </div>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
+<p class="admonition-title">Prudence</p>
 <p>Un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> est une ressource JDBC et il doit être fermé dès qu’il n’est plus nécessaire :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">stmt</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </pre></div>
 </div>
-<p class="last">La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à être utilisée
+<p>La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à être utilisée
 dans un <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>.</p>
 </div>
 <p>Pour des raisons de performance, il est également possible d’utiliser un
@@ -537,7 +539,7 @@ séquentiellement.</p>
 <div class="section" id="exercice">
 <h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="exercice admonition">
-<p class="first admonition-title">Exercice - Gestion des droits</p>
+<p class="admonition-title">Exercice - Gestion des droits</p>
 <p>On se propose d’écrire un programme Java qui va interagir avec une base de données
 qui gère les droits d’accès des utilisateurs.</p>
 <p>Téléchargez la <a class="reference download internal" download="" href="../_downloads/13f887355056fb9bae3e6c27685031f6/db_acces.sql"><code class="xref download docutils literal notranslate"><span class="pre">base</span> <span class="pre">de</span> <span class="pre">données</span></code></a>.</p>
@@ -546,16 +548,16 @@ qui gère les droits d’accès des utilisateurs.</p>
 de données pour passer la colonne <code class="docutils literal notranslate"><span class="pre">Utilisateur.actif</span></code> à <code class="docutils literal notranslate"><span class="pre">false</span></code> pour
 les utilisateurs dont la date d’inscription est supérieure à 10 ans.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Dans la conception objet, on trouve très souvent des classes qui jouent
+<p class="admonition-title">Note</p>
+<p>Dans la conception objet, on trouve très souvent des classes qui jouent
 le rôle de <a class="reference external" href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a>
 (Data Access Object), c’est-à-dire qui fournissent les méthodes
 permettant d’interagir avec une base de données. En Java, on signale généralement
 ce type de classes en suffixant leur nom par <em>Dao</em>.</p>
 </div>
-<div class="last admonition tip">
-<p class="first admonition-title">Astuce</p>
-<p class="last">Utilisez la méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a> disponible sur un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a>. Pour la
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Utilisez la méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a> disponible sur un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a>. Pour la
 requête SQL, pensez à utiliser la fonction MySQL
 <a class="reference external" href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html#function_year">YEAR()</a>.</p>
 </div>
@@ -577,8 +579,8 @@ dans un type supporté par Java.</p>
 <p><em>XXX</em> représente le type Java que la méthode retourne. Si on passe un numéro en
 paramètre, il s’agit du numéro de la colonne dans l’ordre du select.</p>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
-<p class="last">Le numéro de la première colonne est <strong>1</strong>.</p>
+<p class="admonition-title">Prudence</p>
+<p>Le numéro de la première colonne est <strong>1</strong>.</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;select titre, date_sortie, duree from films&quot;</span><span class="o">;</span>
 
@@ -597,23 +599,23 @@ paramètre, il s’agit du numéro de la colonne dans l’ordre du select.</p>
 </pre></div>
 </div>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
+<p class="admonition-title">Prudence</p>
 <p>Un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a> est une ressource JDBC et il doit être fermé dès qu’il n’est
 plus nécessaire :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">resultSet</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </pre></div>
 </div>
-<p class="last">La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à être utilisée
+<p>La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à être utilisée
 dans un <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>.</p>
 </div>
 <div class="section" id="id1">
 <h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="exercice admonition">
-<p class="first admonition-title">Exercice - Gestion des droits (suite)</p>
+<p class="admonition-title">Exercice - Gestion des droits (suite)</p>
 <p>Ajoutez la méthode <code class="docutils literal notranslate"><span class="pre">List&lt;Utilisateur&gt;</span> <span class="pre">getUtilisateurs()</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">DroitAccesDao</span></code>.
 Cette méthode retourne la liste de tous les utilisateurs stockés dans la table <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code>.</p>
 <p>La classe <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> ressemble à :</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
 
@@ -643,8 +645,8 @@ indiquant l’emplacement des paramètres.</p>
 <p><em>XXX</em> représente le type du paramètre, <em>parameterIndex</em> sa position dans la
 requête SQL (attention, le premier paramètre a l’indice <strong>1</strong>) et <em>x</em> sa valeur.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Pour positionner un paramètre SQL à <em>NULL</em>, il faut utiliser la méthode
+<p class="admonition-title">Note</p>
+<p>Pour positionner un paramètre SQL à <em>NULL</em>, il faut utiliser la méthode
 <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html#setNull(int,int)">setNull(int parameterIndex, int sqlType)</a>.</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;insert into films (titre, date_sortie, duree) values (?, ?, ?)&quot;</span><span class="o">;</span>
@@ -660,37 +662,37 @@ requête SQL (attention, le premier paramètre a l’indice <strong>1</strong>) 
 </pre></div>
 </div>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
+<p class="admonition-title">Prudence</p>
 <p>Un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> est une ressource JDBC et il doit être fermé dès qu’il
 n’est plus nécessaire :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">pstmt</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </pre></div>
 </div>
-<p class="last">La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à
+<p>La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à
 être utilisée dans un <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>.</p>
 </div>
 <p>Le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> reprend une API similaire à celle du <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html">Statement</a> :</p>
 <ul class="simple">
-<li>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#execute(java.lang.String)">execute</a> pour tous les types de requête SQL</li>
-<li>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeQuery(java.lang.String)">executeQuery</a> (qui retourne un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a>) pour les requêtes SQL de type select</li>
-<li>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a> pour toutes les requêtes SQL qui ne sont pas des select</li>
+<li><p>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#execute(java.lang.String)">execute</a> pour tous les types de requête SQL</p></li>
+<li><p>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeQuery(java.lang.String)">executeQuery</a> (qui retourne un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/ResultSet.html">ResultSet</a>) pour les requêtes SQL de type select</p></li>
+<li><p>une méthode <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a> pour toutes les requêtes SQL qui ne sont pas des select</p></li>
 </ul>
 <p>Le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> offre trois avantages :</p>
 <ul class="simple">
-<li>il permet de convertir efficacement les types Java en types SQL pour les données en entrée</li>
-<li>il permet d’améliorer les performances si on désire exécuter plusieurs fois la
+<li><p>il permet de convertir efficacement les types Java en types SQL pour les données en entrée</p></li>
+<li><p>il permet d’améliorer les performances si on désire exécuter plusieurs fois la
 même requête avec des paramètres différents. À noter que le <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a>
-supporte lui aussi le mode batch</li>
-<li>il permet de se prémunir de failles de sécurité telles que l’injection SQL</li>
+supporte lui aussi le mode batch</p></li>
+<li><p>il permet de se prémunir de failles de sécurité telles que l’injection SQL</p></li>
 </ul>
 <div class="section" id="id2">
 <h3>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="exercice admonition">
-<p class="first admonition-title">Exercice - Gestion des droits (suite)</p>
+<p class="admonition-title">Exercice - Gestion des droits (suite)</p>
 <p>Ajoutez la méthode <code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">isAutorise(String</span> <span class="pre">login,</span> <span class="pre">String</span> <span class="pre">droit)</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">DroitAccesDao</span></code>.
 Cette méthode retourne <code class="docutils literal notranslate"><span class="pre">true</span></code> si le login passé en paramètre existe en base
 de données, est actif et s’il possède le droit passé en second paramètre.</p>
-<p class="last">Vous <strong>devez</strong> utiliser un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> pour implémenter cette méthode.</p>
+<p>Vous <strong>devez</strong> utiliser un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> pour implémenter cette méthode.</p>
 </div>
 </div>
 <div class="section" id="l-injection-sql">
@@ -798,13 +800,13 @@ base de données.</p>
 </pre></div>
 </div>
 <div class="admonition caution">
-<p class="first admonition-title">Prudence</p>
+<p class="admonition-title">Prudence</p>
 <p>Un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> est une ressource JDBC et il doit être fermé dès qu’il
 n’est plus nécessaire :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">stmt</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </pre></div>
 </div>
-<p class="last">La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à
+<p>La classe <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/CallableStatement.html">CallableStatement</a> implémente <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/lang/AutoCloseable.html">AutoCloseable</a>, ce qui l’autorise à
 être utilisée dans un <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>.</p>
 </div>
 </div>
@@ -812,20 +814,20 @@ n’est plus nécessaire :</p>
 <h2>La transaction<a class="headerlink" href="#la-transaction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La plupart des SGBDR intègrent un moteur de transaction. Une transaction est
 définie par le respect de quatre propriétés désignées par l’acronyme <a class="reference external" href="https://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9s_ACID">ACID</a> :</p>
-<dl class="docutils">
-<dt>Atomicité</dt>
-<dd>La transaction garantit que l’ensemble des opérations qui la composent sont
-soit toutes réalisées avec succès soit aucune n’est conservée.</dd>
-<dt>Cohérence</dt>
-<dd>La transaction garantit qu’elle fait passer le système d’un état valide vers
-un autre état valide.</dd>
-<dt>Isolation</dt>
-<dd>Deux transactions sont isolées l’une de l’autre. C’est-à-dire que leur
+<dl class="simple">
+<dt>Atomicité</dt><dd><p>La transaction garantit que l’ensemble des opérations qui la composent sont
+soit toutes réalisées avec succès soit aucune n’est conservée.</p>
+</dd>
+<dt>Cohérence</dt><dd><p>La transaction garantit qu’elle fait passer le système d’un état valide vers
+un autre état valide.</p>
+</dd>
+<dt>Isolation</dt><dd><p>Deux transactions sont isolées l’une de l’autre. C’est-à-dire que leur
 exécution simultanée produit le même résultat que si elles avaient été
-exécutées successivement.</dd>
-<dt>Durabilité</dt>
-<dd>La transaction garantit qu’après son exécution, les modifications qu’elle a
-apportées au système sont conservées durablement.</dd>
+exécutées successivement.</p>
+</dd>
+<dt>Durabilité</dt><dd><p>La transaction garantit qu’après son exécution, les modifications qu’elle a
+apportées au système sont conservées durablement.</p>
+</dd>
 </dl>
 <p>Une transaction est définie par un début et une fin qui peut être soit une
 validation des modifications (<em>commit</em>), soit une annulation des modifications
@@ -944,7 +946,7 @@ Pour cela, on utilise la démarcation transactionnelle.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="exercice admonition">
-<p class="first admonition-title">Exercice - Gestion des droits (suite)</p>
+<p class="admonition-title">Exercice - Gestion des droits (suite)</p>
 <p>Ajoutez la méthode <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addUtilisateur(Utilisateur</span> <span class="pre">u,</span> <span class="pre">String...</span> <span class="pre">droit)</span></code>
 qui permet d’insérer en bas de données un nouvel utilisateur en lui associant
 les droits demandés. Si un des droits demandés n’existe pas, la méthode doit
@@ -952,8 +954,8 @@ les droits demandés. Si un des droits demandés n’existe pas, la méthode doi
 <p>Vous <strong>devez</strong> utiliser des <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> et une transaction afin de
 garantir que si l’association d’un droit échoue, l’utilisateur n’est pas créé
 en base de données.</p>
-<div class="last admonition tip">
-<p class="first admonition-title">Astuce</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
 <p>Pour insérer les droits de l’utilisateur en base de données, vous aurez
 besoin de son id. Dans le schéma de base de données, cet id est géré
 par MySQL en <em>auto increment</em>. Vous pouvez néanmoins récupérer la valeur
@@ -962,7 +964,7 @@ de la clé générée après l’appel à <a class="reference external" href="ht
 les clés générées lors d’une insertion. Attention cependant, vous devez
 créer un <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/sql/PreparedStatement.html">PreparedStatement</a> en précisant qu’il supporte le retour des clés
 générées :</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;insert into films (titre, date_sortie, duree) values (?, ?, ?)&quot;</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;insert into films (titre, date_sortie, duree) values (?, ?, ?)&quot;</span><span class="o">;</span>
 
 <span class="k">try</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">Statement</span><span class="o">.</span><span class="na">RETURN_GENERATED_KEYS</span><span class="o">))</span> <span class="o">{</span>
 
@@ -997,7 +999,7 @@ générées :</p>
         <a href="jpa_entites.html" class="btn btn-neutral float-right" title="Les entités JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Sommaire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sommaire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
@@ -1024,27 +1026,16 @@ générées :</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JPA dans une application Web &mdash; Documentation Java ORM 1.0</title>
+  <title>JPA dans une application Web &mdash; Documentation Java ORM </title>
   
 
   
@@ -17,34 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="prev" title="Les EJB" href="ejb.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -165,7 +168,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
@@ -273,21 +275,21 @@
 <p>JPA permet de réaliser l’accès à la couche de données. Si on considère Java EE
 comme modèle prescriptif pour la conception d’architecture logicielle, alors
 l’ensemble des composants forme une application multi-couches (N-tiers) :</p>
-<dl class="docutils">
-<dt>Couche client (Client tier)</dt>
-<dd>Pour une application Web, il s’agit des pages Web et du code Javascript
+<dl class="simple">
+<dt>Couche client (Client tier)</dt><dd><p>Pour une application Web, il s’agit des pages Web et du code Javascript
 téléchargés par le navigateur client. Cette couche est responsable de
-l’affichage et de l’interaction avec l’utilisateur.</dd>
-<dt>Couche Web (Web tier)</dt>
-<dd>Il s’agit du point d’échange entre le client et le serveur. Les composants
+l’affichage et de l’interaction avec l’utilisateur.</p>
+</dd>
+<dt>Couche Web (Web tier)</dt><dd><p>Il s’agit du point d’échange entre le client et le serveur. Les composants
 principaux sont les Servlets/JSP et les Facelets JSF. La logique de ces
 composants se limite à valider les données en entrée et à produire une
-représentation des données en sortie.</dd>
-<dt>Couche métier (Business tier)</dt>
-<dd>Il s’agit de l’ensemble des traitements propres à l’application. Les composants sont les EJB.</dd>
-<dt>Couche du système d’information (Enterprise Information System tier)</dt>
-<dd>Il s’agit principalement des serveurs de bases de données. L’application
-interagit avec ces serveurs grâce au service JDBC ou aux Entity Beans (JPA).</dd>
+représentation des données en sortie.</p>
+</dd>
+<dt>Couche métier (Business tier)</dt><dd><p>Il s’agit de l’ensemble des traitements propres à l’application. Les composants sont les EJB.</p>
+</dd>
+<dt>Couche du système d’information (Enterprise Information System tier)</dt><dd><p>Il s’agit principalement des serveurs de bases de données. L’application
+interagit avec ces serveurs grâce au service JDBC ou aux Entity Beans (JPA).</p>
+</dd>
 </dl>
 <p>Si nous suivons cette logique, alors un <em>entity manager</em> doit être manipulé par
 un EJB.</p>
@@ -323,8 +325,13 @@ une URL JDBC mais une DataSource.</p>
 <p>L’unité de persistance est déclarée en utilisant la balise
 <code class="docutils literal notranslate"><span class="pre">&lt;jta-data-source&gt;</span></code> qui précise le nom de la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> déclarée dans le serveur.
 Pour un déploiement dans Wildfly, il faudra, par exemple, ajouter la déclaration
-de cette DataSource dans le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> ainsi que dans le serveur
+de cette <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> dans le fichier <code class="file docutils literal notranslate"><span class="pre">standalone.xml</span></code>
 comme nous l’avons vu dans le <a class="reference internal" href="jdbc_webapp.html#configuration-datasource"><span class="std std-ref">chapitre consacré à JDBC</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Le nom de la <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> dans le fichier <code class="file docutils literal notranslate"><span class="pre">persistence.xml</span></code>
+ne contient pas le préfixe <code class="docutils literal notranslate"><span class="pre">java:/</span></code>.</p>
+</div>
 <p>Il est possible d’obtenir une instance d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> par injection dans
 n’importe quel composant Java EE (servlet, managed bean CDI, EJB)
 grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/PersistenceUnit.html">&#64;PersistenceUnit</a>. Cette annotation supporte l’attribut
@@ -347,8 +354,8 @@ grâce à l’annotation <a class="reference external" href="https://docs.oracle
 </div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Il est très rare d’injecter un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> dans une Servlet. En
+<p class="admonition-title">Note</p>
+<p>Il est très rare d’injecter un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> dans une Servlet. En
 effet, le modèle en couche Java EE préconise de séparer la couche Web de
 la couche d’accès aux données (couche du système d’information) par une
 couche métier dans laquelle on trouve les EJB de l’application. Donc, une
@@ -409,17 +416,17 @@ d’appeler les méthodes <code class="docutils literal notranslate"><span class
 Cette API ne se limite pas aux transactions avec des SGBDR mais a pour but d’offrir
 une interface unique pour tous les systèmes transactionnels.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Avertissement</p>
-<p class="last">L’inconvénient de l’utilisation de JTA est qu’il rend obsolète la méthode
+<p class="admonition-title">Avertissement</p>
+<p>L’inconvénient de l’utilisation de JTA est qu’il rend obsolète la méthode
 <code class="docutils literal notranslate"><span class="pre">EntityManager.getTransaction()</span></code>. Ainsi, du code JPA écrit pour une interaction
 avec une base de données sans JTA utilisera la classe <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityTransaction.html">EntityTransaction</a> fournie par JPA.
 Cependant ce code ne fonctionnera plus si on utilise une <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/javax/sql/DataSource.html">DataSource</a> compatible JTA.</p>
 </div>
 <p>Pour signaler la démarcation transactionnelle avec JTA, il existe deux solutions :</p>
 <ul class="simple">
-<li>Soit on utilise une forme déclarative avec les EJB
-(Cf. <a class="reference internal" href="ejb.html#demarcation-transactionnelle"><span class="std std-ref">la gestion des transactions dans les EJB</span></a>)</li>
-<li>Soit on utilise un forme programmatique grâce à l’objet <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a></li>
+<li><p>Soit on utilise une forme déclarative avec les EJB
+(Cf. <a class="reference internal" href="ejb.html#demarcation-transactionnelle"><span class="std std-ref">la gestion des transactions dans les EJB</span></a>)</p></li>
+<li><p>Soit on utilise un forme programmatique grâce à l’objet <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a></p></li>
 </ul>
 <p>Pour la méthode programmatique, une instance de l’objet <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html">UserTransaction</a> peut être
 récupérée par injection grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> dans un composant Java EE.</p>
@@ -487,7 +494,7 @@ En général, il est plus simple d’opter pour une approche déclarative
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="ejb.html" class="btn btn-neutral" title="Les EJB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="ejb.html" class="btn btn-neutral float-left" title="Les EJB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
@@ -514,27 +521,16 @@ En général, il est plus simple d’opter pour une approche déclarative
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Les EJB &mdash; Documentation Java ORM 1.0</title>
+  <title>Les EJB &mdash; Documentation Java ORM </title>
   
 
   
@@ -17,13 +17,21 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
@@ -31,21 +39,16 @@
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="JPA dans une application Web" href="jpa_webapp.html" />
     <link rel="prev" title="JDBC dans une application Web" href="jdbc_webapp.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -166,7 +169,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
@@ -279,15 +281,15 @@ les développeurs d’application. Ils sont définis par la <a class="reference 
 logique de traitement de l’application (également appelée logique
 métier).</p>
 <p>À travers les EJB, le développeur dispose de services fournis par le
-conteneur EJB tels que&nbsp;:</p>
+conteneur EJB tels que :</p>
 <ul class="simple">
-<li>modèle d’exécution thread-safe</li>
-<li>gestion du cycle de vie des instances pour une meilleure scalabilité</li>
-<li>accés aux services Java EE par injection</li>
-<li>gestion des transactions</li>
-<li>contrôle des droits d’accès pour l’invocation des méthodes</li>
-<li>gestion des traitements asynchrones</li>
-<li>accès distant pour un client à travers une interface remote</li>
+<li><p>modèle d’exécution thread-safe</p></li>
+<li><p>gestion du cycle de vie des instances pour une meilleure scalabilité</p></li>
+<li><p>accés aux services Java EE par injection</p></li>
+<li><p>gestion des transactions</p></li>
+<li><p>contrôle des droits d’accès pour l’invocation des méthodes</p></li>
+<li><p>gestion des traitements asynchrones</p></li>
+<li><p>accès distant pour un client à travers une interface remote</p></li>
 </ul>
 <p>Avec les EJB, nous abordons les composants qui ne sont plus liés à la
 présentation Web. Les EJB ont une longue histoire depuis J2EE jusqu’à
@@ -305,23 +307,23 @@ vie des composants EJB fournis par les développeurs d’application.</p>
 <div class="section" id="les-types-d-ejb">
 <h3>Les types d’EJB<a class="headerlink" href="#les-types-d-ejb" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On distingue plusieurs types d’EJB :</p>
-<dl class="docutils">
-<dt>Les EJB de session</dt>
-<dd><em>Stateful</em> EJB, <em>Stateless</em> EJB et <em>Singleton</em> EJB qui sont adaptés pour
+<dl class="simple">
+<dt>Les EJB de session</dt><dd><p><em>Stateful</em> EJB, <em>Stateless</em> EJB et <em>Singleton</em> EJB qui sont adaptés pour
 le traitement synchrone. Il s’agit des EJB les plus courants dans
-une application Web.</dd>
-<dt>Les EJB orientés message</dt>
-<dd><em>Message Driven Bean</em> qui est adapté pour le traitement asynchrone. On
+une application Web.</p>
+</dd>
+<dt>Les EJB orientés message</dt><dd><p><em>Message Driven Bean</em> qui est adapté pour le traitement asynchrone. On
 utilise généralement cet EJB dans des applications de type bus
-d’entreprise ou MOM (Middleware Orienté Messages).</dd>
-<dt>Les Entity Beans</dt>
-<dd>Les EJB pour gérer la persistance. Il s’agit des composants Java EE qui représentent
+d’entreprise ou MOM (Middleware Orienté Messages).</p>
+</dd>
+<dt>Les Entity Beans</dt><dd><p>Les EJB pour gérer la persistance. Il s’agit des composants Java EE qui représentent
 les données d’un modèle relationnel de base de données. Depuis EJB 3, l’API JPA définit
-les entity beans.</dd>
+les entity beans.</p>
+</dd>
 </dl>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Ce cours ne couvre pas les Message Driven Beans.</p>
+<p class="admonition-title">Note</p>
+<p>Ce cours ne couvre pas les Message Driven Beans.</p>
 </div>
 </div>
 </div>
@@ -329,11 +331,11 @@ les entity beans.</dd>
 <h2>Les EJB session<a class="headerlink" href="#les-ejb-session" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un EJB session correspond à une classe Java classique (POJO). Il existe
 cependant trois types d’EJB session qui correspondent à des modèles
-d’exécution concurrente (<strong>threading model</strong>)&nbsp;:</p>
+d’exécution concurrente (<strong>threading model</strong>) :</p>
 <ul class="simple">
-<li>les EJB avec état conversationnel (<em>stateful</em>)</li>
-<li>les EJB sans état conversationnel (<em>stateless</em>)</li>
-<li>les EJB singleton (<em>singleton</em>)</li>
+<li><p>les EJB avec état conversationnel (<em>stateful</em>)</p></li>
+<li><p>les EJB sans état conversationnel (<em>stateless</em>)</p></li>
+<li><p>les EJB singleton (<em>singleton</em>)</p></li>
 </ul>
 <p>En effet, dans un serveur Java EE, une application est exécutée dans un
 environnement concurrent. Nous avons vu déjà les problèmes que cela pose
@@ -376,7 +378,7 @@ utilisation classique de l’EJB session. Chaque utilisateur dispose de
 son instance de panier. Cette instance est conservée tant que la session
 de l’utilisateur existe. De plus, on peut conserver des informations
 propres à l’utilisateur comme membres de l’EJB (dans cet exemple la
-liste des items)&nbsp;: d’où le nom de <em>stateful</em>.</p>
+liste des items) : d’où le nom de <em>stateful</em>.</p>
 <p>Il est possible de fournir une méthode qui supprime l’EJB du conteneur. Une
 telle méthode doit être annotée avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Remove.html">&#64;Remove</a> :</p>
 <div class="literal-block-wrapper docutils container" id="id2">
@@ -485,25 +487,25 @@ Web par exemple) peut appeler une méthode de cet EJB.</p>
 <p>Un EJB peut être tenu informé de l’évolution de son cycle de vie par le
 conteneur. Pour cela, il peut déclarer des méthodes publiques qui ne prennent
 aucun paramètre avec une des annotations suivantes :</p>
-<dl class="docutils">
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a></dt>
-<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a> sont invoquées par le conteneur
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a></dt><dd><p>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">&#64;PostConstruct</a> sont invoquées par le conteneur
 sur toutes les nouvelles instances de <em>beans</em>. L’appel est réalisé juste après
-que l’injection des dépendances soit réalisée.</dd>
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a></dt>
-<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a> sont invoquées par le conteneur après
+que l’injection des dépendances soit réalisée.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a></dt><dd><p>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">&#64;PreDestroy</a> sont invoquées par le conteneur après
 les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/Remove.html">&#64;Remove</a> et avant que le conteneur supprime l’instance
-du <em>bean</em></dd>
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a></dt>
-<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a> sont invoquées par le conteneur après
-après que le <em>bean</em> soit chargé depuis la zone de stockage.</dd>
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a></dt>
-<dd>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a> sont invoquées par le conteneur
-avant que le <em>bean</em> soit placé depuis la zone de stockage.</dd>
+du <em>bean</em></p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a></dt><dd><p>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PostActivate.html">&#64;PostActivate</a> sont invoquées par le conteneur après
+après que le <em>bean</em> soit chargé depuis la zone de stockage.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a></dt><dd><p>Les méthodes annotées avec <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/PrePassivate.html">&#64;PrePassivate</a> sont invoquées par le conteneur
+avant que le <em>bean</em> soit placé depuis la zone de stockage.</p>
+</dd>
 </dl>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">La passivation et l’activation sont des opérations liées au cycle de vie particulier
+<p class="admonition-title">Note</p>
+<p>La passivation et l’activation sont des opérations liées au cycle de vie particulier
 des EJB session avec état conversationnel (<em>stateful EJB</em>). Un conteneur
 peut décider de <em>passiver</em>, c’est-à-dire de stocker sur disque un <em>stateful EJB</em>.
 L’opération inverse s’appelle l’activation. Cela permet à une instance d’un EJB
@@ -692,20 +694,19 @@ Nous reviendrons sur <strong>JTA</strong> lorsque nous parlerons de JPA et des E
 <div class="section" id="la-demarcation-transactionnelle">
 <span id="demarcation-transactionnelle"></span><h3>La démarcation transactionnelle<a class="headerlink" href="#la-demarcation-transactionnelle" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le conteneur EJB prend en charge les transactions JTA en utilisant
-un appel de méthode comme démarcation transactionnelle&nbsp;:
+un appel de méthode comme démarcation transactionnelle :
 lors de l’appel d’une méthode d’un EJB, le conteneur
 commence une transaction JTA et, au retour de la méthode, le conteneur
 effectue un commit ou un rollback.</p>
 <p>Deux annotations permettent de déclarer le support transactionnel pour
 les EJB :</p>
-<dl class="docutils">
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionManagement.html">&#64;TransactionManagement</a></dt>
-<dd>Définit si la transaction est gérée par le conteneur (valeur
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionManagement.html">&#64;TransactionManagement</a></dt><dd><p>Définit si la transaction est gérée par le conteneur (valeur
 CONTAINER par défaut) ou si la transaction est gérée par le bean
 lui-même (valeur BEAN). Une transaction gérée par le bean signifie
-que le développeur souhaite gérer la transaction par programmation.</dd>
-<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionAttribute.html">&#64;TransactionAttribute</a></dt>
-<dd>Permet de déclarer sous quelle condition une transaction gérée par
+que le développeur souhaite gérer la transaction par programmation.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/TransactionAttribute.html">&#64;TransactionAttribute</a></dt><dd><p>Permet de déclarer sous quelle condition une transaction gérée par
 le conteneur peut être démarrée lors de l’appel à une méthode de
 l’EJB. Pour plus d’information, on se reportera à la documentation
 de l’énumération
@@ -714,7 +715,8 @@ qui est spécifiée dans cette annotation. Si l’annotation est omise,
 cela signifie que la transaction est de type <code class="docutils literal notranslate"><span class="pre">REQUIRED</span></code>.
 <code class="docutils literal notranslate"><span class="pre">REQUIRED</span></code> signifie que si une transaction existe au moment de
 l’appel à la méthode, elle est utilisée ou sinon une nouvelle
-transaction est démarrée.</dd>
+transaction est démarrée.</p>
+</dd>
 </dl>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">Transaction gérée par le conteneur</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
@@ -779,10 +781,10 @@ transactions.</p>
 <p>Dans le cas d’une gestion des transactions par le conteneur, une
 transaction <strong>sera rollbackée</strong> si :</p>
 <ul class="simple">
-<li>la méthode de l’EJB se termine par une exception runtime</li>
-<li>la méthode de l’EJB se termine par une exception portant l’annotation
+<li><p>la méthode de l’EJB se termine par une exception runtime</p></li>
+<li><p>la méthode de l’EJB se termine par une exception portant l’annotation
 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ejb/ApplicationException.html">&#64;ApplicationException</a>
-avec l’attribut <strong>rollback</strong> avec la valeur true</li>
+avec l’attribut <strong>rollback</strong> avec la valeur true</p></li>
 </ul>
 <p>Dans tous les autres cas, la transaction est <strong>commitée</strong>.</p>
 <p>L’exception ci-dessous provoque un rollback de la transaction gérée par
@@ -818,7 +820,7 @@ d’EJB.</p>
         <a href="jpa_webapp.html" class="btn btn-neutral float-right" title="JPA dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jdbc_webapp.html" class="btn btn-neutral" title="JDBC dans une application Web" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jdbc_webapp.html" class="btn btn-neutral float-left" title="JDBC dans une application Web" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
@@ -845,27 +847,16 @@ d’EJB.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

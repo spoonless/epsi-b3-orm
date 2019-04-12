@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>L’héritage avec JPA &mdash; Documentation Java ORM 1.0</title>
+  <title>L’héritage avec JPA &mdash; Documentation Java ORM </title>
   
 
   
@@ -17,13 +17,21 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
@@ -31,21 +39,16 @@
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="JDBC dans une application Web" href="jdbc_webapp.html" />
     <link rel="prev" title="Les relations avec JPA" href="jpa_relations.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -166,7 +169,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
@@ -278,8 +280,8 @@ modèle objet avec une représentation dans le modèle relationnel de données.<
 <p>Pour décrire la relation d’héritage avec JPA, on utilise l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Inheritance.html">&#64;Inheritance</a>
 ou <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html">&#64;MappedSuperclass</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Pour une présentation complète de l’héritage dans JPA, reportez-vous
+<p class="admonition-title">Note</p>
+<p>Pour une présentation complète de l’héritage dans JPA, reportez-vous
 au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Inheritance">Wikibook</a>.</p>
 </div>
 <div class="section" id="l-annotation-inheritance">
@@ -290,13 +292,13 @@ façon de représenter un héritage de données dans le modèle relationnel,
 l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Inheritance.html">&#64;Inheritance</a> dispose de l’attribut <code class="docutils literal notranslate"><span class="pre">strategy</span></code> pour préciser
 la stratégie utilisée dans le modèle de données. Cette stratégie est une énumération
 du type <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/InheritanceType.html">InheritanceType</a> et accepte les valeurs :</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code></dt>
-<dd>l’héritage est représenté par une seule table en base de données</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">JOINED</span></code></dt>
-<dd>l’héritage est représenté par une jointure entre la table de l’entité parente et la table de l’entité enfant</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code></dt>
-<dd>l’héritage est représenté par une table par entité</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code></dt><dd><p>l’héritage est représenté par une seule table en base de données</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">JOINED</span></code></dt><dd><p>l’héritage est représenté par une jointure entre la table de l’entité parente et la table de l’entité enfant</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code></dt><dd><p>l’héritage est représenté par une table par entité</p>
+</dd>
 </dl>
 <div class="section" id="heritage-avec-une-seule-table">
 <h3>Héritage avec une seule table<a class="headerlink" href="#heritage-avec-une-seule-table" title="Lien permanent vers ce titre">¶</a></h3>
@@ -306,8 +308,8 @@ type réel de la classe : on parle de la colonne <em>discriminante</em>. La tabl
 contenir toutes les colonnes nécessaires pour stocker les informations de la
 super classe et de l’ensemble des classes filles.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">L’inconvénient de la stratégie <code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code> est qu’il n’est pas possible
+<p class="admonition-title">Note</p>
+<p>L’inconvénient de la stratégie <code class="docutils literal notranslate"><span class="pre">SINGLE_TABLE</span></code> est qu’il n’est pas possible
 d’ajouter des contraintes de type <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> sur les colonnes représentant
 les propriétés des classes filles.</p>
 </div>
@@ -588,12 +590,12 @@ qui peuvent être créées par les instructions suivantes :</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">La table <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> n’est pas nécessaire car la classe <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> est
+<p class="admonition-title">Note</p>
+<p>La table <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> n’est pas nécessaire car la classe <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code> est
 abstraite. Il n’est donc pas possible de créer des entités de type <code class="docutils literal notranslate"><span class="pre">Vehicule</span></code>.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>La stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code> est plus complexe à mettre en place pour
 la gestion des clés primaires. En effet, du point de vue de JPA, les objets
 de type <code class="docutils literal notranslate"><span class="pre">Voiture</span></code> et <code class="docutils literal notranslate"><span class="pre">Moto</span></code> sont également des objets de type <code class="docutils literal notranslate"><span class="pre">Voiture</span></code>.
@@ -601,7 +603,7 @@ de type <code class="docutils literal notranslate"><span class="pre">Voiture</sp
 comme ces objets sont représentés en base de données par deux tables différentes,
 une colonne de type <code class="docutils literal notranslate"><span class="pre">AUTO_INCREMENT</span></code> en MySQL ne suffit pas à garantir qu’il
 n’existe pas une voiture ayant la même clé qu’une moto.</p>
-<p class="last">Avec, la stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code>, il n’est pas possible d’utiliser
+<p>Avec, la stratégie <code class="docutils literal notranslate"><span class="pre">TABLE_PER_CLASS</span></code>, il n’est pas possible d’utiliser
 l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/GeneratedValue.html">&#64;GeneratedValue</a> avec la valeur <code class="docutils literal notranslate"><span class="pre">IDENTITY</span></code>. On peut,
 par exemple, utiliser une table servant à générer une séquence de clés.</p>
 </div>
@@ -726,7 +728,7 @@ ni d’utiliser des requêtes polymorphiques.</p>
         <a href="jdbc_webapp.html" class="btn btn-neutral float-right" title="JDBC dans une application Web" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jpa_relations.html" class="btn btn-neutral" title="Les relations avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="jpa_relations.html" class="btn btn-neutral float-left" title="Les relations avec JPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
@@ -753,27 +755,16 @@ ni d’utiliser des requêtes polymorphiques.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
