@@ -36,7 +36,8 @@ create table Commande (
   id int primary key auto_increment,
   nom varchar(250) not null,
   telephone varchar(250) not null,
-  dateEmission datetime not null
+  dateEmission datetime not null,
+  enAttente boolean not null
 ) engine = InnoDB;
 
 create table DetailCommande (
