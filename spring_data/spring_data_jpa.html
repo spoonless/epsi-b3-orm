@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JPA avec Spring Data &mdash; Documentation Java ORM / Spring </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Spring MVC" href="../spring_mvc/spring_mvc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM / Spring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>JPA avec Spring Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="../spring_mvc/spring_mvc.html" class="btn btn-neutral" title="Spring MVC" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jpa-avec-spring-data">
+<h1>JPA avec Spring Data<a class="headerlink" href="#jpa-avec-spring-data" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/reference/html/">Spring Data</a> est un projet <em>Spring</em> qui a pour objectif de simplifier l’interaction
+avec différents systèmes de stockage de données : qu’il s’agisse d’une base de données
+relationnelle, d’une base de données NoSQL, d’un système <em>Big Data</em> ou encore
+d’une API Web.</p>
+<p>Le principe de <em>Spring Data</em> est d’éviter aux développeurs de coder les accès à
+ces systèmes. Pour cela, <em>Spring Data</em> utilise une convention de nommage des méthodes
+d’accès pour exprimer la requête à réaliser.</p>
+<div class="section" id="ajout-de-spring-data-jpa-dans-un-projet-maven">
+<h2>Ajout de Spring Data JPA dans un projet Maven<a class="headerlink" href="#ajout-de-spring-data-jpa-dans-un-projet-maven" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/reference/html/">Spring Data</a> se compose d’un noyau central et de plusieurs sous modules dédiés
+à un type de système de stockage et une technologies d’accès. Dans un projet
+Maven, pour utiliser <em>Spring Data</em> pour une base de données relationnelles avec
+JPA, il faut déclarer la dépendance suivante :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.data<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.2.2.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="notion-de-repository">
+<h2>Notion de repository<a class="headerlink" href="#notion-de-repository" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Spring Data</em> s’organise autour de la notion de <em>repository</em>. Il fournit
+une interface marqueur générique <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a>. Le type <strong>T</strong> correspond
+au type de l’objet géré par le <em>repository</em>. Le type <strong>ID</strong> correspond au type
+de l’objet qui représente la clé d’un objet.</p>
+<p>L’interface <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html">CrudRepository&lt;T, ID&gt;</a> hérite de <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a> et fournit
+un ensemble d’opérations élémentaires pour la manipulation des objets.</p>
+<p>Pour une intégration de <em>Spring Data</em> avec JPA, il existe également l’interface
+<a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/JpaRepository.html">JpaRepository&lt;T, ID&gt;</a> qui hérite indirectement de <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html">CrudRepository&lt;T, ID&gt;</a> et
+qui fournit un ensemble de méthodes pour interagir avec une base de données.</p>
+<p>Pour créer un <em>repository</em>, il suffit de créer une interface qui hérite d’une
+des interfaces ci-dessus.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple de création d’un repository JPA</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-des-repositories">
+<h2>Configuration des repositories<a class="headerlink" href="#configuration-des-repositories" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La façon la plus simple de configurer les <em>repositories</em> est d’utiliser l’élément
+<code class="docutils literal notranslate"><span class="pre">repositories</span></code> dans l’espace de nom <code class="docutils literal notranslate"><span class="pre">http://www.springframework.org/schema/data/jpa</span></code>
+dans la déclaration du contexte de l’application :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Configuration des repositories dans le contexte d’application</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+  <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+  <span class="na">xmlns:tx=</span><span class="s">&quot;http://www.springframework.org/schema/tx&quot;</span>
+  <span class="na">xmlns:jpa=</span><span class="s">&quot;http://www.springframework.org/schema/data/jpa&quot;</span>
+  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                      http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/context</span>
+<span class="s">                      http://www.springframework.org/schema/context/spring-context.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/tx</span>
+<span class="s">                      http://www.springframework.org/schema/tx/spring-tx.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/data/jpa</span>
+<span class="s">                      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&quot;classpath:jdbc.properties&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&quot;fr.epsi.b3&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;tx:annotation-driven</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;jpa:repositories</span> <span class="na">base-package=</span><span class="s">&quot;fr.epsi.b3.repositories&quot;</span>
+                    <span class="na">enable-default-transactions=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;dataSource&quot;</span> <span class="na">class=</span><span class="s">&quot;org.apache.commons.dbcp2.BasicDataSource&quot;</span>
+        <span class="na">destroy-method=</span><span class="s">&quot;close&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driverClassName&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.driverClassName}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.url}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.username}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.password}&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;transactionManager&quot;</span> <span class="na">class=</span><span class="s">&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;entityManagerFactory&quot;</span>
+        <span class="na">class=</span><span class="s">&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;persistenceUnitName&quot;</span> <span class="na">value=</span><span class="s">&quot;persistenceUnit&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;dataSource&quot;</span> <span class="na">ref=</span><span class="s">&quot;dataSource&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>L’exemple précédent montre une configuration complète d’une source de données
+locale en utilisant <a class="reference external" href="https://commons.apache.org/proper/commons-dbcp/apidocs/index.html">DBCP</a> comme gestionnaire de connexions. À la ligne 21, on
+utilise l’élément <code class="docutils literal notranslate"><span class="pre">repositories</span></code>. Cet élément a, entre autres, les attributs
+suivants :</p>
+<dl>
+<dt><strong>base-packages</strong></dt><dd><p>Indique le package à partir duquel <em>Spring Data JPA</em> recherche des interfaces
+héritant directement ou indirectement de <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a> pour générer les classes
+concrètes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Si vous avez dans votre projet une interface héritant de <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a>
+mais que vous ne souhaitez pas que <em>Spring Data</em> génère de classe concrète, alors
+vous devez ajouter l’annotation <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/NoRepositoryBean.html">&#64;NoRepositoryBean</a> sur cette interface.</p>
+</div>
+</dd>
+<dt><strong>enable-default-transaction</strong></dt><dd><p>Signale si une méthode de <em>repository</em> est transactionnelle par défaut. Attention,
+cet attribut a la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> par défaut. Si votre projet gère les transactions
+avec <em>Spring Transaction</em> en utilisant des classes de service qui délèguent des appels
+aux <em>repositories</em>, alors il est plus cohérent de positionner cet attribut à <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</dd>
+<dt><strong>entity-manager-factory-ref</strong></dt><dd><p>Donne le nom du <em>bean</em> de type <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> à utiliser. Par convention, si aucune
+valeur n’est précisée avec cet attribut, <em>Spring Data JPA</em> recherche dans le contexte
+un <em>bean</em> nommé « entityManagerFactory ».</p>
+</dd>
+<dt><strong>transaction-manager-ref</strong></dt><dd><p>Donne le nom du <em>bean</em> de type <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html">JpaTransactionManager</a> à utiliser. Par convention, si aucune
+valeur n’est précisée avec cet attribut, <em>Spring Data JPA</em> recherche dans le contexte
+un <em>bean</em> nommé « transactionManager ».</p>
+</dd>
+</dl>
+<p>À l’initialisation du contexte d’application, <em>Spring Data JPA</em> va fournir une implémentation
+à toutes les interfaces héritant directement ou indirectement de <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a> et
+qui se trouvent dans le package fr.epsi.b3.repositories ou un de ses sous-packages.
+Ainsi, il est possible d’injecter un <em>bean</em> du type de l’interface d’un <em>repository</em>,
+l’implémentation concrète étant à la charge de <em>Spring Data JPA</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple d’injection et d’utilisation d’un repository</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.repository.UserRepository</span><span class="o">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">UserRepository</span> <span class="n">userRepository</span><span class="o">;</span>
+
+  <span class="nd">@Transactional</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">long</span> <span class="n">nbUser</span> <span class="o">=</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">count</span><span class="o">();</span>
+    <span class="kt">boolean</span> <span class="n">exists</span> <span class="o">=</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">existsById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+
+    <span class="c1">// ..</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ajout-de-methodes-dans-une-interface-de-repository">
+<h2>Ajout de méthodes dans une interface de repository<a class="headerlink" href="#ajout-de-methodes-dans-une-interface-de-repository" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’interface <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/JpaRepository.html">JpaRepository&lt;T, ID&gt;</a> déclare beaucoup de méthodes mais elles suffisent
+rarement pour implémenter les fonctionnalités attendues d’une application.
+<em>Spring Data</em> utilise une convention de nom pour générer automatiquement le code
+sous-jacent et exécuter la requête. La requête est déduite de la signature de la
+méthode (on parle de <em>query methods</em>).</p>
+<p>La convention est la suivante : <em>Spring Data JPA</em> supprime du début de la méthode
+les prefixes <em>find</em>, <em>read</em>, <em>query</em>, <em>count</em> and <em>get</em> et recherche la présence
+du mot <em>By</em> pour marquer le début des critères de filtre. Chaque critère doit
+correspondre à un paramètre de la méthode dans le même ordre.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple de déclaration de <em>query methods</em></span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="n">User</span> <span class="nf">getByLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">login</span><span class="o">);</span>
+
+  <span class="kt">long</span> <span class="nf">countByEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">);</span>
+
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">findByNameAndEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">email</span><span class="o">);</span>
+
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">findByNameOrEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">email</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><em>Spring Data JPA</em> générera une implémentation pour chaque méthode de ce <em>repository</em>.</p>
+<p>Pour la méthode <em>getByLogin</em>, l’implémentation sera de la forme :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = :login&quot;</span><span class="o">,</span> <span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">,</span> <span class="n">login</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Pour la méthode <em>countByEmail</em>, l’implémentation sera de la forme :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="o">(</span><span class="n">Long</span><span class="o">)</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select count(u) from User u where u.email = :email&quot;</span><span class="o">)</span>
+                           <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">,</span> <span class="n">email</span><span class="o">)</span>
+                           <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Pour la méthode <em>findByNameAndEmail</em>, l’implémentation sera de la forme :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select u from User u where u.name = :name and u.email = :email&quot;</span><span class="o">,</span> <span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">,</span> <span class="n">email</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Pour la méthode <em>findByNameOrEmail</em>, l’implémentation sera de la forme :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;select u from User u where u.name = :name or u.email = :email&quot;</span><span class="o">,</span> <span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">,</span> <span class="n">email</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est même possible de donner des critères sur des entités liées. Ainsi,
+si la classe <code class="docutils literal notranslate"><span class="pre">User</span></code> contient une association vers une entité <code class="docutils literal notranslate"><span class="pre">Address</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.OneToOne</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@OneToOne</span>
+  <span class="kd">private</span> <span class="n">Address</span> <span class="n">adress</span><span class="o">;</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>et si l’entité <code class="docutils literal notranslate"><span class="pre">Address</span></code> contient un champ <code class="docutils literal notranslate"><span class="pre">city</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">city</span><span class="o">;</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Alors il est possible de définir une méthode dans <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code> qui permet
+de filtrer sur la ville de l’adresse :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">findByAddressCity</span><span class="o">(</span><span class="n">String</span> <span class="n">city</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<p>Pour une description complète des règles de nommage existantes pour les <em>query methods</em>,
+vous pouvez vous reporter à la <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/reference/html/#jpa.query-methods.query-creation">documentation officielle</a>.</p>
+<div class="section" id="requetes-nommees-jpa">
+<h3>Requêtes nommées JPA<a class="headerlink" href="#requetes-nommees-jpa" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Avec JPA, il est possible de définir des <a class="reference internal" href="../javaee_orm/jpa_queries.html#jpa-requetes-nommees"><span class="std std-ref">requêtes nommées</span></a>
+grâce à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedQuery.html">&#64;NamedQuery</a>.</p>
+<p><cite>Spring Data JPA</cite> utilise une convention pour rechercher les requêtes nommées avec JPA.
+La requête doit porter comme nom, le nom de l’entité suivi de <code class="docutils literal notranslate"><span class="pre">.</span></code> suivi du nom
+de la méthode. Ainsi si on définit une requête nommée sur une entité <code class="docutils literal notranslate"><span class="pre">User</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.NamedQuery</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@NamedQuery</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;User.findByLogin&quot;</span><span class="o">,</span> <span class="n">query</span><span class="o">=</span><span class="s">&quot;select u from User u where u.login = :login&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">login</span><span class="o">;</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Il faut ensuite déclarer la méthode dans le <em>repository</em> assigné à l’entité <code class="docutils literal notranslate"><span class="pre">User</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.repository.query.Param</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;{</span>
+
+  <span class="n">User</span> <span class="nf">findByLogin</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">login</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remarquez la présence de l’annotation  <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/query/Param.html">&#64;Param</a> qui permet d’associer le
+paramètre de la méthode au paramètre de la requête nommée.</p>
+</div>
+</div>
+<div class="section" id="utilisation-de-query">
+<h3>Utilisation de &#64;Query<a class="headerlink" href="#utilisation-de-query" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/Query.html">&#64;Query</a> permet de préciser la requête directement sur la méthode
+elle-même :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.repository.query.Param</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;{</span>
+
+  <span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = :login&quot;</span><span class="o">)</span>
+  <span class="n">User</span> <span class="nf">findByLogin</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">login</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour des requêtes avec peu de paramètres, il est possible d’utiliser la notation
+pour désigner un paramètre par un numéro d’ordre dans la requête. Cela évite
+un usage de l’annotation <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/query/Param.html">&#64;Param</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;{</span>
+
+  <span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = ?1&quot;</span><span class="o">)</span>
+  <span class="n">User</span> <span class="nf">findByLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">login</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le comportement par défaut de <em>Spring Data JPA</em> est de chercher la présence
+de l’annotation <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/Query.html">&#64;Query</a> ou la présence d’une requête nommée JPA. S’il n’en
+existe pas alors <em>Spring Data JPA</em> analyse la signature de la méthode pour
+essayer d’en déduire la requête à exécuter.</p>
+</div>
+</div>
+</div>
+<div class="section" id="declaration-de-requetes-de-modification">
+<h2>Déclaration de requêtes de modification<a class="headerlink" href="#declaration-de-requetes-de-modification" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de créer des <em>query methods</em> pour réaliser des modifications
+(<em>update</em>, <em>insert</em>, <em>delete</em>). Pour cela, il suffit d’ajouter l’annotation
+<a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/Modifying.html">&#64;Modifying</a> sur la méthode :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.Modifying</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;{</span>
+
+  <span class="nd">@Modifying</span>
+  <span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;update User u set u.login = ?2 where u.id = ?1&quot;</span><span class="o">)</span>
+  <span class="kt">void</span> <span class="nf">updateLogin</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">login</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementation-des-methodes-de-repository">
+<h2>Implémentation des méthodes de repository<a class="headerlink" href="#implementation-des-methodes-de-repository" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est parfois nécessaire de fournir une implémentation d’une ou de plusieurs
+méthodes d’un <em>repository</em>. Dans ce cas, il faut isoler les méthodes que l’on
+souhaite implémenter dans une interface spécifique. Par exemple, on peut
+créer l’interface <code class="docutils literal notranslate"><span class="pre">UserCustomRepository</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserCustomRepository</span> <span class="o">{</span>
+
+  <span class="kt">void</span> <span class="nf">doSomethingComplicated</span><span class="o">(</span><span class="n">User</span> <span class="n">u</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Cette interface est étendue par l’interface du <em>repository</em> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">UserCustomRepository</span><span class="o">,</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;{</span>
+
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Comme <em>Spring Data JPA</em> détecte une interface parente qui n’hérite pas elle-même
+de l’interface <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/Repository.html">Repository&lt;T, ID&gt;</a>, il recherche une classe Java portant le même
+nom que l’interface avec le suffixe <strong>Impl</strong> dans le même package ou un sous-package.
+Si une telle classe existe   alors <em>Spring Data JPA</em> tente de créer un <em>bean</em>
+de cette classe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe d’implémentation ne doit pas porter de stéréotype Spring comme
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a> ou <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Repository.html">&#64;Repository</a>. Par contre, elle peut utiliser toutes les
+autres annotations autorisées par le Spring Framework si le contexte
+d’application est configuré correctement.</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.repositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">fr.epsi.b3.service.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCustomRepositoryImpl</span> <span class="kd">implements</span> <span class="n">UserCustomRepository</span> <span class="o">{</span>
+
+  <span class="nd">@PersistenceContext</span>
+  <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">em</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomethingComplicated</span><span class="o">(</span><span class="n">User</span> <span class="n">u</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Le <em>repository</em> fonctionnera ainsi par délégation. Lorsque la méthode
+<code class="docutils literal notranslate"><span class="pre">UserRepository.doSomethingComplicated</span></code> sera appelée, elle déléguera le traitement
+à la méthode <code class="docutils literal notranslate"><span class="pre">UserCustomRepositoryImpl.doSomethingComplicated</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est tout à fait possible de fournir une implémentation pour une méthode
+déclarée dans l’interface <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/2.0.8.RELEASE/api/org/springframework/data/jpa/repository/JpaRepository.html">JpaRepository&lt;T, ID&gt;</a> ou une des interfaces parentes. Pour
+cela, il suffit de déclarer dans l’interface d’implémentation une méthode
+avec la même signature.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../spring_mvc/spring_mvc.html" class="btn btn-neutral float-left" title="Spring MVC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

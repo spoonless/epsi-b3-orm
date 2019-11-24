@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Les requêtes JPA &mdash; Documentation Java ORM </title>
+  <title>Les requêtes JPA &mdash; Documentation Java ORM / Spring </title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Java ORM
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
           
 
           
@@ -81,32 +81,15 @@
             
               <p class="caption"><span class="caption-text">Java EE ORM</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
@@ -126,7 +109,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les requêtes JPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#les-requetes-natives">Les requêtes Natives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#les-requetes-jpql">Les requêtes JPQL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exercice">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#les-requetes-par-programmation">Les requêtes par programmation</a></li>
 </ul>
 </li>
@@ -134,24 +116,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#exercice">Exercice</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id2">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#id3">Exercice</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
@@ -167,37 +137,110 @@
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#l-isolation">L’isolation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +257,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Java ORM</a>
+          <a href="../index.html">Java ORM / Spring</a>
         
       </nav>
 
@@ -276,13 +319,13 @@
   <div class="section" id="les-requetes-jpa">
 <h1>Les requêtes JPA<a class="headerlink" href="#les-requetes-jpa" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Les méthodes <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">persist</span></code>, <code class="docutils literal notranslate"><span class="pre">merge</span></code>, <code class="docutils literal notranslate"><span class="pre">detach</span></code>, <code class="docutils literal notranslate"><span class="pre">refresh</span></code>
-et <code class="docutils literal notranslate"><span class="pre">remove</span></code> disponibles avec une instance d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>
+et <code class="docutils literal notranslate"><span class="pre">remove</span></code> disponibles avec une instance d’un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManager.html">EntityManager</a>
 permettent de gérer simplement une entité mais ne permettent pas de
 réaliser des requêtes très élaborées.</p>
-<p>Heureusement, un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a> fournit également différentes API
+<p>Heureusement, un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManager.html">EntityManager</a> fournit également différentes API
 pour exécuter des requêtes. Le principe est toujours le même :</p>
 <ol class="arabic simple">
-<li><p>On crée un objet de type <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Query.html">Query</a> ou <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/TypedQuery.html">TypedQuery</a> grâce à l’API</p></li>
+<li><p>On crée un objet de type <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Query.html">Query</a> ou <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/TypedQuery.html">TypedQuery</a> grâce à l’API</p></li>
 <li><p>Pour les requêtes paramétrées, on positionne la valeur des paramètres
 grâce aux méthodes <code class="docutils literal notranslate"><span class="pre">setParameter(String</span> <span class="pre">name,</span> <span class="pre">XXX</span> <span class="pre">xxx)</span></code> ou
 <code class="docutils literal notranslate"><span class="pre">setParameter(int</span> <span class="pre">position,</span> <span class="pre">XXX</span> <span class="pre">xxx)</span></code></p></li>
@@ -382,7 +425,7 @@ requête native à partir des méthodes
 </div>
 <div class="section" id="les-requetes-jpql">
 <h2>Les requêtes JPQL<a class="headerlink" href="#les-requetes-jpql" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Avec JPA, il est possible d’utiliser une autre langage pour l’écriture
+<p>Avec JPA, il est possible d’utiliser un autre langage pour l’écriture
 des requêtes, il s’agit du <strong>JPA Query Language</strong> (JPQL). Ce langage est
 un langage de requête objet. L’objectif n’est plus d’écrire des requêtes
 basées sur le modèle relationnel des tables mais sur le modèle objet des
@@ -442,32 +485,13 @@ qu’un alias de table SQL est optionnel.</p>
 dans une requête sous la forme <code class="docutils literal notranslate"><span class="pre">:nom</span></code>. Les paramètres disposent
 ainsi d’un nom explicite, rendant ainsi le code plus facile à lire et à
 maintenir.</p>
-<div class="section" id="exercice">
-<h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="exercice admonition">
-<p class="admonition-title">Créer la classe UtilisateurDao</p>
-<p>Créez une classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code> avec les méthodes suivantes :</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">get(int</span> <span class="pre">id)</span></code></dt><dd><p>retourne un utilisateur à partir de son identifiant. Vous n’avez pas besoin
-de requête JPQL pour cette méthode.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">get()</span></code></dt><dd><p>retourne la liste de tous les utilisateurs. Utilisez une requête JPQL.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">getActifs()</span></code></dt><dd><p>retourne la liste de tous les utilisateurs actifs. Utilisez une requête JPQL.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">desactiverInscritsAvant(Date</span> <span class="pre">date)</span></code></dt><dd><p>désactive les utilisateurs dont la date d’inscription est inférieure à la
-date passée en paramètre. Utilisez une requête JPQL.</p>
-</dd>
-</dl>
-</div>
-</div>
 <div class="section" id="les-requetes-par-programmation">
 <h3>Les requêtes par programmation<a class="headerlink" href="#les-requetes-par-programmation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsque l’on souhaite construire une requête JPQL dynamiquement, il
 n’est pas toujours très facile de construire la requête par simple
 concaténation de chaînes de caractères. Pour cela, JPA fournit une API
 permettant de définir entièrement une requête JPQL par programmation. On
-crée cette requête à travers un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a> que l’on peut récupérer grâce
+crée cette requête à travers un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a> que l’on peut récupérer grâce
 à la méthode <code class="docutils literal notranslate"><span class="pre">EntityManager.getCriteriaBuilder()</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Exemple : récupérer tous les individus</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
@@ -508,7 +532,7 @@ crée cette requête à travers un <a class="reference external" href="https://d
 </pre></div>
 </div>
 </div>
-<p>Pour des exemples supplémentaires d’utilisation du <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a>,
+<p>Pour des exemples supplémentaires d’utilisation du <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/CriteriaBuilder.html">CriteriaBuilder</a>,
 reportez-vous au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Criteria">Wikibook</a>.</p>
 </div>
 </div>
@@ -520,7 +544,7 @@ de caractères. Si vous préférez regrouper toutes vos requêtes dans des parti
 clairement identifiées du code, alors vous pouvez utiliser les requêtes nommées
 (<em>named queries</em>).</p>
 <p>Une requête nommée permet d’associer un identifiant de requête à une requête JPQL. On utilise
-pour cela l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedQuery.html">&#64;NamedQuery</a> que l’on peut placer sur la classe de l’entité
+pour cela l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedQuery.html">&#64;NamedQuery</a> que l’on peut placer sur la classe de l’entité
 pour centraliser toutes les requêtes relatives à cette entité.</p>
 <div class="literal-block-wrapper docutils container" id="id12">
 <div class="code-block-caption"><span class="caption-text">Déclaration d’une requête nommée</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
@@ -550,7 +574,7 @@ pour centraliser toutes les requêtes relatives à cette entité.</p>
 </div>
 <p>Dans l’exemple ci-dessus, on déclare une requête que l’on nomme « findIndividuByNom ».</p>
 <p>Si vous voulez nommer plusieurs requêtes, vous devez utiliser l’annotation
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedQueries.html">&#64;NamedQueries</a> pour les regrouper toutes sous la forme d’un tableau.</p>
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedQueries.html">&#64;NamedQueries</a> pour les regrouper toutes sous la forme d’un tableau.</p>
 <div class="literal-block-wrapper docutils container" id="id13">
 <div class="code-block-caption"><span class="caption-text">Déclaration de plusieurs requêtes nommées</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
@@ -582,7 +606,7 @@ pour centraliser toutes les requêtes relatives à cette entité.</p>
 </pre></div>
 </div>
 </div>
-<p>On peut ensuite créer et exécuter des requêtes nommées à partir d’un <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html">EntityManager</a>.</p>
+<p>On peut ensuite créer et exécuter des requêtes nommées à partir d’un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManager.html">EntityManager</a>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Individu</span> <span class="n">individu</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createNamedQuery</span><span class="o">(</span><span class="s">&quot;findIndividuByNom&quot;</span><span class="o">,</span> <span class="n">Individu</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
                                  <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&quot;nom&quot;</span><span class="o">,</span> <span class="s">&quot;David Gayerie&quot;</span><span class="o">)</span>
                                  <span class="o">.</span><span class="na">getSingleResult</span><span class="o">();</span>
@@ -598,7 +622,7 @@ pour centraliser toutes les requêtes relatives à cette entité.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Il est également possible de créer des requêtes nommées en SQL en utilisant
-les annotations <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedNativeQuery.html">&#64;NamedNativeQuery</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/NamedNativeQueries.html">&#64;NamedNativeQueries</a> sur le même
+les annotations <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedNativeQuery.html">&#64;NamedNativeQuery</a> et <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/NamedNativeQueries.html">&#64;NamedNativeQueries</a> sur le même
 principe qu’avec des requêtes nommées en JPQL.</p>
 </div>
 <div class="admonition warning">
@@ -630,11 +654,12 @@ tout doublon dans le nom des requêtes.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
 
     </p>
   </div>
-    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
 
 
 </footer>

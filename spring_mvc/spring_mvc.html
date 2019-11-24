@@ -1,0 +1,1521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring MVC &mdash; Documentation Java ORM / Spring </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="JPA avec Spring Data" href="../spring_data/spring_data_jpa.html" />
+    <link rel="prev" title="Spring DAO" href="../spring_framework/spring_dao.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM / Spring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Spring MVC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral float-right" title="JPA avec Spring Data" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../spring_framework/spring_dao.html" class="btn btn-neutral" title="Spring DAO" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-mvc">
+<h1>Spring MVC<a class="headerlink" href="#spring-mvc" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Spring MVC permet de construire des applications Web en Java. Comme son nom
+le suggère, il utilise le principe du Modèle/Vue/Contrôleur (MVC) en association
+avec le modèle IoC (Inversion of Control) du Spring Framework.</p>
+<p>Spring MVC permet de bâtir des applications Web en se basant sur des technologies
+Java déjà existantes (comme les JSP pour la création de vues).</p>
+<div class="section" id="dependance-a-spring-mvc">
+<h2>Dépendance à Spring MVC<a class="headerlink" href="#dependance-a-spring-mvc" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour utiliser Spring MVC, il faut tout d’abord déclarer sa dépendance dans le
+fichier pom.xml de notre projet Maven :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Dépendance à Spring MVC</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-webmvc<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.2.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-dispatcherservlet">
+<h2>La DispatcherServlet<a class="headerlink" href="#la-dispatcherservlet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Au cœur de Spring MVC, on trouve la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a>. Avec Spring MVC, il n’est
+pas nécessaire de créer des <em>servlets</em> puisque le framework la fournit déjà. Tout
+ce que nous avons à faire est de déclarer cette <em>servlet</em> dans notre fichier
+<code class="file docutils literal notranslate"><span class="pre">web.xml</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la DispatcherServlet</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee</span>
+<span class="s">                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span>
+    <span class="na">version=</span><span class="s">&quot;3.1&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;context-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>/WEB-INF/root-context.xml<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/context-param&gt;</span>
+
+    <span class="nt">&lt;listener&gt;</span>
+        <span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+    <span class="nt">&lt;/listener&gt;</span>
+
+    <span class="nt">&lt;servlet&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>dispatcher<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+        <span class="nt">&lt;init-param&gt;</span>
+            <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+            <span class="nt">&lt;param-value&gt;</span>/WEB-INF/spring/servlet-context.xml<span class="nt">&lt;/param-value&gt;</span>
+        <span class="nt">&lt;/init-param&gt;</span>
+        <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+    <span class="nt">&lt;/servlet&gt;</span>
+
+    <span class="nt">&lt;servlet-mapping&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>dispatcher<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;/servlet-mapping&gt;</span>
+    <span class="nt">&lt;servlet-mapping&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>jsp<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/WEB-INF/views/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;/servlet-mapping&gt;</span>
+<span class="nt">&lt;/web-app&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> est ici déclarée et associée à l’URI <cite>/*</cite>, c’est-à-dire à toutes
+les requêtes entrantes pour notre application.</p>
+<p>Le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> contient également la déclaration d’un <em>listener</em> fourni
+par Spring : le <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/ContextLoaderListener.html">ContextLoaderListener</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la DispatcherServlet</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;context-param&gt;</span>
+    <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+    <span class="nt">&lt;param-value&gt;</span>/WEB-INF/root-context.xml<span class="nt">&lt;/param-value&gt;</span>
+<span class="nt">&lt;/context-param&gt;</span>
+
+<span class="nt">&lt;listener&gt;</span>
+    <span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+<span class="nt">&lt;/listener&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Comme son nom l’indique, ce <em>listener</em> de contexte est appelé au déploiement de l’application
+pour charger un contexte d’application Spring. La localisation de ce contexte est
+fournie par le paramètre <code class="docutils literal notranslate"><span class="pre">contextConfigLocation</span></code>, également déclaré dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">web.xml</span></code>.</p>
+<p>Ce contexte d’application Spring contient les beans de l’application. Pour l’instant, nous
+pouvons nous contenter d’un contexte vide :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Contexte d’application vide : le fichier root-context.xml</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                            http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> dispose également de son propre contexte. Ce dernier
+va, par exemple, contenir les beans jouant le rôle de contrôleurs ainsi
+que tous les objets nécessaires
+au fonctionnement de la partie Web de notre application. La localisation du fichier
+décrivant le contexte d’application de cette <em>servlet</em> est donnée grâce au paramètre
+<code class="docutils literal notranslate"><span class="pre">contextConfigLocation</span></code> passé à la <em>servlet</em> (dans notre exemple, le fichier
+<code class="file docutils literal notranslate"><span class="pre">/WEB-INF/spring/servlet-context.xml</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le paramètre <code class="docutils literal notranslate"><span class="pre">contextConfigLocation</span></code> n’est pas obligatoire pour la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a>.
+S’il est omis, la <em>servlet</em> s’attend à trouver un fichier
+<code class="file docutils literal notranslate"><span class="pre">/WEB-INF/[nom</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">servlet]-servlet.xml</span></code>.</p>
+</div>
+<p>Enfin, le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> contient une configuration d’URI pour une <em>servlet</em>
+nommée <strong>jsp</strong> :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Configuration de la servlet jsp</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;servlet-mapping&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>jsp<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/WEB-INF/views/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La <em>servlet</em> <strong>jsp</strong> est fournie par le serveur d’application. C’est elle qui est
+responsable de localiser, de compiler et d’invoquer les JSP. Comme nous allons
+utiliser les JSP comme vues pour notre application, nous signalons dans le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code>
+que les requêtes de la forme <code class="file docutils literal notranslate"><span class="pre">/WEB-INF/views/*</span></code> devront être traitées comme des JSP.
+Sinon, ces requêtes seraient également prise en charge par la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans une architecture MVC, un utilisateur est sensé interagir avec les contrôleurs.
+Donc il n’est pas utile de laisser les vues (ici les pages JSP) accessibles
+directement. Voilà pourquoi les pages JSP sont placées dans un sous-répertoire
+de <code class="file docutils literal notranslate"><span class="pre">WEB-INF</span></code> : c’est-à-dire dans la partie privée de l’application.</p>
+</div>
+</div>
+<div class="section" id="contexte-d-application-web">
+<h2>Contexte d’application Web<a class="headerlink" href="#contexte-d-application-web" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le Spring Framework permet d’appliquer le principe de l’inversion de contrôle (IoC)
+dans un contexte d’application (c’est-à-dire pour un ensemble de <em>beans</em>).
+Pour une application Web, il existe une implémentation spécialisée
+nommée le <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/WebApplicationContext.html">WebApplicationContext</a>.</p>
+<p>Pour une application Web basée sur Spring, on considère qu’il faut dissocier
+les <em>beans</em> servant à gérer les traitements métier et l’accès aux données
+des <em>beans</em> traitant les requêtes HTTP (la couche Web). Ainsi, Spring propose
+par défaut de créer un contexte d’application général et un contexte d’application
+pour une <em>servlet</em>. Comme il est possible de construire une hiérarchie de contextes
+d’application avec Spring, le contexte d’application général sera automatiquement
+utilisé comme contexte d’application parent de celui de la <em>servlet</em>. Cela à une
+conséquence importante : le contexte d’application de la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> a accès
+aux <em>beans</em> déclarés dans le contexte d’application général. Par contre ces derniers
+ne voient pas les <em>beans</em> déclarés dans le contexte d’application de la <em>servlet</em>.
+Cela permet d’isoler les <em>beans</em> utilisés par la <em>servlet</em> des <em>beans</em> globaux
+à l’application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est tout à fait possible de déclarer plusieurs <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> (à condition de les associer à des motifs d’URI différents).
+Cela permet d’avoir une <em>servlet</em>
+dédiée pour l’accès à une partie de l’application Web et une <em>servlet</em> dédiée
+pour l’accès à une autre partie. Cela peut être utile pour garantir une
+séparation, par exemple, entre
+la partie publique et la partie administration d’une application. Chaque
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> aura son propre contexte d’application mais toutes auront
+accès au contexte d’application général.</p>
+</div>
+<p>Le contexte d’application d’une <em>servlet</em> va permettre de déclarer et de configurer
+les contrôleurs et les vues. Pour la gestion des contrôleurs, nous allons voir par la
+suite que leur déclaration se fait grâce à des annotations. Pour la gestion des vues,
+Spring MVC permet de choisir (voire d’utiliser simultanément) entre plusieurs
+technologies. Pour traduire ce choix, il faut déclarer une implémentation de
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/result/view/ViewResolver.html">ViewResolver</a> dont le rôle est de localiser une vue pour le rendu final de la réponse
+du serveur. Pour ce chapitre, nous utiliserons la technologie JSP.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">servlet-context.xml</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:mvc=</span><span class="s">&quot;http://www.springframework.org/schema/mvc&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd</span>
+<span class="s">                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&quot;fr.epsi.b3&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;mvc:default-servlet-handler/&gt;</span>
+    <span class="nt">&lt;mvc:annotation-driven</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;mvc:resources</span> <span class="na">mapping=</span><span class="s">&quot;/resources/**&quot;</span> <span class="na">location=</span><span class="s">&quot;/resources/&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;mvc:view-resolvers&gt;</span>
+        <span class="nt">&lt;mvc:jsp</span> <span class="na">prefix=</span><span class="s">&quot;/WEB-INF/views/&quot;</span> <span class="na">suffix=</span><span class="s">&quot;.jsp&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mvc:view-resolvers&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple précédent, nous définissons un contexte d’application pour la <em>servlet</em>.</p>
+<p>La balise <code class="docutils literal notranslate"><span class="pre">&lt;context:component-scan</span> <span class="pre">base-package=&quot;...&quot;</span> <span class="pre">/&gt;</span></code> implique que Spring
+doit analyser toutes les classes présentes dans un package et tous ses sous packages
+afin de chercher des classes portant des annotations particulières.</p>
+<p>La balise <code class="docutils literal notranslate"><span class="pre">&lt;mvc:default-servlet-handler/&gt;</span></code> permet de transmettre les requêtes inconnues
+de la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> à la <em>servlet</em> par défaut. En effet, une application Web contient
+implicitement une <em>servlet</em> par défaut fournie par le conteneur Web. Elle est responsable, par exemple,
+d’afficher la page 404 si la requête n’est pas connue de l’application.</p>
+<p>La balise <code class="docutils literal notranslate"><span class="pre">&lt;mvc:annotation-driven</span> <span class="pre">/&gt;</span></code> permet de signaler que la déclaration des <em>beans</em>
+se fait par annotation dans les classes et non pas dans le fichier du contexte
+d’application. Nous verrons qu’il s’agit de la manière la plus simple de déclarer
+des contrôleurs.</p>
+<p>La balise <code class="docutils literal notranslate"><span class="pre">&lt;mvc:resources</span> <span class="pre">mapping=&quot;..&quot;</span> <span class="pre">location=&quot;..&quot;</span> <span class="pre">/&gt;</span></code> permet d’associer un chemin
+de ressources (images, fichiers JavaScript, fichiers CSS…) dans l’URI avec un chemin
+dans l’application Web. La <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> peut donc servir ces fichiers directement
+en les renvoyant au client.</p>
+<p>La section <code class="docutils literal notranslate"><span class="pre">&lt;mvc:view-resolvers&gt;</span></code> permet de déclarer comment Spring MVC doit localiser
+une vue. Par cette exemple, nous utilisons <code class="docutils literal notranslate"><span class="pre">&lt;mvc:jsp</span> <span class="pre">/&gt;</span></code> qui permet, à partir
+d’un identifiant de vue, de déduire le chemin vers une page JSP. Ici, une vue
+ayant pour identifiant <code class="docutils literal notranslate"><span class="pre">home</span></code> sera comprise comme correspondant à la page
+JSP <code class="file docutils literal notranslate"><span class="pre">/WEB-INF/views/home.jsp</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La balise <code class="docutils literal notranslate"><span class="pre">&lt;mvc:jsp</span> <span class="pre">/&gt;</span></code> est une simplification d’écriture. On peut également
+déclarer dans le contexte d’application un <em>bean</em> de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/view/UrlBasedViewResolver.html">UrlBasedViewResolver</a>.</p>
+</div>
+</div>
+<div class="section" id="les-controleurs">
+<h2>Les contrôleurs<a class="headerlink" href="#les-controleurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un contrôleur est une classe Java portant l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html">&#64;Controller</a>. De
+manière générale, l’objectif d’un contrôleur est de réagir à une interaction
+avec l’utilisateur. Pour une application
+Web, cela signifie que l’utilisateur envoie une requête HTTP au serveur.</p>
+<p>Pour que le contrôleur soit appelé lors du traitement d’une requête, il suffit d’ajouter
+l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html">&#64;RequestMapping</a> sur une méthode publique de la classe en précisant
+la méthode HTTP concernée (par défaut GET) et le chemin d’URI (à partir du contexte
+de déploiement de l’application) pris en charge par la méthode.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Un contrôleur</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMethod</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHome</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;index&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/item&quot;</span><span class="o">,</span> <span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, le contrôleur déclare la méthode <code class="docutils literal notranslate"><span class="pre">getHome</span></code> qui traite
+les requêtes se terminant par / et la méthode <code class="docutils literal notranslate"><span class="pre">addItem</span></code> qui traite les
+requêtes se terminant pas /item. La première n’accepte que les requêtes de type GET
+et la seconde que les requêtes de type POST.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe les annotations <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html">&#64;GetMapping</a>, <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PutMapping.html">&#64;PutMapping</a>, <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html">&#64;PostMapping</a>,
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/DeleteMapping.html">&#64;DeleteMapping</a>, <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PatchMapping.html">&#64;PatchMapping</a> qui fonctionnent comme l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html">&#64;RequestMapping</a>
+sauf qu’il n’est pas nécessaire de préciser la méthode HTTP concerné puisqu’elle
+est mentionnée dans le nom de l’annotation :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHome</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;index&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html">&#64;RequestMapping</a> peut être utilisée directement sur la déclaration
+de classe pour donner des indications pour l’ensemble des méthodes de cette classe.
+Par exemple, on peut préciser un chemin de base pour l’URI :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/ctrl&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="c1">// ...</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-signature-des-methodes-de-controleur">
+<h2>La signature des méthodes de contrôleur<a class="headerlink" href="#la-signature-des-methodes-de-controleur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring MVC autorise une très grande diversité de signatures pour les méthodes
+d’un contrôleur gérant les requêtes HTTP (appelées <em>handler methods</em>).
+Hormis le nom de la méthode elle-même pour laquelle nous avons
+toute liberté, il est possible de choisir parmi un choix très large pour le type
+et le nombre des paramètres ainsi que le type de la valeur de retour de la méthode.</p>
+<div class="section" id="les-parametres">
+<h3>Les paramètres<a class="headerlink" href="#les-parametres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour la liste complète des types de paramètre supportés, reportez-vous à la
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-arguments">documentation officielle</a></p>
+<p>À titre d’exemple, un méthode gérant les requêtes HTTP peut accepter en paramètres :</p>
+<ul>
+<li><p>La valeur d’un paramètre grâce à l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html">&#64;RequestParam</a>.</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&quot;itemName&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis Java 8, si le nom du paramètre de la requête est identique au nom du
+paramètre de la méthode, il n’est pas utile de préciser le nom du paramètre
+de la requête entre parenthèses :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">itemName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>La valeur d’un en-tête de la requête HTTP grâce à l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestHeader.html">&#64;RequestHeader</a></p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestHeader</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@RequestHeader</span><span class="o">(</span><span class="s">&quot;host&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">host</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis Java 8, si le nom de l’en-tête de la requête est identique au nom du
+paramètre de la méthode, il n’est pas utile de préciser le nom de l’en-tête
+de la requête entre parenthèses :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@RequestHeader</span> <span class="n">String</span> <span class="n">host</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Une valeur dans le chemin de la ressource grâce à l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PathVariable.html">&#64;PathVariable</a>.
+Dans ce cas, il est possible de déclarer entre accolades une variable dans
+le chemin de la ressource.</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PathVariable</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;{subpath}/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&quot;subpath&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">subpath</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis Java 8, si le nom de la variable de chemin est identique au nom du
+paramètre de la méthode, il n’est pas utile de préciser le nom de la variable
+entre parenthèses :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;{subpath}/item&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">subpath</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>La valeur d’un attribut de requête, de session ou de session grâce aux annotations
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestAttribute.html">&#64;RequestAttribute</a> et <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/SessionAttribute.html">&#64;SessionAttribute</a> :</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.SessionAttribute</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@SessionAttribute</span><span class="o">(</span><span class="s">&quot;basket&quot;</span><span class="o">)</span> <span class="n">Basket</span> <span class="n">basket</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis Java 8, si le nom de l’attribut est identique au nom du
+paramètre de la méthode, il n’est pas utile de préciser le nom de l’attribut
+entre parenthèses :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@SessionAttribute</span> <span class="n">Basket</span> <span class="n">basket</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>Toutes les annotations ci-dessus acceptent l’attribut <em>required</em> qui permet d’indiquer
+si le paramètre doit être renseigné. Si l’attribut <em>required</em> vaut <em>true</em> (valeur
+par défaut) alors l’absence de valeur entraîne une erreur de type 400 (bad request)
+et la méthode du contrôleur n’est pas appelée.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis Java 8, il est possible d’utiliser <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> comme type de paramètre
+afin de préciser que le paramètre est optionnel (sans avoir à se préoccuper de la
+valeur de l’attribut <em>required</em>).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@SessionAttribute</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Basket</span><span class="o">&gt;</span> <span class="n">basket</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basket</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Il est également possible de passer en paramètre une instance d’un objet Java
+présente dans le modèle grâce à l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html">&#64;ModelAttribute</a>. Si aucune instance n’existe,
+l’objet sera automatiquement instancié. Pour un envoi de formulaire, les attributs
+de cet objet seront remplis avec la valeur du paramètre portant le même nom.</p>
+<p>Par exemple, si on déclare la classe <cite>Item</cite> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">;</span>
+
+    <span class="c1">// Getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>On peut déclarer une méthode dans un contrôleur qui prend en paramètre un objet
+de type <cite>Item</cite>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Lors du traitement de la requête POST sur <code class="file docutils literal notranslate"><span class="pre">/item</span></code>, un objet de type <cite>Item</cite>
+sera créé avec ses attributs renseignés avec les valeurs des paramètres HTTP
+<em>name</em>, <em>code</em> et <em>quantity</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html">&#64;ModelAttribute</a> peut être omise car c’est l’interprétation
+par défaut d’un paramètre d’une méthode d’un contrôleur.</p>
+</div>
+<p>Enfin, Spring MVC reconnaît certains types d’objet en tant que paramètre. C’est
+notamment le cas d’un paramètre de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/Model.html">Model</a> qui permet à la méthode de consulter
+ou d’ajouter des attributs dans le modèle. Cette classe est une abstraction du
+modèle au sens MVC. Chaque attribut de ce modèle sera ensuite visible à la vue.
+Pour une JSP, cela signifie que chaque attribut ajouté dans ce modèle sera
+accessible par son nom dans une EL.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MessageController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/message&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">display</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">,</span> <span class="s">&quot;Hello world&quot;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;showMessage&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-valeur-de-retour">
+<h3>La valeur de retour<a class="headerlink" href="#la-valeur-de-retour" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour la liste complète des types de valeur de retour supportés, reportez-vous à la
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-return-types">documentation officielle</a>.</p>
+<p>La valeur de retour d’une méthode de gestion de requête de contrôleur est généralement
+utilisée pour identifier la vue :</p>
+<ul class="simple">
+<li><p>Si la méthode retourne une chaîne de caractères alors elle est permet au <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/result/view/ViewResolver.html">ViewResolver</a>
+configurer de déduire la vue qui doit être appelée.</p></li>
+<li><p>Si la méthode retourne <code class="docutils literal notranslate"><span class="pre">void</span></code> ou <code class="docutils literal notranslate"><span class="pre">null</span></code> alors la méthode est supposée
+avoir correctement traitée la requête et aucune vue ne sera appelée</p></li>
+<li><p>Si la méthode retourne un objet de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a> alors il est utilisé pour
+déduire l’identifiant de la vue et les données du modèle.</p></li>
+<li><p>Si le type de retour est annoté par <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html">&#64;ResponseBody</a>, cela signifie que l’objet
+retourné constitue la réponse. Il est possible d’utiliser un convertisseur pour
+le transformer, par exemple, en réponse JSON.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="les-vues-jsp">
+<h2>Les vues JSP<a class="headerlink" href="#les-vues-jsp" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring MVC supporte plusieurs technologies pour prendre en charge le rendu
+des vues. Pour utiliser des JSP comme vues, il est possible de déclarer
+dans le contexte d’application de la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> un <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/result/view/ViewResolver.html">ViewResolver</a> spécifique
+aux JSP :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">extrait de la déclaration d’un contexte pour une servlet</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;mvc:view-resolvers&gt;</span>
+    <span class="nt">&lt;mvc:jsp</span> <span class="na">prefix=</span><span class="s">&quot;/WEB-INF/views/&quot;</span> <span class="na">suffix=</span><span class="s">&quot;.jsp&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/mvc:view-resolvers&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Ainsi lorsqu’un contrôleur retourne l’identifiant d’une vue, cet identifiant
+sera utilisé pour reconstruire le chemin de la JSP grâce au préfixe et au suffixe
+déclarés :</p>
+<blockquote>
+<div><p>/WEB-INF/views/[id vue].jsp</p>
+</div></blockquote>
+<p>Spring MVC ne fournit par défaut d’implémentation pour les JSTL (<em>Java Standard Tag Libraries</em>).
+Il suffit simplement d’ajouter une dépendance dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>
+du projet :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>Par contre, Spring MVC fournit ses propres bibliothèques de tag (<em>taglibs</em>)
+qui offrent des fonctionnalités supplémentaires par rapport aux JSTL.</p>
+<div class="section" id="spring-s-jsp-taglib">
+<h3>Spring’s JSP taglib<a class="headerlink" href="#spring-s-jsp-taglib" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La première <em>taglib</em> appelée simplement <em>Spring’s JSP taglib</em> apporte des
+fonctionnalités similaires aux JSTL tout en y ajoutant des évolutions ou des
+spécificités propres à Spring MVC. Vous pouvez vous reporter à la
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/tags/package-summary.html">documentation officielle</a>
+pour voir la liste des <em>tags</em> supportés.
+Cette <em>taglib</em> est utilisable <em>via</em> la directive <code class="docutils literal notranslate"><span class="pre">taglib</span></code> :</p>
+<div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;spring&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://www.springframework.org/tags&quot;</span> <span class="k">%&gt;</span>
+</pre></div>
+</div>
+<p>Par exemple, la balise <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/tags/UrlTag.html">url</a> offre des fonctionnalités supplémentaires par rapport
+à son équivalent dans les JSTL. Il est possible de passer des paramètres et de
+demander un échappement des caractères pour une utilisation dans du code JavaScript :</p>
+<div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">page</span> <span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span> <span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span> <span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;spring&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://www.springframework.org/tags&quot;</span> <span class="k">%&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;spring:url</span> <span class="na">value=</span><span class="s">&quot;/destination&quot;</span> <span class="na">javaScriptEscape=</span><span class="s">&quot;true&quot;</span> <span class="na">var=</span><span class="s">&quot;destinationUrl&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;spring:param</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">value=</span><span class="s">&quot;${name}&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/spring:url&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    var url = &quot;${destinationUrl}&quot;;
+    alert(url);
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>S’il existe dans le modèle un attribut <em>name</em> avec la valeur <em>julie</em>, alors
+la JSP ci-dessus produira le code HTML suivant :</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+
+
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;\/sailorapp\/destination?name=julie&quot;</span><span class="p">;</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="form-taglib">
+<h3>Form taglib<a class="headerlink" href="#form-taglib" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La seconde <em>taglib</em> appelée <em>form taglib</em> permet de créer des formulaires HTML
+liés aux <em>beans</em> du modèle et d’afficher correctement les messages d’erreurs en
+cas d’échec de la validation.</p>
+<p>Cette <em>taglib</em> est utilisable <em>via</em> la directive <code class="docutils literal notranslate"><span class="pre">taglib</span></code> :</p>
+<div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;form&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://www.springframework.org/tags/form&quot;</span> <span class="k">%&gt;</span>
+</pre></div>
+</div>
+<p>Cette <em>taglib</em> fournit le <em>tag</em> <code class="docutils literal notranslate"><span class="pre">form</span></code> ainsi que des <em>tags</em> pour tous les
+éléments d’un formulaire : <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">chekbox</span></code>, <code class="docutils literal notranslate"><span class="pre">button</span></code>…
+Vous pouvez vous reporter à la
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/tags/form/package-summary.html">documentation officielle</a>
+pour voir la liste complète des <em>tags</em> supportés.</p>
+<p>Le <em>tag</em> <code class="docutils literal notranslate"><span class="pre">form</span></code> est associé à un <em>bean</em> de commande. Par defaut, il doit exister
+dans le modèle, un attribut dans le nom est <em>command</em>. Si le nom par défaut, ne
+convient pas, on peut spécifier le nom du <em>bean</em> grâce à l’attribut
+<code class="docutils literal notranslate"><span class="pre">modelAttribute</span></code> du <em>tag</em> <code class="docutils literal notranslate"><span class="pre">form</span></code>.</p>
+<p>Supposons, que nous disposons d’un <em>bean</em> nommé <em>item</em> dans le modèle qui serait
+du type <em>Item</em> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">;</span>
+
+    <span class="c1">// Getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Nous pouvons créer la vue suivante pour fournir un formulaire qui permet d’ajouter
+un <em>item</em> :</p>
+<div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">page</span> <span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span> <span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span> <span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;form&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://www.springframework.org/tags/form&quot;</span> <span class="k">%&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;form:form</span> <span class="na">servletRelativeAction=</span><span class="s">&quot;/item&quot;</span> <span class="na">modelAttribute=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;label&gt;</span>Code : <span class="nt">&lt;/label&gt;&lt;form:input</span> <span class="na">path=</span><span class="s">&quot;code&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;form:errors</span> <span class="na">path=</span><span class="s">&quot;code&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;label&gt;</span>Nom : <span class="nt">&lt;/label&gt;&lt;form:input</span> <span class="na">path=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;form:errors</span> <span class="na">path=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;label&gt;</span>Quantité : <span class="nt">&lt;/label&gt;&lt;form:input</span> <span class="na">path=</span><span class="s">&quot;quantity&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;form:errors</span> <span class="na">path=</span><span class="s">&quot;quantity&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>Envoyer<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form:form&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>La vue ci-dessus utilise la <em>form taglib</em> pour créer un formulaire. La balise
+<code class="docutils literal notranslate"><span class="pre">&lt;form:input&gt;</span></code> définit l’attribut <code class="docutils literal notranslate"><span class="pre">path</span></code> qui correspond à l’attribut du <em>bean</em>
+à partir duquel sera déduit le nom et la valeur de cet <em>input</em>. La balise
+<code class="docutils literal notranslate"><span class="pre">&lt;form:errors&gt;</span></code> est remplacée par le message d’erreur de validation (s’il y en
+a un). Il est possible d’utiliser l’attribut <code class="docutils literal notranslate"><span class="pre">path</span></code> pour filtrer les messages
+à afficher pour un attribut particulier du <em>bean</em> de commande. Cela permet, par
+exemple, de créer un formulaire dans lequel les messages d’erreur sont affichés
+à côté de la zone de saisie concernée.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reportez-vous à la <a class="reference external" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp-formtaglib">documentation officielle</a>
+pour des exemples plus détaillés de formulaires.</p>
+</div>
+</div>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="hint admonition">
+<p class="admonition-title">POST-redirect-GET et attribut flash</p>
+<dl>
+<dt><strong>Objectif</strong></dt><dd><p>Réaliser une application Web qui accepte un formulaire dans lequel
+un utilisateur peut saisir des données personnelles (nom, email, age).</p>
+<p>Le formulaire est soumis au serveur avec une requête POST. Les champs
+sont validés par le serveur. En cas d’erreur de saisie, le formulaire
+est affiché à nouveau avec les messages d’erreur associés à chaque champ.</p>
+<p>Si les données sont correctes, le serveur doit rediriger le client vers
+une page de confirmation qui répète les informations de l’utilisateur.</p>
+<p>Pour cet exercice, vous utiliserez la technique du <a class="reference external" href="https://fr.wikipedia.org/wiki/Post-Redirect-Get">POST/Redirect/GET</a>.</p>
+</dd>
+</dl>
+<p><strong>POST/Redirect/GET avec Spring MVC</strong></p>
+<blockquote>
+<div><p>Un contrôleur peut déclencher une redirection en préfixant la chaîne de caractères
+retournée par <code class="docutils literal notranslate"><span class="pre">redirect:</span></code>. Le contenu est alors identifié comme une adresse
+relative à la racine de l’application Web (et non comme un identifiant de vue).</p>
+<p>De plus, Spring MVC introduit la notion <a class="reference external" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-flash-attributes">d’attributs Flash</a>.
+Ces attributs sont stockés en session jusqu’à la prochaine
+requête de l’utilisateur. Ils sont donc faits pour mémoriser très temporairement
+un contexte d’exécution le temps d’une redirection. Pour utiliser les attributs
+flash, il suffit d’attendre en paramètre de la méthode d’un contrôleur
+un argument de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/support/RedirectAttributes.html">RedirectAttributes</a>. Grâce à ce paramètre, on peut
+mémoriser un attribut flash avant d’effectuer la redirection. L’attribut
+flash sera automatiquement ajouté dans le modèle pour le traitement du
+contrôleur après la redirection.</p>
+<p>Ci-dessous un exemple simple utilisant une redirection avec un attribut flash :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.mvc.support.RedirectAttributes</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexController</span> <span class="o">{</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">home</span><span class="o">(</span><span class="n">RedirectAttributes</span> <span class="n">redirectAttributes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">();</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">setCode</span><span class="o">(</span><span class="s">&quot;BV-34&quot;</span><span class="o">);</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Mon item&quot;</span><span class="o">);</span>
+        <span class="n">redirectAttributes</span><span class="o">.</span><span class="na">addFlashAttribute</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">item</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;redirect:/redirection&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/redirection&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">redirectHome</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Le paramètre item correspond à l&#39;instance ajoutée comme attribut flash</span>
+        <span class="k">return</span> <span class="s">&quot;view&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Modèle Maven du projet à télécharger</strong></dt><dd><p><a class="reference download internal" download="" href="../_downloads/22d10b34b1a95cef490dfd7d5fbf9839/webapp-template-spring-mvc.zip"><code class="xref download docutils literal notranslate"><span class="pre">webapp-template-spring-mvc.zip</span></code></a></p>
+</dd>
+<dt><strong>Mise en place du projet</strong></dt><dd><p>Éditer le fichier pom.xml du template et modifier la balise
+artifactId pour spécifier le nom de votre projet.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="la-gestion-des-exceptions">
+<h2>La gestion des exceptions<a class="headerlink" href="#la-gestion-des-exceptions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring MVC nous permet de transformer des exceptions en erreur HTTP pour le client
+(voire même créer une réponse complète avec une vue dédiée).</p>
+<p>Certaines exceptions fournies par Spring MVC sont directement comprises et transformées
+en erreur. Par exemple, <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/HttpRequestMethodNotSupportedException.html">HttpRequestMethodNotSupportedException</a> permet de signaler
+une erreur HTTP 405. Ce comportement est géré par la classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">DefaultHandlerExceptionResolver</a>.
+Reportez-vous à la documentation de cette classe pour la liste complète des exceptions supportées.</p>
+<p>Un contrôleur peut fournir des méthodes de gestion des exceptions. Ces méthodes
+doivent être annotées avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>. L’annotation permet de préciser
+la classe de l’exception que la méthode peut gérer. Une méthode de gestion d’exception
+accepte des types de paramètres et une valeur de retour similaires aux méthodes
+de gestion de requête. Une méthode de gestion d’exception attend également en paramètre
+l’exception à traiter.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.http.HttpStatus</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ExceptionHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ResponseStatus</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">ItemException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">handleItemException</span><span class="o">(</span><span class="n">ItemException</span> <span class="n">e</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="k">return</span> <span class="s">&quot;itemError&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ItemException</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getQuantity</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">ItemException</span><span class="o">(</span><span class="s">&quot;Item not available&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// ...</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">item</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple précédent, on déclare un contrôleur dont la méthode <em>addItem</em> peut
+jeter une <em>ItemException</em> qui est une exception de l’application. Le contrôleur
+déclare également une méthode pour gérer les exceptions du même type. Ainsi, si
+cette exception est effectivement lancée lors de l’exécution de la méthode <em>addItem</em>,
+Spring MVC appellera la méthode <em>handleItemException</em> et utilisera sa valeur de retour
+pour en déduire la vue. Notez que la méthode <em>handleItemException</em> est annotée
+avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">&#64;ResponseStatus</a> qui permet de modifier le statut HTTP de la réponse. Dans
+cet exemple, une exception <em>ItemException</em> produira une réponse avec le code HTTP
+400 (<em>Bad Request</em>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est possible de modifier le comportement par défaut de traitement des exceptions
+en déclarant dans le contexte de la <em>servlet</em> un ou plusieurs <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerExceptionResolver.html">HandlerExceptionResolver</a>.
+Vous pouvez vous reporter à la
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-exceptionhandlers">documentation officielles</a>.</p>
+</div>
+</div>
+<div class="section" id="validation-des-parametres-d-une-requete">
+<h2>Validation des paramètres d’une requête<a class="headerlink" href="#validation-des-parametres-d-une-requete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring MVC repose sur le mécanisme de validation de <em>bean</em> fourni par le Spring Framework.
+Ce dernier peut utiliser un mécanisme propre ou une implémentation de l’API
+standard <em>Bean Validation</em> (JSR-303) s’il en existe une de disponible dans le classpath.
+Dans cette section, nous nous limiterons à l’utilisation de l’API <em>Bean Validation</em>.
+Pour qu’elle fonctionne, il faut disposer d’une implémentation comme par exemple celle
+fournie par Hibernate. Dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>, il suffit d’ajouter :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">dépendance d’une implémentation de Bean Validation</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.4.2.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<p><em>Bean Validation</em> repose sur une famille d’annotations qui sont positionnées sur
+les attributs d’un bean ou les paramètres d’une méthode pour indiquer les contraintes
+sur les valeurs possibles.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation des annotations de validation</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Max</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Min</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.NotNull</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Size</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
+
+    <span class="nd">@NotNull</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span><span class="o">=</span><span class="mi">4</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">code</span><span class="o">;</span>
+
+    <span class="nd">@Min</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
+    <span class="nd">@Max</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">;</span>
+
+    <span class="c1">// Getters/setters omis</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La liste des annotations de Bean Validation est disponible dans la
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html">documentation de Java EE</a>.</p>
+</div>
+<p>Spring MVC est capable d’appeler une implémentation de <em>Bean Validation</em> afin de
+valider les données en entrée. Pour cela, il faut préciser que le paramètre
+doit être validé grâce à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/Valid.html">&#64;Valid</a>. Si les données sont invalides,
+la méthode du contrôleur n’est pas appelée et Spring MVC retourne directement
+une erreur HTTP 400 (requête invalide) au client.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.validation.Valid</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@Valid</span> <span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">item</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Afin d’avoir un contrôle plus fin de la validation, il est possible d’ajouter
+à la méthode du contrôleur un paramètre de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/BindingResult.html">BindingResult</a>. Ce dernier doit
+immédiatement suivre la paramètre pour lequel on veut contrôler le résultat
+du <em>binding</em> Dans ce cas,
+la méthode du contrôleur sera appelée même si le paramètre est invalide. Il est
+possible d’appeler la méthode <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/Errors.html#hasErrors--">BindingResult.hasErrors()</a> pour vérifier si une
+erreur s’est produite.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.validation.Valid</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.validation.BindingResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@Valid</span> <span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">,</span> <span class="n">BindingResult</span> <span class="n">itemBindingResult</span><span class="o">,</span>
+                          <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">itemBindingResult</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// ...</span>
+        <span class="o">}</span>
+        <span class="c1">// ...</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">item</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methodes-de-modele">
+<h2>Méthodes de modèle<a class="headerlink" href="#methodes-de-modele" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est parfois utile d’ajouter des éléments dans un modèle quelle que soit la requête
+émise vers un contrôleur. De cette façon, ces éléments seront disponibles dans
+la vue. Par exemple, si un contrôleur permet de manipuler une instance d’un modèle,
+on peut dédier une méthode à la récupération de cette instance et annotée la méthode
+avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html">&#64;ModelAttribute</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PathVariable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;/item/{code}&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemEditController</span> <span class="o">{</span>
+
+        <span class="nd">@ModelAttribute</span>
+        <span class="kd">public</span> <span class="n">Item</span> <span class="nf">getItem</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">code</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">();</span>
+                <span class="n">item</span><span class="o">.</span><span class="na">setCode</span><span class="o">(</span><span class="n">code</span><span class="o">);</span>
+
+                <span class="c1">// ...</span>
+
+                <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@GetMapping</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">viewItem</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+
+                <span class="c1">// ...</span>
+
+                <span class="k">return</span> <span class="s">&quot;showItem&quot;</span><span class="o">;</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, la méthode <em>getItem</em> est systématiquement appelée
+avant la méthode de traitement de la requête. Elle récupère le code dans le
+chemin de la ressource et elle retourne une instance de la classe <em>Item</em>.
+Cette instance est automatiquement ajoutée dans le modèle (avec le nom <em>item</em>).
+Elle sera donc accessible depuis une vue. Cette instance de la classe <em>Item</em>
+peut également directement être passée en paramètre de la méthode de traitement
+de la requête comme c’est le cas pour la méthode <em>viewItem</em> de l’exemple ci-dessus.</p>
+</div>
+<div class="section" id="methodes-de-binder">
+<h2>Méthodes de binder<a class="headerlink" href="#methodes-de-binder" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le <em>binding</em> est l’étape qui permet de définir la façon de passer d’un format
+de données à une représentation objet (et <em>vice-versa</em>). Spring fournit des <em>binding</em>
+par défaut notamment pour transformer une chaîne de caractères en nombre. Il
+est possible d’ajouter ces propres définitions de <em>binders</em>. Pour cela, il
+suffit d’ajouter dans un contrôleur une méthode annotée avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/InitBinder.html">&#64;InitBinder</a> et
+ayant au moins un paramètre de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/WebDataBinder.html">WebDataBinder</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.propertyeditors.CustomDateEditor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.WebDataBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.InitBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DateController</span> <span class="o">{</span>
+
+    <span class="nd">@InitBinder</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initBinder</span><span class="o">(</span><span class="n">WebDataBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">SimpleDateFormat</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&quot;dd-MM-yyyy&quot;</span><span class="o">);</span>
+        <span class="n">binder</span><span class="o">.</span><span class="na">registerCustomEditor</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">CustomDateEditor</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">,</span> <span class="kc">false</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/date&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">updateDate</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">Date</span> <span class="n">date</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// ...</span>
+
+        <span class="k">return</span> <span class="s">&quot;success&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, le contrôleur contient une méthode annotée avec
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/InitBinder.html">&#64;InitBinder</a>. Cette méthode est appelée avant l’appel de la méthode de traitement
+de la requête. Elle enregistre un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html">SimpleDateFormat</a> pour permettre de convertir
+une chaîne de caractères en <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> à partir d’un format particulier.</p>
+</div>
+<div class="section" id="utiliser-le-contexte-de-l-application">
+<h2>Utiliser le contexte de l’application<a class="headerlink" href="#utiliser-le-contexte-de-l-application" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu au début du chapitre qu’une <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> possède son propre
+contexte d’application qui est indépendant du contexte de l’application. Néanmoins
+le contexte de la <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html">DispatcherServlet</a> a accès aux <em>beans</em> du contexte d’application.
+Il est donc facile d’utiliser l’IoC.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ModelAttribute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemController</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">ItemRepository</span> <span class="n">itemRepository</span><span class="o">;</span>
+
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/item&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">addItem</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">itemRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&quot;itemDetail&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, on suppose qu’il existe un <em>bean</em> déclaré dans le
+contexte de l’application de type <em>ItemRepository</em>. Le contrôleur peut récupérer
+ce <em>bean</em> par injection.</p>
+</div>
+<div class="section" id="controlleradvice">
+<h2>ControllerAdvice<a class="headerlink" href="#controlleradvice" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu qu’il est possible de déclarer des méthodes annotées avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>,
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ModelAttribute.html">&#64;ModelAttribute</a> et <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/InitBinder.html">&#64;InitBinder</a> dans un contrôleur. Si nous voulons utiliser
+les mêmes méthodes à travers plusieurs contrôleurs, il est possible de créer
+une classe annotée avec <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html">&#64;ControllerAdvice</a>. Cette classe regroupe toutes les
+méthodes communes est indique les contrôleurs, le package ou même l’annotation
+pour lesquels elle s’applique.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.propertyeditors.CustomDateEditor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.http.HttpStatus</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.WebDataBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ControllerAdvice</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ExceptionHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.InitBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ResponseStatus</span><span class="o">;</span>
+
+<span class="nd">@ControllerAdvice</span><span class="o">(</span><span class="s">&quot;fr.epsi.b3&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemControllerAdvice</span> <span class="o">{</span>
+
+    <span class="nd">@InitBinder</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initBinder</span><span class="o">(</span><span class="n">WebDataBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">SimpleDateFormat</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&quot;dd-MM-yyyy&quot;</span><span class="o">);</span>
+        <span class="n">binder</span><span class="o">.</span><span class="na">registerCustomEditor</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">CustomDateEditor</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">,</span> <span class="kc">false</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">ItemException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">handleItemException</span><span class="o">(</span><span class="n">ItemException</span> <span class="n">e</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="k">return</span> <span class="s">&quot;itemError&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, tous les contrôleurs déclarés dans le package spécifié
+par l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html">&#64;ControllerAdvice</a> seront enrichis par les méthodes
+de ce <em>ControllerAdvice</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral float-right" title="JPA avec Spring Data" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../spring_framework/spring_dao.html" class="btn btn-neutral float-left" title="Spring DAO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring AOP : programmation orientée aspect &mdash; Documentation Java ORM / Spring </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM / Spring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Spring AOP : programmation orientée aspect</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-aop-programmation-orientee-aspect">
+<h1>Spring AOP : programmation orientée aspect<a class="headerlink" href="#spring-aop-programmation-orientee-aspect" title="Lien permanent vers ce titre">¶</a></h1>
+<p>En programmation objet, il arrive souvent que l’on trouve des portions de code qui
+se répètent à travers différentes méthodes. Par exemple, pour une application qui accède à une base
+de données, chaque interaction avec la base de données doit s’inscrire dans
+une transaction. Même si nous concevons une architecture objet avec une classe
+spécialisée pour gérer une transaction, nous allons devoir faire appel à cette
+classe dans chaque méthode qui interagit avec la base de données.</p>
+<p>Ce type d’implémentation relève souvent d’une problématique technique sans rapport directe
+avec ce que fait l’application. Dans des applications pour les entreprises, ce
+type de problématique est souvent lié à la gestion des transactions, à l’écriture
+de fichiers de log ou encore à la sécurité (contrôler si une partie du code
+de l’application peut être appelée dans un certain contexte d’exécution).</p>
+<p>La programmation orientée objet ne fournit pas de solution élégante à ce type
+de situation. C’est pour résoudre spécifiquement ces cas de figure que la
+<strong>programmation orientée aspect</strong> a été introduite.</p>
+<p>La programmation orientée aspect n’est pas une notion propre au Spring Framework.
+Le module qui est chargé de l’intégrer dans le framework est appelé
+Spring AOP (AOP pour <em>Aspect Oriented Programming</em>).</p>
+<div class="section" id="principe-de-la-programmation-orientee-aspect">
+<h2>Principe de la programmation orientée aspect<a class="headerlink" href="#principe-de-la-programmation-orientee-aspect" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La programmation orientée aspect (POA) est utilisée pour implémenter des
+fonctionnalités transverses (<em>cross-cutting concerns</em>). Elle permet de rendre
+l’architecture plus modulaire. Un <strong>aspect</strong> représente la réalisation d’une fonction
+particulière (par exemple écrire dans un fichier de log). Plutôt que de répéter
+(ou d’appeler) ce code dans les différentes classes de l’application, nous allons
+définir des points à partir desquels l’aspect devra s’exécuter. Puis à l’aide
+d’un tisseur d’aspects (<em>weaver</em>), le flot normal d’exécution de l’application
+va être modifié afin d’exécuter l’aspect aux points voulus.</p>
+<p>Dans la POA, on distingue l’approche statique et l’approche dynamique. L’approche
+statique modifie le code au moment de la compilation afin d’introduire aux points
+voulus l’exécution des aspects. Cette approche est un peu complexe à prendre en charge
+car elle nécessite une étape supplémentaire à la compilation. L’approche dynamique
+est réalisée au moment de l’exécution. Elle ne nécessite donc pas de compilation
+particulière. Elle peut néanmoins nécessiter une instrumentation du code au moment
+du chargement des classes dans la JVM mais ce processus est transparent pour
+le développeur. L’approche dynamique introduit un coût à l’exécution puisqu’une
+bibliothèque tierce doit prendre en charge l’exécution des aspects. En pratique,
+ce surcoût est négligeable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spring AOP permet à la fois de réaliser de la POA
+statique (en intégrant la bibliothèque tierce AspectJ) et de la POA dynamique (
+au chargement des classes avec AspectJ ou à l’exécution grâce
+au mécanisme des proxies Java et/ou en utilisant la bibliothèque tierce CGLIB).</p>
+</div>
+</div>
+<div class="section" id="terminologie-de-la-programmation-orientee-aspect">
+<h2>Terminologie de la programmation orientée aspect<a class="headerlink" href="#terminologie-de-la-programmation-orientee-aspect" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La POA introduit un vocabulaire spécifique pour décrire le mécanisme de
+traitement de problématiques transverses (<em>cross-cutting concerns</em>) :</p>
+<dl>
+<dt>Aspect</dt><dd><p>La problématique spécifique que l’on veut ajouter transversalement à notre
+architecture : par exemple la gestion des transactions avec la base de données.</p>
+</dd>
+<dt>Point de jonction (<em>JoinPoint</em>)</dt><dd><p>Un point dans le flot d’exécution d’un programme à partir duquel on souhaite
+ajouter la logique d’exécution de l’aspect. Par exemple au moment de l’appel
+d’une méthode ou à l’instanciation d’une classe.</p>
+</dd>
+<dt>Greffon (<em>Advice</em>)</dt><dd><p>L’action particulière de l’aspect, c’est-à-dire le code à exécuter à un point
+de jonction. Si le point de jonction correspond à l’appel d’une méthode,
+le greffon peut spécifier que le code doit s’exécuter avant ou après l’appel
+à la méthode par exemple.</p>
+</dd>
+<dt>Coupe (<em>Pointcut</em>)</dt><dd><p>Une expression qui définit l’ensemble des points de jonctions éligibles pour
+le greffon. Par exemple :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">execution</span><span class="o">(*</span> <span class="n">fr.epsi.b3</span><span class="o">.</span><span class="na">Service</span><span class="o">.*(...))</span>
+</pre></div>
+</div>
+<p>pour indiquer l’appel à n’importe quelle méthode de la classe <code class="docutils literal notranslate"><span class="pre">Service</span></code>.</p>
+</dd>
+<dt>Objet cible (<em>Target object</em>)</dt><dd><p>L’objet sur lequel est appliqué l’aspect.</p>
+</dd>
+<dt>Tissage (<em>Weaving</em>)</dt><dd><p>Le processus qui permet de réaliser l’insertion de l’aspect soit au moment
+de la compilation (POA statique) soit au moment de l’exécution (POA dynamique).</p>
+</dd>
+<dt>Introduction</dt><dd><p>Le processus qui permet à un aspect d’ajouter une méthode ou un attribut à un
+objet lors du tissage.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="exemple-de-programmation-orientee-aspect-avec-spring-aop">
+<span id="spring-aop-exemple"></span><h2>Exemple de programmation orientée aspect avec Spring AOP<a class="headerlink" href="#exemple-de-programmation-orientee-aspect-avec-spring-aop" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Imaginons que notre application contienne une classe <code class="docutils literal notranslate"><span class="pre">BusinessService</span></code> qui
+réalise un traitement important pour notre application :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BusinessService</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;réalise un traitement important pour l&#39;application&quot;</span><span class="o">);</span>
+     <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Si nous voulons tracer le début de chaque appel et la fin de chaque appel
+d’une méthode de cette classe, nous pouvons ajouter du code au début et à la fin
+de la méthode <code class="docutils literal notranslate"><span class="pre">doSomething</span></code>. Mais si nous voulons faire la même chose pour
+toutes les méthodes de toutes les classes dont le nom est suffixé par le mot « Service »
+alors nous alors devoir dupliquer du code. Si nous utilisons la POA et Spring AOP,
+nous pouvons plutôt créer une classe qui va jouer le rôle de greffon (<em>advice</em>) :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleLogger</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">logAvant</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Log avant&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">logApres</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Log après&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Puis nous pouvons configurer le contexte d’application Spring.
+L’espace de nom XML <code class="docutils literal notranslate"><span class="pre">http://www.springframework.org/schema/aop</span></code> fournit
+des éléments XML pour configurer un tissage d’aspect. Nous pouvons ainsi
+configurer un aspect de manière à ce que
+la méthode <code class="docutils literal notranslate"><span class="pre">SimpleLogger.logAvant</span></code> soit invoquée avant tous les appels à la méthode
+<code class="docutils literal notranslate"><span class="pre">BusinessService.doSomething</span></code> et la méthode <code class="docutils literal notranslate"><span class="pre">SimpleLogger.logApres</span></code> soit
+invoquée après tous les appels à la méthode <code class="docutils literal notranslate"><span class="pre">BusinessService.doSomething</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">le fichier application-context.xml</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:aop=</span><span class="s">&quot;http://www.springframework.org/schema/aop&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                           http://www.springframework.org/schema/aop</span>
+<span class="s">                           http://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;businessService&quot;</span> <span class="na">class=</span><span class="s">&quot;fr.epsi.b3.BusinessService&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;logger&quot;</span> <span class="na">class=</span><span class="s">&quot;fr.epsi.b3.SimpleLogger&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;aop:config&gt;</span>
+      <span class="nt">&lt;aop:aspect</span> <span class="na">ref=</span><span class="s">&quot;logger&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;aop:before</span> <span class="na">method=</span><span class="s">&quot;logAvant&quot;</span> <span class="na">pointcut-ref=</span><span class="s">&quot;logPointcut&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aop:after</span> <span class="na">method=</span><span class="s">&quot;logApres&quot;</span>  <span class="na">pointcut-ref=</span><span class="s">&quot;logPointcut&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aop:pointcut</span> <span class="na">id=</span><span class="s">&quot;logPointcut&quot;</span>
+                      <span class="na">expression=</span><span class="s">&quot;execution(* fr.epsi.b3.*Service.*())&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/aop:aspect&gt;</span>
+    <span class="nt">&lt;/aop:config&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Enfin le code de l’application :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.support.GenericXmlApplicationContext</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="k">try</span><span class="o">(</span><span class="n">GenericXmlApplicationContext</span> <span class="n">appCtx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericXmlApplicationContext</span><span class="o">(</span><span class="s">&quot;file:application-context.xml&quot;</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">BusinessService</span> <span class="n">service</span> <span class="o">=</span> <span class="n">appCtx</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&quot;businessService&quot;</span><span class="o">,</span> <span class="n">BusinessService</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+      <span class="n">service</span><span class="o">.</span><span class="na">doSomething</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour fonctionner ce programme a besoin de Spring AOP et de AspectJ. Vous
+pouvez les ajouter comme dépendances à votre projet Maven :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-aop<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.2.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.aspectj<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>aspectjrt<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.9.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.aspectj<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>aspectjweaver<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.9.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>À l’exécution de ce programme, la sortie standard affiche</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Log avant
+réalise un traitement important pour l&#39;application
+Log après
+</pre></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">SimpleLogger</span></code> a bien été traitée comme un greffon et ses méthodes
+sont invoquées automatiquement avant et après un appel à <code class="docutils literal notranslate"><span class="pre">BusinessService.doSomething</span></code>.
+La POA permet donc d’enrichir l’exécution d’un programme sans avoir besoin d’impacter
+le code source (notamment pour notre exemple le code source de <code class="docutils literal notranslate"><span class="pre">BusinessService</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’exemple ci-dessus est une mise en pratique très simple de la PAO. Pour la plupart
+des usages, il n’est pas nécessaire de connaître en détail le module Spring AOP. En effet, peu
+d’applications s’en servent explicitement. Par contre, il est important de
+comprendre les mécanismes généraux de la POA car ils sont utilisés en
+arrière-plan par certains modules du Spring Framework, et notamment par
+Spring Transaction.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

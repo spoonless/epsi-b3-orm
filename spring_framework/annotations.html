@@ -1,0 +1,825 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Déclaration par annotations &mdash; Documentation Java ORM / Spring </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Configuration d’un contexte d’application" href="application_context_conf.html" />
+    <link rel="prev" title="Le contexte d’application" href="application_context.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM / Spring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Déclaration par annotations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="application_context_conf.html" class="btn btn-neutral float-right" title="Configuration d’un contexte d’application" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context.html" class="btn btn-neutral" title="Le contexte d’application" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="declaration-par-annotations">
+<h1>Déclaration par annotations<a class="headerlink" href="#declaration-par-annotations" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Plutôt que de configurer les <em>beans</em> d’un contexte d’application dans un fichier
+XML, il est possible d’utiliser des annotations fournies par le Spring Framework
+ou des annotations standards Java.</p>
+<p>L’utilisation des annotations est plus intrusive que le recours à un fichier XML
+puisqu’il faut les ajouter dans le code source (et donc avoir accès au code source).
+Heureusement, le Spring Framework autorise à mêler les deux techniques. Cela
+laisse donc une liberté complète aux développeurs pour définir leur contexte
+d’application.</p>
+<div class="section" id="configuration-du-support-des-annotations">
+<span id="spring-configuration-annotations"></span><h2>Configuration du support des annotations<a class="headerlink" href="#configuration-du-support-des-annotations" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Par défaut le support des annotations n’est pas activé dans un contexte
+d’application. Pour l’activer, il faut utiliser l’élément <code class="docutils literal notranslate"><span class="pre">&lt;annotation-config</span> <span class="pre">/&gt;</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Activation de la configuration par annotation</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                           http://www.springframework.org/schema/context</span>
+<span class="s">                           http://www.springframework.org/schema/context/spring-context.xsd&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;context:annotation-config</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’élément <code class="docutils literal notranslate"><span class="pre">&lt;annotation-config</span> <span class="pre">/&gt;</span></code> appartient à l’espace de nom XML
+<code class="docutils literal notranslate"><span class="pre">http://www.springframework.org/schema/context</span></code>. En effet, il est possible avec le
+Spring Framework de créer et de déclarer des espaces de noms XML afin de faciliter
+la configuration du contexte d’application.</p>
+</div>
+<p>Avec l’élément <code class="docutils literal notranslate"><span class="pre">&lt;annotation-config</span> <span class="pre">/&gt;</span></code> déclaré, il devient possible d’utiliser
+les annotations suivantes dans les classes des <em>beans</em> :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Required.html">&#64;Required</a></p></li>
+<li><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a></p></li>
+<li><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a></p></li>
+<li><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html">&#64;Qualifier</a></p></li>
+<li><p>Les annotations officielles Java <a class="reference external" href="https://en.wikipedia.org/wiki/JSR_250">JSR-250</a> (voir plus bas)</p></li>
+</ul>
+</div>
+<div class="section" id="l-annotation-required">
+<h2>L’annotation &#64;Required<a class="headerlink" href="#l-annotation-required" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Required.html">&#64;Required</a> peut être placée sur une méthode <em>setter</em> pour indiquer
+qu’une dépendance doit être injectée au moment de la configuration du contexte
+d’application. Si ce n’est pas le cas, l’initialisation du contexte d’application
+échouera avec l’exception <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/BeanInitializationException.html">BeanInitializationException</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple de déclaration avec l’annotation &#64;Required</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Required</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Societe</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNom</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">nom</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Required</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNom</span><span class="o">(</span><span class="n">String</span> <span class="n">nom</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">nom</span> <span class="o">=</span> <span class="n">nom</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="l-annotation-value">
+<h2>L’annotation &#64;Value<a class="headerlink" href="#l-annotation-value" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a> est utilisable sur un attribut ou un paramètre d’un constructeur
+pour un type primitif ou un chaîne de caractères. Il donne la valeur par défaut
+à injecter :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Societe</span> <span class="o">{</span>
+
+  <span class="nd">@Value</span><span class="o">(</span><span class="s">&quot;Ma societe&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNom</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">nom</span><span class="o">;</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans le chapitre sur le <a class="reference internal" href="spel.html#spring-spel-annotation"><span class="std std-ref">langage d’expression (SpEL)</span></a>, nous
+verrons que nous pouvons donner une expression à évaluer pour cette annotation.</p>
+</div>
+</div>
+<div class="section" id="l-annotation-autowired">
+<h2>L’annotation &#64;Autowired<a class="headerlink" href="#l-annotation-autowired" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a> permet d’activer l’injection automatique de dépendance.
+Contrairement au <a class="reference internal" href="application_context.html#spring-autowiring"><span class="std std-ref">mode autowiring en XML</span></a>, il n’est pas
+possible de définir une stratégie à appliquer. Cette annotation peut être placée
+sur un constructeur, une méthode ou directement sur un attribut. Le
+Spring Framework va chercher le <em>bean</em> du contexte d’application dont
+le type est applicable à chaque paramètre du constructeur, aux paramètres de la méthode
+ou à l’attribut. La stratégie est donc forcément <a class="reference internal" href="application_context.html#spring-autowiring-bytype"><span class="std std-ref">byType</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de &#64;Autowired sur un attribut</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="c1">// ..</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de &#64;Autowired sur une méthode</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataSource</span><span class="o">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ..</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de &#64;Autowired sur un constructeur</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="nf">UserDao</span><span class="o">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ..</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a> définit un comportement légèrement différent de
+la stratégie <a class="reference internal" href="application_context.html#spring-autowiring-bytype"><span class="std std-ref">byType</span></a>. Si cette annotation
+est employée sur un attribut ou une méthode <em>setter</em> et qu’il existe dans
+le contexte d’application plusieurs <em>beans</em> du type correspondant, alors
+le Spring Framework va sélectionner le <em>bean</em> qui porte le même nom
+que l’attribut ou la propriété.</p>
+<p>Il est cependant préférable d’utiliser l’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html">&#64;Qualifier</a> pour qualifier
+le type de dépendance.</p>
+</div>
+</div>
+<div class="section" id="l-annotation-qualifier">
+<h2>L’annotation &#64;Qualifier<a class="headerlink" href="#l-annotation-qualifier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html">&#64;Qualifier</a> permet de qualifier, c’est-à-dire de préciser
+le <em>bean</em> à injecter. Dans la classe Java, on ajoute l’annotation sur un attribut
+ou sur un paramètre d’une méthode à injecter. Dans le fichier de contexte, on
+déclare un <em>bean</em> compatible avec l’élément <code class="docutils literal notranslate"><span class="pre">&lt;qualifier</span> <span class="pre">/&gt;</span></code> avec la même valeur.</p>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html">&#64;Qualifier</a> permet de guider le Spring Framework dans le choix
+du <em>bean</em> à injecter si plusieurs <em>beans</em> d’un type compatible sont déclarés
+dans le contexte d’application.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Utilisation de l’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Qualifier.html">&#64;Qualifier</a></span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Qualifier</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="n">UserFilter</span> <span class="n">blacklistFilter</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">UserFilter</span> <span class="n">whitelistFilter</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="nf">UserService</span><span class="o">(</span><span class="nd">@Qualifier</span><span class="o">(</span><span class="s">&quot;blacklist&quot;</span><span class="o">)</span> <span class="n">UserFilter</span> <span class="n">blacklistFilter</span><span class="o">,</span>
+                     <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">&quot;whitelist&quot;</span><span class="o">)</span> <span class="n">UserFilter</span> <span class="n">whitelistFilter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">blacklistFilter</span> <span class="o">=</span> <span class="n">blacklistFilter</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">whitelistFilter</span> <span class="o">=</span> <span class="n">whitelistFilter</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ..</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Déclaration des beans avec l’élément &lt;qualifier/&gt;</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                           http://www.springframework.org/schema/context</span>
+<span class="s">                           http://www.springframework.org/schema/context/spring-context.xsd&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;context:annotation-config/&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;userService&quot;</span> <span class="na">class=</span><span class="s">&quot;fr.epsi.b3.UserService&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;fr.epsi.b3.UserFilter&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;qualifier</span> <span class="na">value=</span><span class="s">&quot;whitelist&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;fr.epsi.b3.UserFilter&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;qualifier</span> <span class="na">value=</span><span class="s">&quot;blacklist&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-annotations-jsr-250">
+<h2>Les annotations JSR-250<a class="headerlink" href="#les-annotations-jsr-250" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Indépendamment du Spring Framework, le communauté Java a défini un ensemble
+d’annotations dans la spécification <a class="reference external" href="https://en.wikipedia.org/wiki/JSR_250">JSR-250</a>. Certaines d’entre-elles sont reconnues
+par le Spring Framework :</p>
+<dl>
+<dt><a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/annotation/Resource.html">&#64;Resource</a></dt><dd><p>Cette Annotation peut se substituer à l’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a> sur les attributs
+et les méthodes <em>setter</em>. Le Spring Framework réalise une injection de dépendance
+basée sur le type attendu. Si l’annotation spécifie un nom grâce à son
+attribut <code class="docutils literal notranslate"><span class="pre">name</span></code> alors l’injection de dépendance se fait en cherchant un
+<em>bean</em> du même nom.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+  <span class="nd">@Resource</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;dataSource&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="c1">// ..</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/annotation/PostConstruct.html">&#64;PostConstruct</a></dt><dd><p>Cette annotation s’utilise sur une méthode publique afin de signaler que cette
+méthode doit être appelée par le conteneur IoC après l’initialisation du <em>bean</em>.</p>
+</dd>
+<dt><a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/annotation/PreDestroy.html">&#64;PreDestroy</a></dt><dd><p>Cette annotation s’utilise sur une méthode publique afin de signaler que cette
+méthode doit être appelée juste avant la fermeture du contexte d’application.</p>
+</dd>
+</dl>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PreDestroy</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+  <span class="nd">@Resource</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;dataSource&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="n">Connection</span> <span class="n">connection</span><span class="o">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openConnection</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="o">{</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@PreDestroy</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeConnection</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="o">{</span>
+    <span class="n">connection</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detection-automatique-des-beans-autoscan">
+<h2>Détection automatique des beans (<em>autoscan</em>)<a class="headerlink" href="#detection-automatique-des-beans-autoscan" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Plutôt que de déclarer les <em>beans</em> dans un fichier XML, il est possible de demander
+au Spring Framework de rechercher dans les packages les classes qui sont
+susceptibles d’être instanciées pour créer des <em>beans</em> dans le contexte d’application.
+On appelle cette opération le <em>package scanning</em>.</p>
+<p>Pour activer le <em>package scanning</em>, il faut ajouter l’élément <code class="docutils literal notranslate"><span class="pre">&lt;component-scan</span> <span class="pre">/&gt;</span></code>
+dans le fichier XML de contexte d’application.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Activation du package scanning</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                      http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/context</span>
+<span class="s">                      http://www.springframework.org/schema/context/spring-context.xsd&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&quot;fr.epsi.b3&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>L’attribut <code class="docutils literal notranslate"><span class="pre">base-package</span></code> indique le package Java à partir duquel le Spring
+Framework doit rechercher les classes à instancier (sous-packages inclus). Il est
+possible de mettre en place des
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-scanning-filters">filtres</a>
+pour paramétrer la recherche de manière fine.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La déclaration de l’élément <code class="docutils literal notranslate"><span class="pre">&lt;component-scan</span> <span class="pre">/&gt;</span></code> implique automatiquement
+une configuration par annotation. Il n’est donc pas nécessaire d’ajouter
+l’élément <code class="docutils literal notranslate"><span class="pre">&lt;annotation-config</span> <span class="pre">/&gt;</span></code>.</p>
+</div>
+<p>Le Spring Framework fournit deux annotations de stéréotype : <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a> et
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html">&#64;Service</a>. Un stéréotype désigne le rôle que joue une classe dans l’application.
+Les classes ayant des stéréotypes sont instanciées automatiquement par le
+Spring Framework pour créer un <em>bean</em> dans le contexte d’application.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a></dt><dd><p>Un composant est un stéréotype générique. Il est possible d’indiquer en attribut
+le nom du <em>bean</em>.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html">&#64;Service</a></dt><dd><p>Un service est un composant qui remplit une fonctionnalité centrale dans l’architecture
+d’une application. Il renvoie aux classes qui ont la charge de réaliser les
+fonctionnalités principales. Il s’agit normalement d’une classe qui ne maintient
+pas d’état conversationnel. Il n’y a pas de différence technique entre
+les annotations <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a> et <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html">&#64;Service</a>, Le Spring Framework traite
+les classes annotées par l’une ou l’autre de la même manière. Il s’agit plus
+d’un repère pour les développeurs.</p>
+</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Utilisation de l’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html">&#64;Service</a></span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe trois autres annotations de stéréotypes traitées par des modules Spring :
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Repository.html">&#64;Repository</a>, <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Controller.html">&#64;Controller</a> et <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html">&#64;RestController</a>. La première s’utilise
+dans le cadre de l’intégration des bases de données avec le module Spring Data
+et les deux dernières sont ajoutées pour le module Spring MVC pour le développement
+d’application Web.</p>
+</div>
+<p>Un <em>bean</em> possédant une annotation de stéréotype peut lui-même concourir à créer
+de nouveaux <em>beans</em> et se comporter ainsi comme une <em>factory</em>.
+Il suffit pour cela qu’il déclare des méthodes publiques
+annotées avec <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html">&#64;Bean</a>. Dans ce cas, le nom du <em>bean</em> correspond au nom de la méthode :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Création d’un bean à partir d’un composant</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProduitService</span> <span class="o">{</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="n">FacturationService</span> <span class="nf">facturationService</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">FacturationService</span><span class="o">();</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>Après que le conteneur IoC ait créé une instance de <code class="docutils literal notranslate"><span class="pre">ProduitService</span></code>, il appellera
+la méthode <code class="docutils literal notranslate"><span class="pre">facturationService</span></code> pour créer un <em>bean</em> appelé « facturationService ».</p>
+</div>
+<div class="section" id="support-de-annotations-standard-jsr-330">
+<h2>Support de annotations standard JSR-330<a class="headerlink" href="#support-de-annotations-standard-jsr-330" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La communauté Java a proposé des annotations
+pour déclarer une dépendance d’injection dans le standard JSR-330. Le Spring Framework
+supporte également ces annotations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La JSR-330 ne fait pas partie de l’API de Java, pour pouvoir l’utiliser vous
+devez ajouter une dépendance dans votre projet Maven :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.inject<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.inject<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<dl class="simple">
+<dt><a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Inject.html">&#64;Inject</a></dt><dd><p>Vous pouvez utiliser l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Inject.html">&#64;Inject</a> au lieu de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a>.</p>
+</dd>
+<dt><a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Named.html">&#64;Named</a></dt><dd><p>Vous pouvez utiliser l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Named.html">&#64;Named</a> au lieu de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a>. L’annotation
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Named.html">&#64;Named</a> peut également être utilisée conjointement avec <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Inject.html">&#64;Inject</a> pour
+préciser le nom du <em>bean</em> à injecter ou son qualificateur (<em>qualifier</em>).</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour une comparaison plus poussée entre JSR-330 et le Spring Framework,
+reportez-vous à la
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-standard-annotations-limitations">documentation de ce dernier</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="application_context_conf.html" class="btn btn-neutral float-right" title="Configuration d’un contexte d’application" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context.html" class="btn btn-neutral float-left" title="Le contexte d’application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Les relations avec JPA &mdash; Documentation Java ORM </title>
+  <title>Les relations avec JPA &mdash; Documentation Java ORM / Spring </title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Java ORM
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
           
 
           
@@ -81,32 +81,15 @@
             
               <p class="caption"><span class="caption-text">Java EE ORM</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#exercice">Exercice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#id2">Exercice</a></li>
-<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
@@ -126,7 +109,6 @@
 <li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#exercice">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
 </ul>
 </li>
@@ -134,24 +116,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exercice">Exercice</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Exercice</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
 </ul>
@@ -167,37 +137,110 @@
 <li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jdbc_webapp.html">JDBC dans une application Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jdbc_webapp.html#declaration-d-une-datasource-dans-wildfly">Déclaration d’une DataSource dans Wildfly</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#deploiement-automatique-du-driver-mysql-methode-1">Déploiement automatique du driver MySQL (méthode 1)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="jdbc_webapp.html#ajout-du-driver-mysql-comme-nouveau-module-methode-2">Ajout du driver MySQL comme nouveau module (méthode 2)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_framework/spring_tx.html#l-isolation">L’isolation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ejb.html">Les EJB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#le-conteneur-d-ejb">Le conteneur d’EJB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#les-types-d-ejb">Les types d’EJB</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#les-ejb-session">Les EJB session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateful">EJB session stateful</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-stateless">EJB session stateless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-session-singleton">EJB session singleton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#methodes-de-cycle-de-vie">Méthodes de cycle de vie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#acces-a-un-ejb-session">Accès à un EJB session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#ejb-et-interface-metier">EJB et interface métier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ejb.html#la-gestion-des-transactions">La gestion des transactions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#jta-java-transaction-api">JTA (Java Transaction API)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ejb.html#la-demarcation-transactionnelle">La démarcation transactionnelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_framework/spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_framework/spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jpa_webapp.html">JPA dans une application Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#obtenir-un-entitymanager-dans-un-serveur-java-ee">Obtenir un EntityManager dans un serveur Java EE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jpa_webapp.html#jpa-et-jta">JPA et JTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +257,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Java ORM</a>
+          <a href="../index.html">Java ORM / Spring</a>
         
       </nav>
 
@@ -279,18 +322,18 @@
 entre objets comme des relations entre tables dans un modèle de base de
 données relationnelle. JPA définit des modèles de relation qui peuvent
 être déclarés par annotation.</p>
-<p>Les relations sont spécifiées par les annotations : <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>,
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
+<p>Les relations sont spécifiées par les annotations : <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>,
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
 <p>Pour une présentation approfondie des relations dans JPA, reportez-vous
 au <a class="reference external" href="https://en.wikibooks.org/wiki/Java_Persistence/Relationships">Wikibook</a>.</p>
 <div class="section" id="la-relation-1-1-one-to-one">
 <h2>La relation 1:1 (one to one)<a class="headerlink" href="#la-relation-1-1-one-to-one" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> définit une relation 1:1 entre deux entités.
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a> définit une relation 1:1 entre deux entités.
 Si cette relation n’est pas
 forcément très courante dans un modèle relationnel de base de données,
 elle se rencontre très souvent dans une modèle objet.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToOne</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToOne</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -312,8 +355,8 @@ elle se rencontre très souvent dans une modèle objet.</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToOne</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -331,13 +374,13 @@ elle se rencontre très souvent dans une modèle objet.</p>
 </pre></div>
 </div>
 </div>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
 une colonne qui est une clé étrangère contenant la clé d’un abonnement.
 Par défaut, JPA s’attend à ce que cette colonne se nomme ABONNEMENT_ID,
 mais il est possible de changer ce nom grâce à l’annotation
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a> :</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Déclaration de la clé étrangère</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinColumn.html">&#64;JoinColumn</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la clé étrangère</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -363,7 +406,7 @@ mais il est possible de changer ce nom grâce à l’annotation
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> est navigable directement.
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a> est navigable directement.
 Si on désire exprimer un requête de la forme</p>
 <blockquote>
 <div><div class="line-block">
@@ -377,34 +420,12 @@ Si on désire exprimer un requête de la forme</p>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="exercice">
-<h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="exercice admonition">
-<p class="admonition-title">Droit d’accès et badge</p>
-<p>Un utilisateur peut disposer d’un badge. Un badge est défini par son numéro
-et sa date de mise en service.</p>
-<p>Vous devez :</p>
-<ul class="simple">
-<li><p>Créer la table <code class="docutils literal notranslate"><span class="pre">Badge</span></code> en base de données</p></li>
-<li><p>Ajouter des données en base de données afin que les utilisateurs disposent
-chacun d’un badge</p></li>
-<li><p>Créer l’entité <code class="docutils literal notranslate"><span class="pre">Badge</span></code> en Java. Faites apparaître la relation 1:1
-en ajoutant un attribut <code class="docutils literal notranslate"><span class="pre">badge</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code></p></li>
-</ul>
-<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez la méthode suivante :</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">getByBadge(String</span> <span class="pre">numeroBadge)</span></code></dt><dd><p>Cette méthode retourne l’utilisateur dont le numéro de badge correspond
-à celui passé en paramètre.</p>
-</dd>
-</dl>
-</div>
-</div>
 </div>
 <div class="section" id="la-relation-n-1-many-to-one">
 <h2>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> définit une relation n:1 entre deux entités.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> définit une relation n:1 entre deux entités.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -426,8 +447,8 @@ en ajoutant un attribut <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation ManyToOne</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation ManyToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -445,15 +466,15 @@ en ajoutant un attribut <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
 une colonne qui est une clé étrangère contenant la clé d’une société.
 Par défaut, JPA s’attend à ce que cette colonne se nomme SOCIETE_ID,
-mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
+mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
 Plutôt que par une colonne, il est également possible d’indiquer à JPA
 qu’il doit passer par une table d’association pour établir la relation
-entre les deux entités avec l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a> :</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Déclaration d’une table d’association</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+entre les deux entités avec l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinTable.html">&#64;JoinTable</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’une table d’association</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -483,7 +504,7 @@ entre les deux entités avec l’annotation <a class="reference external" href="
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> est navigable directement.
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> est navigable directement.
 Si on désire exprimer un requête de la forme</p>
 <blockquote>
 <div><div class="line-block">
@@ -500,11 +521,11 @@ Si on désire exprimer un requête de la forme</p>
 </div>
 <div class="section" id="la-relation-1-n-one-to-many">
 <h2>La relation 1:n (one to many)<a class="headerlink" href="#la-relation-1-n-one-to-many" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> définit une relation 1:n entre deux entités.
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> définit une relation 1:n entre deux entités.
 Cette annotation ne peut être utilisée qu’avec une collection d’éléments
 puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToMany</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation OneToMany</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -529,8 +550,8 @@ puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToMany</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">La classe associée dans la relation OneToMany</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -548,18 +569,18 @@ puisqu’elle implique qu’il peut y avoir plusieurs entités associées.</p>
 </pre></div>
 </div>
 </div>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> implique que la table <code class="docutils literal notranslate"><span class="pre">Individu</span></code> contient
 une colonne qui est une clé étrangère contenant la clé d’une société.
 Par défaut, JPA s’attend à ce que cette colonne se nomme SOCIETE_ID,
-mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
+mais il est possible de changer ce nom grâce à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinColumn.html">&#64;JoinColumn</a>.
 Il est également possible d’indiquer à JPA qu’il doit passer par une
 table d’association pour établir la relation entre les deux entités avec
-l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a>.
-Ainsi, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> fonctionne exactement comme <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> sauf
+l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinTable.html">&#64;JoinTable</a>.
+Ainsi, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> fonctionne exactement comme <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> sauf
 que cette annotation porte sur l’autre côté de la relation.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> <strong>n’est pas navigable
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> <strong>n’est pas navigable
 directement</strong>. Si on désire exprimer un requête de la forme</p>
 <blockquote>
 <div><div class="line-block">
@@ -577,12 +598,12 @@ une variable intermédiaire dans la requête :</p>
 </div>
 <div class="section" id="la-relation-n-n-many-to-many">
 <h2>La relation n:n (many to many)<a class="headerlink" href="#la-relation-n-n-many-to-many" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>
 définit une relation n:n entre deux entités. Cette annotation ne peut
 être utilisée qu’avec une collection d’éléments puisqu’elle implique
 qu’il peut y avoir plusieurs entités associées.</p>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToMany</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToMany</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
@@ -604,13 +625,13 @@ qu’il peut y avoir plusieurs entités associées.</p>
 </pre></div>
 </div>
 </div>
-<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> implique qu’il existe une table
+<p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> implique qu’il existe une table
 d’association <code class="docutils literal notranslate"><span class="pre">Individu_Individu</span></code> qui contient les clés étrangères
 <code class="docutils literal notranslate"><span class="pre">INDIVIDU_ID</span></code> et <code class="docutils literal notranslate"><span class="pre">ENFANTS_ID</span></code> permettant de modéliser la relation.
 Il est possible de décrire explicitement la relation grâce à l’annotation
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html">&#64;JoinTable</a> :</p>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Déclaration de la table d’association</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinTable.html">&#64;JoinTable</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la table d’association</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -642,7 +663,7 @@ Il est possible de décrire explicitement la relation grâce à l’annotation
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Dans une requête JPQL, une relation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> <strong>n’est pas navigable
+<p>Dans une requête JPQL, une relation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> <strong>n’est pas navigable
 directement</strong>. Si on désire exprimer un requête de la forme</p>
 <blockquote>
 <div><div class="line-block">
@@ -657,23 +678,6 @@ une variable intermédiaire dans la requête :</p>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="id1">
-<h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="exercice admonition">
-<p class="admonition-title">Droit d’accès</p>
-<p>Créez l’entité <code class="docutils literal notranslate"><span class="pre">Droit</span></code> et faites apparaître la liste des droits dans
-l’entité <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> sous la forme d’une relation N:N</p>
-<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez les méthodes suivantes :</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">getByDroit(String</span> <span class="pre">droit)</span></code></dt><dd><p>Cette méthode retourne la liste de tous les utilisateurs disposant d’un droit
-donné.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">isAutorise(String</span> <span class="pre">numeroBadge,</span> <span class="pre">String</span> <span class="pre">droit)</span></code></dt><dd><p>Cette méthode retourne <code class="docutils literal notranslate"><span class="pre">true</span></code> si l’utilisateur dont le numéro de badge est
-passé en paramètre dispose du droit passé comme second paramètre.</p>
-</dd>
-</dl>
-</div>
-</div>
 </div>
 <div class="section" id="les-relations-bi-directionnelles">
 <h2>Les relations bi-directionnelles<a class="headerlink" href="#les-relations-bi-directionnelles" title="Lien permanent vers ce titre">¶</a></h2>
@@ -685,8 +689,8 @@ relationnelle, il s’agit du même lien. Avec JPA, il est possible de
 qualifier une relation entre deux objets comme étant une relation
 inverse grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation indiquant le
 type de relation.</p>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Exemple d’une relation bi-directionnelle avec <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code></span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une relation bi-directionnelle avec <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code></span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -717,17 +721,9 @@ type de relation.</p>
 <p>Dans l’exemple précédent, la liste des <code class="docutils literal notranslate"><span class="pre">enfants</span></code> représente bien une
 relation entre plusieurs instances de la classe Individu et la liste
 <code class="docutils literal notranslate"><span class="pre">parents</span></code> représente la relation inverse. Pour le spécifier à JPA, on
-utilise l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> pour
+utilise l’attribut <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> de l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a> pour
 indiquer sur l’attribut représentant la relation inverse, le nom de
 l’attribut modélisant la relation principale.</p>
-<div class="section" id="id2">
-<h3>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="exercice admonition">
-<p class="admonition-title">Droit d’accès</p>
-<p>Faites apparaître la relation bidirectionnelle entre <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> et <code class="docutils literal notranslate"><span class="pre">Badge</span></code>
-et entre <code class="docutils literal notranslate"><span class="pre">Utilisateur</span></code> et <code class="docutils literal notranslate"><span class="pre">Droit</span></code>.</p>
-</div>
-</div>
 </div>
 <div class="section" id="la-propagation-en-cascade">
 <h2>La propagation en cascade<a class="headerlink" href="#la-propagation-en-cascade" title="Lien permanent vers ce titre">¶</a></h2>
@@ -736,8 +732,8 @@ des entités liées. Les annotations permettant de spécifier une relation
 possèdent un attribut <code class="docutils literal notranslate"><span class="pre">cascade</span></code> permettant de spécifier les opérations
 concernées : <code class="docutils literal notranslate"><span class="pre">ALL</span></code>, <code class="docutils literal notranslate"><span class="pre">DETACH</span></code>, <code class="docutils literal notranslate"><span class="pre">MERGE</span></code>, <code class="docutils literal notranslate"><span class="pre">PERSIST</span></code>, <code class="docutils literal notranslate"><span class="pre">REFRESH</span></code> ou
 <code class="docutils literal notranslate"><span class="pre">REMOVE</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Exemple d’opérations en cascade</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exemple d’opérations en cascade</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.CascadeType</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
@@ -765,23 +761,6 @@ enregistrée en base si nécessaire au moment où l’instance d’Individu
 sera elle-même enregistrée. De plus, lors d’un appel à merge pour une
 instance d’Individu, un merge sera automatiquement realisé sur
 l’instance de l’attribut société.</p>
-<div class="section" id="id3">
-<h3>Exercice<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="exercice admonition">
-<p class="admonition-title">Droit d’accès</p>
-<p>Dans la classe <code class="docutils literal notranslate"><span class="pre">UtilisateurDao</span></code>, ajoutez les méthodes suivantes :</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">create(Utilisateur</span> <span class="pre">u)</span></code></dt><dd><p>Cette méthode crée l’utilisateur passé en paramètre ainsi que son badge.
-Utilisez la propagation en cascade pour réaliser l’insertion du badge.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">supprimer(Utilisateur</span> <span class="pre">u)</span></code></dt><dd><p>Cette méthode supprime un utilisateur, son badge et son association avec
-les droits. Utilisez la méthode
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#remove-java.lang.Object-">EntityManager.remove(o)</a>
-et la propagation en cascade pour réaliser la suppression.</p>
-</dd>
-</dl>
-</div>
-</div>
 </div>
 <div class="section" id="requetes-jpql-et-jointure">
 <h2>Requêtes JPQL et jointure<a class="headerlink" href="#requetes-jpql-et-jointure" title="Lien permanent vers ce titre">¶</a></h2>
@@ -811,7 +790,7 @@ une société dont le nom est donné par le paramètre <code class="docutils lit
 <div class="section" id="fetch-lazy-ou-fetch-eager">
 <h2>Fetch lazy ou fetch eager<a class="headerlink" href="#fetch-lazy-ou-fetch-eager" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lorsque JPA doit charger une entité depuis la base de données (qu’il
-s’agisse d’une appel à <code class="docutils literal notranslate"><span class="pre">EntityManager.find(...)</span></code> ou d’une requête), la
+s’agisse d’un appel à <code class="docutils literal notranslate"><span class="pre">EntityManager.find(...)</span></code> ou d’une requête), la
 question est de savoir quelles informations doivent être chargées.
 Doit-il charger tous les attributs d’une entité ? Parmi ces attributs,
 doit-il charger les entités qui sont en relation avec l’entité chargée ?
@@ -822,19 +801,19 @@ données est appelée <strong>fetch</strong>. Un fetch peut avoir deux stratégi
 <strong>eager</strong> ou <strong>lazy</strong> (que l’on peut traduire respectivement et
 approximativement par <em>chargement immédiat</em> et <em>chargement différé</em>). On
 peut décider de la stratégie pour chaque membre de la classe grâce à
-l’attribut <code class="docutils literal notranslate"><span class="pre">fetch</span></code> présent sur les annotations <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a>,
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
+l’attribut <code class="docutils literal notranslate"><span class="pre">fetch</span></code> présent sur les annotations <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a>,
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> et <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p>
 <ul class="simple">
 <li><p><strong>eager</strong> signifie que l’information doit être chargée
 systématiquement lorsque l’entité est chargée. Cette stratégie est
-appliquée par défaut pour <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToOne.html">&#64;OneToOne</a> et <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>.</p></li>
+appliquée par défaut pour <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Basic.html">&#64;Basic</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToOne.html">&#64;OneToOne</a> et <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a>.</p></li>
 <li><p><strong>lazy</strong> signifie que l’information ne sera chargée qu’à la demande
 (par exemple lorsque la méthode <code class="docutils literal notranslate"><span class="pre">get</span></code> de l’attribut sera appelée).
-Cette stratégie est appliquée par défaut pour <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OneToMany.html">&#64;OneToMany</a> et
-<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p></li>
+Cette stratégie est appliquée par défaut pour <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/OneToMany.html">&#64;OneToMany</a> et
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToMany.html">&#64;ManyToMany</a>.</p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de fetch lazy</span><a class="headerlink" href="#id16" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de fetch lazy</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Basic</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.FetchType</span><span class="o">;</span>
@@ -920,11 +899,12 @@ tuning dans le développement d’une application utilisant JPA.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
 
     </p>
   </div>
-    <div><a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
 
 
 </footer>

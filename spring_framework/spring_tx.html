@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring Transaction &mdash; Documentation Java ORM / Spring </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Spring DAO" href="spring_dao.html" />
+    <link rel="prev" title="Configuration d’un contexte d’application" href="application_context_conf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Java ORM / Spring
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/intro.html">Les ORM (Object-Relational Mapping)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/intro.html#jdbc-java-database-connectivity">JDBC (Java Database Connectivity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/intro.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Java ORM / Spring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Spring Transaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="spring_dao.html" class="btn btn-neutral float-right" title="Spring DAO" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context_conf.html" class="btn btn-neutral" title="Configuration d’un contexte d’application" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-transaction">
+<h1>Spring Transaction<a class="headerlink" href="#spring-transaction" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="la-transaction">
+<h2>La transaction<a class="headerlink" href="#la-transaction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La notion de transaction est récurrente dans les systèmes d’information.
+Par exemple, la plupart des SGBDR (Oracle, MySQL, PostGreSQL…)
+intègrent un moteur de transaction. Une transaction est
+définie par le respect de quatre propriétés désignées par l’acronyme <a class="reference external" href="https://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9s_ACID">ACID</a> :</p>
+<dl class="simple">
+<dt>Atomicité</dt><dd><p>La transaction garantit que l’ensemble des opérations qui la composent sont
+soit toutes réalisées avec succès soit aucune n’est conservée.</p>
+</dd>
+<dt>Cohérence</dt><dd><p>La transaction garantit qu’elle fait passer le système d’un état valide vers
+un autre état valide.</p>
+</dd>
+<dt>Isolation</dt><dd><p>Deux transactions sont isolées l’une de l’autre. C’est-à-dire que leur
+exécution simultanée produit le même résultat que si elles avaient été
+exécutées successivement.</p>
+</dd>
+<dt>Durabilité</dt><dd><p>La transaction garantit qu’après son exécution, les modifications qu’elle a
+apportées au système sont conservées durablement.</p>
+</dd>
+</dl>
+<p>Une transaction est définie par un début et une fin qui peut être soit une
+validation des modifications (<em>commit</em>), soit une annulation des modifications
+effectuées (<em>rollback</em>). On parle de <strong>démarcation transactionnelle</strong> pour désigner
+la portion de code qui doit s’exécuter dans le cadre d’une transaction.</p>
+<p>La plupart des applications utilisent une gestion de transaction dans l’interaction
+avec un SGBDR (puisque ce dernier fournit le moteur de transaction). Néanmoins il
+existe d’autres types de systèmes d’information qui supportent les transactions.
+C’est pour cette raison que la gestion des transactions est un domaine indépendant
+des bases de données. Parmi les standards Java, JTA (<em>Java Transaction API</em>) est
+précisément l’API officielle pour interagir avec un moteur transactionnel. Cependant,
+cette API n’est pas systématiquement utilisée et il existe des solutions fournies
+par des technologies particulières. Par exemple, Hibernate et JPA fournissent leur
+propre solution et leur propre API pour gérer les transactions. Cela rend souvent
+l’intégration des transactions dans une application complexe.</p>
+<p>Spring Transaction est le module spécifique chargé de l’intégration des transactions.
+Il offre plusieurs avantages :</p>
+<ul class="simple">
+<li><p>Il fournit une abstraction au dessus des différentes
+solutions disponibles dans le monde Java pour les gestion des transactions.
+Cela permet une intégration plus simple.</p></li>
+<li><p>Il suit les mêmes principes que les autres modules du Spring Framework.
+Donc il peut être utilisé de manière non intrusive ou encore en ayant recours
+à des annotations.</p></li>
+<li><p>Il permet une gestion déclarative des transactions.</p></li>
+</ul>
+</div>
+<div class="section" id="transaction-globale-et-transaction-locale">
+<h2>Transaction globale et transaction locale<a class="headerlink" href="#transaction-globale-et-transaction-locale" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans la configuration de la gestion des transactions, on distingue une gestion
+globale (appelée aussi transaction distribuée) et une gestion locale. Une gestion
+globale est utile lorsqu’une application interagit avec plusieurs systèmes transactionnels.
+Cela peut, par exemple, survenir si une application utilise simultanément plusieurs
+schémas de base de données et doit s’assurer de la cohérence des échanges.
+La gestion globale permet d’orchestrer les interactions entre les différents systèmes.
+Par exemple, si on annule la transaction avec un <em>rollback</em> alors la transaction
+est annulée simultanément dans les différents systèmes transactionnels.</p>
+<p>La transaction locale est plus simple car elle n’implique de gérer que l’interaction
+entre l’application et un seul système transactionnel. Si votre application n’interagit
+qu’avec une seule de base de données, alors la transaction locale suffit au besoin
+de l’application.</p>
+<p>Spring Transaction permet de gérer soit des transactions globales soit
+des transactions locales. La différence se fait dans la configuration du contexte.
+Donc cela signifie que le type de transaction n’a pas d’impact sur le code
+de l’application. Une application conçue pour s’exécuter avec des transactions locales
+pourra être reconfigurée pour utiliser des transactions globales.</p>
+</div>
+<div class="section" id="declaration-d-un-gestionnaire-de-transactions-avec-spring">
+<span id="spring-tx-transaction-manager"></span><h2>Déclaration d’un gestionnaire de transactions avec Spring<a class="headerlink" href="#declaration-d-un-gestionnaire-de-transactions-avec-spring" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme nous l’avons précisé au début de ce chapitre, la gestion de la transaction
+dans une application Java / Java EE peut sembler compliquée du fait de la pluralité
+des technologies existantes. Le module Spring Transaction essaie de simplifier cette situation
+en utilisant une interface unique pour la gestion des transactions :
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/PlatformTransactionManager.html">PlatformTransactionManager</a>. Le module fournit ensuite plusieurs implémentations
+selon la technologie sous-jacente utilisée.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Technologie tierce pour la gestion des transactions</p></th>
+<th class="head"><p>Implémentation du <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/PlatformTransactionManager.html">PlatformTransactionManager</a></p></th>
+<th class="head"><p>Dépendance Maven</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/index.html?javax/sql/DataSource.html">DataSource</a> JDBC</p></td>
+<td><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/datasource/DataSourceTransactionManager.html">DataSourceTransactionManager</a></p></td>
+<td><p><a class="reference external" href="https://mvnrepository.com/artifact/org.springframework/spring-jdbc">spring-jdbc</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>JTA</p></td>
+<td><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/jta/JtaTransactionManager.html">JtaTransactionManager</a></p></td>
+<td><p><a class="reference external" href="https://mvnrepository.com/artifact/org.springframework/spring-tx">spring-tx</a></p></td>
+</tr>
+<tr class="row-even"><td><p>JPA</p></td>
+<td><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html">JpaTransactionManager</a></p></td>
+<td><p><a class="reference external" href="https://mvnrepository.com/artifact/org.springframework/spring-orm">spring-orm</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hibernate</p></td>
+<td><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/hibernate5/HibernateTransactionManager.html">HibernateTransactionManager</a></p></td>
+<td><p><a class="reference external" href="https://mvnrepository.com/artifact/org.springframework/spring-orm">spring-orm</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="gestionnaire-de-transactions-jpa">
+<span id="spring-tx-transaction-jpa"></span><h3>Gestionnaire de transactions JPA<a class="headerlink" href="#gestionnaire-de-transactions-jpa" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour déclarer un gestionnaire de transactions pour JPA, il faut pouvoir configurer
+dans le contexte d’application un <em>bean</em> de type <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> et l’injecter
+dans un <em>bean</em> de type <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html">JpaTransactionManager</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Configuration d’un gestionnaire de transactions JPA</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;transactionManager&quot;</span> <span class="na">class=</span><span class="s">&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;entityManagerFactory&quot;</span> <span class="na">ref=</span><span class="s">&quot;entityManagerFactory&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Pour créer le <em>bean</em> « entityManagerFactory », nous pouvons utiliser la classe
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.html">LocalContainerEntityManagerFactoryBean</a> qui, comme l’indique son nom, permet
+de créer un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManagerFactory.html">EntityManagerFactory</a> pour des transactions locales.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple de configuration complète avec JPA et DBCP2</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:tx=</span><span class="s">&quot;http://www.springframework.org/schema/tx&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans</span>
+<span class="s">                      http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/context</span>
+<span class="s">                      http://www.springframework.org/schema/context/spring-context.xsd</span>
+<span class="s">                      http://www.springframework.org/schema/tx</span>
+<span class="s">                      http://www.springframework.org/schema/tx/spring-tx.xsd&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&quot;classpath:jdbc.properties&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&quot;transactionManager&quot;</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;dataSource&quot;</span>
+        <span class="na">class=</span><span class="s">&quot;org.apache.commons.dbcp2.BasicDataSource&quot;</span>
+        <span class="na">destroy-method=</span><span class="s">&quot;close&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driverClassName&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.driverClassName}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.url}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.username}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;${jdbc.password}&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;transactionManager&quot;</span> <span class="na">class=</span><span class="s">&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;entityManagerFactory&quot;</span> <span class="na">ref=</span><span class="s">&quot;entityManagerFactory&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;entityManagerFactory&quot;</span>
+        <span class="na">class=</span><span class="s">&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;persistenceUnitName&quot;</span> <span class="na">value=</span><span class="s">&quot;persistenceUnit&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;dataSource&quot;</span> <span class="na">ref=</span><span class="s">&quot;dataSource&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Contenu du fichier jdbc.properties</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">jdbc.driverClassName</span><span class="o">=</span><span class="s">com.mysql.jdbc.Driver</span>
+<span class="na">jdbc.url</span><span class="o">=</span><span class="s">jdbc:mysql://localhost:3306/base</span>
+<span class="na">jdbc.username</span><span class="o">=</span><span class="s">root</span>
+<span class="na">jdbc.password</span><span class="o">=</span><span class="s">root</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Contenu du fichier persistence.xml pour une utilisation avec Hibernate</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/persistence&quot;</span>
+             <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/persistence</span>
+<span class="s">                        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd&quot;</span>
+  <span class="na">version=</span><span class="s">&quot;2.1&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">&quot;persistenceUnit&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.show_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.format_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+  <span class="nt">&lt;/persistence-unit&gt;</span>
+<span class="nt">&lt;/persistence&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour activer JPA, il faut ajouter comme dépendance Maven :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-orm<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.2.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>et une implémentation de JPA comme, par exemple, Hibernate et une implémentation
+d’un gestionnaire de connexions comme DBCP2 :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.commons<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>commons-dbcp2<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.7.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.xml.bind<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jaxb-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.3.1<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.4.9.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strategie-des-transactions">
+<h2>Stratégie des transactions<a class="headerlink" href="#strategie-des-transactions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring transaction définit 4 propriétés pour une transaction. Ensemble, elles forment
+la stratégie des transactions au sein d’une application :</p>
+<dl class="simple">
+<dt><strong>Propagation</strong></dt><dd><p>Le plus couramment, le code qui s’exécute entre le début et la fin de la transaction
+fait partie de la transaction. Cependant, il est possible de modifier ce comportement
+par défaut en indiquant comment la transaction se <em>propage</em>, notamment quand
+du code faisant partie d’une transaction invoque une méthode (Cf <a class="reference internal" href="#spring-tx-propagation"><span class="std std-ref">ci-dessous</span></a>).</p>
+</dd>
+<dt><strong>Isolation</strong></dt><dd><p>L’isolation fait partie des propriétés <a class="reference external" href="https://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9s_ACID">ACID</a> d’une transaction. Cependant la
+plupart de systèmes transactionnels proposent différents niveaux d’isolation.
+L’application a la possibilité de définir le niveau qu’elle souhaite (Cf <a class="reference internal" href="#spring-tx-isolation"><span class="std std-ref">ci-dessous</span></a>).</p>
+</dd>
+<dt><strong>Timeout</strong></dt><dd><p>Cette propriété permet de préciser une durée au delà de laquelle la transaction
+doit être automatiquement annulée (<em>rollback</em>).</p>
+</dd>
+<dt><strong>Lecture seule</strong> (<em>Read-only</em>)</dt><dd><p>Cette propriété permet de préciser si la transaction est en lecture seule. Dans
+ce cas le code n’a pas la possibilité d’effectuer des modifications dans le ou
+les systèmes transactionnels. Cette propriété existe pour des raisons d’optimisation.
+En effet, quand un système transactionnel peut anticiper qu’aucune modification
+ne sera effectuée durant une transaction, il peut gérer la transaction avec
+moins de ressources.</p>
+</dd>
+<dt><strong>Conditions d’annulation</strong> (<em>rollback</em>)</dt><dd><p>Cette propriété permet de définir quand la transaction est considérée en échec
+et doit être obligatoirement annulée (<em>rollback</em>). L’échec d’une transaction
+est conditionnée à l’émission d’une exception dans le code Java.</p>
+</dd>
+</dl>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Tous les moteurs transactionnels ne supportent pas nécessairement toutes
+les propriétés d’une stratégie de transaction proposées par Spring Transaction.</p>
+</div>
+</div>
+<div class="section" id="utilisation-de-l-annotation-transactional">
+<h2>Utilisation de l’annotation &#64;Transactional<a class="headerlink" href="#utilisation-de-l-annotation-transactional" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avec Spring Transaction, on utilise l’annotation
+<a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html">&#64;Transactional</a> sur les méthodes pour lesquelles on désire configurer une
+délimitation transactionnelle.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+  <span class="nd">@Transactional</span><span class="o">(</span><span class="n">readOnly</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">User</span> <span class="nf">getUser</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Transactional</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveUser</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html">&#64;Transactional</a> supporte des propriétés afin de pouvoir configurer
+le support de transaction. Ainsi, l’attribut <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> permet d’indiquer si la transaction
+est en lecture seule (<code class="docutils literal notranslate"><span class="pre">false</span></code> par défaut).</p>
+</div>
+<div class="section" id="configuration-avancee-pour-les-transactions">
+<h2>Configuration avancée pour les transactions<a class="headerlink" href="#configuration-avancee-pour-les-transactions" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="la-propagation">
+<span id="spring-tx-propagation"></span><h3>La propagation<a class="headerlink" href="#la-propagation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si une méthode marquée comme transactionnelle est exécutée, comment doit-elle se comporter si aucune transaction
+n’a encore été créée ? Et au contraire, comment doit-elle se comporter si le code appelant
+a déjà initié une transaction ? La réponse a ces questions est donnée par la stratégie
+de propagation de la transaction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Propagation</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BusinessService</span> <span class="o">{</span>
+
+  <span class="nd">@Transactional</span><span class="o">(</span><span class="n">propagation</span><span class="o">=</span><span class="n">Propagation</span><span class="o">.</span><span class="na">REQUIRED</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>La stratégie de propagation peut avoir les valeurs suivantes :</p>
+<dl class="simple">
+<dt><strong>REQUIRED</strong> (propagation par défaut)</dt><dd><p>Une transaction doit exister pour l’exécution de la méthode. Si une transaction
+existe déjà alors l’exécution de la méthode s’inscrit dans cette transaction.
+Si aucune transaction ne préexiste, une nouvelle est créée automatiquement.</p>
+</dd>
+<dt><strong>REQUIRES_NEW</strong></dt><dd><p>Quel que soit le contexte d’exécution, une nouvelle transaction est créée
+pour l’exécution de la méthode. Si une transaction préexiste, elle est suspendue
+le temps de l’appel à la méthode. Cela signifie que si la nouvelle transaction
+est annulée (<em>rollback</em>), cela n’aura aucun impact sur la transaction suspendue
+qui sera réactivée après l’appel de la méthode.</p>
+</dd>
+<dt><strong>SUPPORTS</strong></dt><dd><p>Si une transaction préexiste alors l’appel à la méthode est inclus dans la
+transaction. Si aucune transaction ne préexiste, alors aucune transaction n’est
+créée. Ce type de propagation est utile pour une méthode qui n’a pas besoin
+de transaction pour s’exécuter mais qui peut invalider (<em>rollback</em>) une transaction
+existante dans certains cas.</p>
+</dd>
+<dt><strong>NESTED</strong></dt><dd><p>Si une transaction préexiste, alors une transaction encapsulée (nested) est
+créée. Cela signifie que si la transaction encapsulée échoue (<em>rollback</em>),
+toutes les modifications réalisées par la transaction encapsulée seront abandonnées
+mais la transaction englobante pourra être validée. Si aucune transaction
+ne préexiste alors une nouvelle transaction est créée. Ce type avancé de propagation
+est utilisé notamment avec les SGBDR grâce à la notion de point
+de sauvegarde (<em>savepoint</em>) en JDBC.</p>
+</dd>
+<dt><strong>MANDATORY</strong></dt><dd><p>L’appel à la méthode a besoin de s’exécuter dans une transaction. Si aucune
+transaction ne préexiste, l’appel à cette méthode échoue.</p>
+</dd>
+<dt><strong>NEVER</strong></dt><dd><p>L’appel à la méthode ne peut pas se faire dans le cadre d’une transaction. Si une
+transaction préexiste, l’appel à cette méthode échoue.</p>
+</dd>
+<dt><strong>NOT_SUPPORTED</strong></dt><dd><p>L’appel à la méthode ne peut pas se faire dans le cadre d’une transaction. Si
+une transaction préexiste, cette dernière est suspendue le temps d’exécution de la méthode.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="l-isolation">
+<span id="spring-tx-isolation"></span><h3>L’isolation<a class="headerlink" href="#l-isolation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’isolation est une des propriétés fondamentales d’une transaction (le I de <a class="reference external" href="https://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9s_ACID">ACID</a>).
+Cela signifie que plusieurs transactions s’exécutant simultanément ne devraient
+pas s’impacter mutuellement (elles doivent être isolées les unes des autres). En pratique,
+il existe plusieurs niveaux d’isolation. Une stratégie de transaction
+peut spécifier un niveau adéquate.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Isolation</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BusinessService</span> <span class="o">{</span>
+
+  <span class="nd">@Transactional</span><span class="o">(</span><span class="n">isolation</span><span class="o">=</span><span class="n">Isolation</span><span class="o">.</span><span class="na">READ_COMMITTED</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Pour comprendre les problèmes que cherchent à adresser chaque niveau d’isolation,
+il faut comprendre les anomalies qui peuvent survenir lorsque plusieurs transactions
+s’exécutent simultanément.</p>
+<dl class="simple">
+<dt>Lecture sale (<em>dirty read</em>)</dt><dd><p>Ce cas survient lorsqu’une transaction peut consulter les données modifiées par
+une autre transaction qui n’a pas encore été validée (<em>commit</em>). Cette situation
+s’apparente au fait qu’il n’existe pas d’isolation.</p>
+</dd>
+<dt>Lectures non répétables (<em>non repeatable reads</em>)</dt><dd><p>Une transaction lit des données. Une autre transaction modifie ces données et est
+validée (<em>commit</em>). Si la première transaction relit les données alors ces
+dernières ont changé. Dans cette situation, il n’est pas possible de relire
+les données en obtenant le même résultat que la première fois.</p>
+</dd>
+<dt>Lectures fantomatiques (<em>phantom reads</em>)</dt><dd><p>Une transaction lit une série d’enregistrements. Une autre transaction ajoute des enregistrements
+à cette série et est validée (<em>commit</em>). Si la première transaction relit les
+enregistrements alors elle voit les nouveaux enregistrements (les fantômes).</p>
+</dd>
+</dl>
+<p>Les niveaux d’isolation possibles sont les suivants :</p>
+<dl class="simple">
+<dt><strong>DEFAULT</strong> (isolation par défaut)</dt><dd><p>Il ne s’agit pas vraiment d’un niveau d’isolation. Cette valeur indique simplement
+qu’il faut utiliser le niveau d’isolation du système transactionnel. Dans le cas
+d’une base de données, il faut utiliser le niveau d’isolation configuré dans
+la base de données.</p>
+</dd>
+<dt><strong>READ_UNCOMMITED</strong></dt><dd><p>Ce niveau autorise la lecture sale, les lectures non répétables et les lectures
+fantomatiques. Ce niveau est en fait une désactivation de l’isolation.</p>
+</dd>
+<dt><strong>READ_COMMITED</strong></dt><dd><p>Ce niveau protège des lectures sales mais il autorise les lectures non
+répétables et les lectures fantomatiques.</p>
+</dd>
+<dt><strong>REPEATABLE_READ</strong></dt><dd><p>Ce niveau protège des lectures sales et des lectures non répétables mais il
+autorise les lectures fantomatiques.</p>
+</dd>
+<dt><strong>SERIALIZABLE</strong></dt><dd><p>Ce niveau protège des lectures sales, des lectures non répétables et des lectures
+fantomatiques.</p>
+</dd>
+</dl>
+<p>Le choix d’un niveau d’isolation est conditionné parfois par des fonctionnalités
+mais le plus souvent il s’agit d’un compromis entre un niveau acceptable et les
+performances. En effet, plus le niveau d’isolation est élevé et plus un système
+transactionnel doit utiliser de ressources pour le garantir. Par exemple, le niveau
+<strong>SERIALIZABLE</strong> peut être très consommateur de ressources.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spring_dao.html" class="btn btn-neutral float-right" title="Spring DAO" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context_conf.html" class="btn btn-neutral float-left" title="Configuration d’un contexte d’application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-orm/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
