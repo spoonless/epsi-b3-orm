@@ -402,6 +402,20 @@ un attribut de type <a class="reference external" href="https://docs.oracle.com/
 </div>
 <p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/annotation/Resource.html">&#64;Resource</a> permet de spécifier le nom de la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a> grâce à
 l’attribut <em>name</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Pour avoir accès à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/annotation/Resource.html">Resource</a>, vous devez ajouter une dépendance
+dans votre projet. Pour un projet Maven, il suffit d’ajouter dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> la dépendance suivante :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.annotation<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.annotation-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.3.2<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="declaration-de-la-datasource-dans-le-fichier-web-xml">
 <span id="configuration-datasource"></span><h2>Déclaration de la DataSource dans le fichier web.xml<a class="headerlink" href="#declaration-de-la-datasource-dans-le-fichier-web-xml" title="Lien permanent vers ce titre">¶</a></h2>
@@ -451,8 +465,14 @@ Ainsi, il est possible de déclarer plusieurs serveurs Tomcat dans Eclipse qui
 possèdent chacun leur configuration spécifique.</p>
 </div>
 <p>Dans le fichier <code class="file docutils literal notranslate"><span class="pre">server.xml</span></code>, vous devez ajouter avant la fin de l’élément
-<code class="docutils literal notranslate"><span class="pre">&lt;Host</span> <span class="pre">/&gt;</span></code> (aux environs de la ligne 150 du fichier), les informations
-de déploiement de votre application :</p>
+<code class="docutils literal notranslate"><span class="pre">&lt;Host</span> <span class="pre">/&gt;</span></code>, les informations de déploiement de votre application.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Si vous utilisez le serveur Tomcat dans Eclipse, la balise <code class="docutils literal notranslate"><span class="pre">&lt;Context/&gt;</span></code> est
+automatiquement ajoutée par Eclipse lorsque vous ajoutez votre application
+dans le serveur. Attention, cette balise sera aussi supprimée si vous supprimez
+l’application du serveur.</p>
+</div>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Exemple de balise de contexte de déploiement dans le fichier server.xml</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Context</span> <span class="na">docBase=</span><span class="s">&quot;nomAppli&quot;</span>
