@@ -331,6 +331,43 @@ artifactId pour spécifier le nom de votre projet.</p>
 </dd>
 </dl>
 </div>
+<div class="exercice admonition">
+<p class="admonition-title">Première application avec Spring MVC et JPA</p>
+<p><strong>Objectif</strong></p>
+<blockquote>
+<div><p>Réaliser une application Web multi-couches incluant des contrôleurs,
+des services et des repositories.</p>
+<p>D’une part, l’application permet à un utilisateur de s’inscrire.
+L’utilisateur doit saisir son nom et son âge. Si l’utilisateur n’est
+pas majeur, alors l’inscription doit échouer. Si l’utilisateur est
+majeur, son inscription doit être ajoutée en base de données.</p>
+<p>D’autre part, l’application doit fournir une partie d’administration
+qui affiche la liste des inscriptions avec le nom et la date d’enregistrement
+de l’inscription.</p>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Modèle Maven du projet à télécharger</strong></dt><dd><p><code class="xref download docutils literal notranslate"><span class="pre">webapp-template-spring-mvc-jpa.zip</span></code></p>
+</dd>
+</dl>
+<p><strong>Base de données</strong></p>
+<blockquote>
+<div><p>Vous devez disposer d’une base de données avec une table <code class="docutils literal notranslate"><span class="pre">Inscription</span></code> :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Inscription</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+  <span class="n">nom</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="n">dateInscription</span> <span class="nb">date</span> <span class="k">not</span> <span class="k">null</span>
+<span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour configurer la connexion à la base de données dans l’application,
+vous devez modifier le fichier <code class="file docutils literal notranslate"><span class="pre">src/main/resources/jdbc.properties</span></code>.</p>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Mise en place du projet</strong></dt><dd><p>Éditer le fichier pom.xml du template et modifier la balise
+artifactId pour spécifier le nom de votre projet.</p>
+</dd>
+</dl>
+</div>
 </div>
 
 
