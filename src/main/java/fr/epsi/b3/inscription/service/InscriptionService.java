@@ -25,6 +25,7 @@ public class InscriptionService {
 		return inscription;
 	}
 	
+	@Transactional(readOnly = true)
 	public List<Inscription> getAll() {
 		return inscriptionDao.getAll();
 	}
