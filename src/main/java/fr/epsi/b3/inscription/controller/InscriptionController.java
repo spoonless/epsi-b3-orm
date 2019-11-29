@@ -33,11 +33,11 @@ public class InscriptionController {
 		try {
 			Inscription inscription = inscriptionService.inscrire(donneesPersonnellesDto);
 			model.addAttribute("inscription", inscription);
+			return "inscription";
 		} catch (PersonneMineureException e) {
 			bindingResult.addError(new FieldError("donneesPersonnellesDto", "age", e.getMessage()));
 			return "formulaire-inscription";
 		}
-		return "inscription";
 	}
 	
 }
