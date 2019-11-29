@@ -360,7 +360,7 @@ de l’inscription.</p>
 <blockquote>
 <div><p>Vous devez disposer d’une base de données avec une table <code class="docutils literal notranslate"><span class="pre">Inscription</span></code> :</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">Inscription</span> <span class="p">(</span>
-  <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+  <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
   <span class="n">nom</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
   <span class="n">dateInscription</span> <span class="nb">date</span> <span class="k">not</span> <span class="k">null</span>
 <span class="p">)</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
