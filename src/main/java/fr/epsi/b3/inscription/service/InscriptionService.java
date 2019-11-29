@@ -15,7 +15,7 @@ public class InscriptionService {
 	@Autowired
 	private InscriptionDao inscriptionDao;
 	
-	@Transactional
+	@Transactional(rollbackFor = PersonneMineureException.class)
 	public Inscription inscrire(DonneesPersonnellesDto donneesPersonnelles) throws PersonneMineureException {
 		if (! donneesPersonnelles.isMajeur()) {
 			throw new PersonneMineureException("Seule une personne majeure peut s'inscrire");
